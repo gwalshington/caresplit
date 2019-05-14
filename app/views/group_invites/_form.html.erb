@@ -1,0 +1,47 @@
+<%= form_for(group_invite) do |f| %>
+  <% if group_invite.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(group_invite.errors.count, "error") %> prohibited this group_invite from being saved:</h2>
+
+      <ul>
+      <% group_invite.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :group_id %>
+    <%= f.text_field :group_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_emailed %>
+    <%= f.datetime_select :last_emailed %>
+  </div>
+
+  <div class="field">
+    <%= f.label :user_id %>
+    <%= f.text_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :notes %>
+    <%= f.text_field :notes %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

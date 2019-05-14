@@ -1,0 +1,32 @@
+<p>
+  <strong>Group:</strong>
+  <%= @group_invite.group %>
+</p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @group_invite.first_name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @group_invite.email %>
+</p>
+
+<p>
+  <strong>Last emailed:</strong>
+  <%= @group_invite.last_emailed %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @group_invite.user %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @group_invite.notes %>
+</p>
+
+<%= link_to 'Edit', edit_group_invite_path(@group_invite) %> |
+<%= link_to 'Back', group_invites_path %>
