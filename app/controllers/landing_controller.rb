@@ -22,4 +22,8 @@ class LandingController < ApplicationController
 
   end
 
+  def profile
+    @user = User.find_by(params[:id])
+  end
+
 end

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :availabilities
   resources :groups
   resources :group_invites
   resources :group_users
@@ -18,6 +19,6 @@ Rails.application.routes.draw do
   get 'dashboard', to: 'landing#dashboard', as: 'dashboard'
   get 'terms_of_service', to: 'landing#terms_of_service', as: 'terms_of_service'
   get 'faq', to: 'landing#faq', as: 'faq'
-
+  get 'profile/:id', to: 'landing#profile', as: 'profile'
 
 end
