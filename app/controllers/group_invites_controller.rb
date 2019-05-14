@@ -4,7 +4,8 @@ class GroupInvitesController < ApplicationController
   # GET /group_invites
   # GET /group_invites.json
   def index
-    @group_invites = GroupInvite.all
+    @group_invites = GroupInvite.where(group_id: current_user.groups.first.id)
+    @group_invite = GroupInvite.new
   end
 
   # GET /group_invites/1
@@ -25,10 +26,14 @@ class GroupInvitesController < ApplicationController
   # POST /group_invites.json
   def create
     @group_invite = GroupInvite.new(group_invite_params)
+    @group_invite.user_id = current_user.id
+    @group_invite.group_id = current_user.groups.first.id
+
 
     respond_to do |format|
       if @group_invite.save
-        format.html { redirect_to @group_invite, notice: 'Group invite was successfully created.' }
+        GroupInviteMailer.send_invite(@group_invite.id).deliver_now
+        format.html { redirect_to group_invites_path, notice: 'Group invite was successfully created.' }
         format.json { render :show, status: :created, location: @group_invite }
       else
         format.html { render :new }

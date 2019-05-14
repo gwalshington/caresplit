@@ -30,6 +30,8 @@ class GroupsController < ApplicationController
     @group.creator = current_user
     respond_to do |format|
       if @group.save
+        GroupUser.create(user_id: current_user.id, group_id: @group.id, admin: true)
+
         @notice = 'Now lets invite your mom friends to ' + @group.name + '!'
         format.html { redirect_to group_invites_url, notice: @notice}
         format.json { render :show, status: :created, location: @group }

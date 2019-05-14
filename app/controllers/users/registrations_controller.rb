@@ -61,6 +61,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #
   #   end
   # end
+  # def after_sign_up_path_for(resource)
+  #   super(resource)
+  #
+  #   if resource.children.count < 1
+  #     return new_child_url
+  #   else
+  #     return dashboard_url
+  #   end
+  # end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
