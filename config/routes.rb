@@ -16,5 +16,8 @@ Rails.application.routes.draw do
   root to: 'landing#index'
 
   get 'dashboard', to: 'landing#dashboard', as: 'dashboard'
+  get 'terms_of_service', to: 'landing#terms_of_service', as: 'terms_of_service'
+  get 'faq', to: 'landing#faq', as: 'faq'
+
 
 end

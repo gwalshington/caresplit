@@ -6,8 +6,11 @@
   <p>Splits I've booked</p>
   <p>Account</p>
   <%= link_to 'Edit profile', edit_user_registration_path %>
-  <p>FAQ</p>
-  <p>Terms of Use</p>
+  <br/>
+  <%= link_to "FAQ", faq_path  %>
+  <br/>
+  <%= link_to "Terms of Use", terms_of_service_path  %>
+  <br/>
   <%= link_to "Logout", destroy_user_session_path, method: :delete  %>
 <% else %>
 

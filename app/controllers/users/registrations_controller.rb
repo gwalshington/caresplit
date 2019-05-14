@@ -61,15 +61,21 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #
   #   end
   # end
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  #
-  #   if resource.children.count < 1
-  #     return new_child_url
-  #   else
-  #     return dashboard_url
-  #   end
-  # end
+  def after_sign_up_path_for(resource)
+    super(resource)
+
+    @invite = GroupInvite.find_by(email: resource.email)
+    if @invite != nil
+      GroupUser.create(user_id: resource.id, group_id: @invite.group_id, invited_by: @invite.user_id)
+      @invite.delete
+    end
+    return new_child_url
+    # if resource.children.count < 1
+    #   return new_child_url
+    # else
+    #   return dashboard_url
+    # end
+  end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
