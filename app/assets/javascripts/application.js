@@ -15,7 +15,6 @@
 //= require_tree .
 
 $(document).on("click", "#hambugerMenu", function(){
-  console.log('click')
   $('#sideMenu').toggle()
 });
 
@@ -63,30 +62,27 @@ $(document).on("keydown", "#phoneNumber", function(event){
 
 var removeSplitNav
 
+const resetSplitNav = () => {
+  $('.availableSplitContainer').css("display", 'none')
+  $('.bookedSplitContainer').css('display', 'none');
+  $('.hostSplitContainer').css('display', 'none');
+}
+
 $(document).on("click", "#availableNav", function(){
-  console.log('availableNav')
   $('.selectedSplitNavItem').removeClass('selectedSplitNavItem');
   $('#availableNav').addClass('selectedSplitNavItem')
+  resetSplitNav()
   $('.availableSplitContainer').css("display", 'block')
-  $('.bookedSplitContainer').css('display', 'none');
-  $('.hostSplitContainer').css('display', 'none');
-  //console.log('click')
 });
 $(document).on("click", "#bookedNav", function(){
-  console.log('availableNav')
   $('.selectedSplitNavItem').removeClass('selectedSplitNavItem');
   $('#bookedNav').addClass('selectedSplitNavItem')
-  $('.availableSplitContainer').css('display', 'none');
+  resetSplitNav()
   $('.bookedSplitContainer').css("display", 'block')
-  $('.hostSplitContainer').css('display', 'none');
-  //console.log('click')
 });
 $(document).on("click", "#hostNav", function(){
-  console.log('availableNav')
   $('.selectedSplitNavItem').removeClass('selectedSplitNavItem');
   $('#hostNav').addClass('selectedSplitNavItem')
-  $('.availableSplitContainer').css('display', 'none');
-  $('.bookedSplitContainer').css('display', 'none');
+  resetSplitNav()
   $('.hostSplitContainer').css("display", 'block')
-  //console.log('click')
 });

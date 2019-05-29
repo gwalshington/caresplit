@@ -72,12 +72,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     else
       return new_group_url
     end
-
-    # if resource.children.count < 1
-    #   return new_child_url
-    # else
-    #   return dashboard_url
-    # end
   end
 
   # The path used after sign up for inactive accounts.

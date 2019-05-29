@@ -1,3 +1,113 @@
+/* line 3, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/forms.scss */
+.formStandard {
+  width: 100%;
+  max-width: 640px;
+  padding: 12px;
+  margin: auto;
+}
+
+/* line 10, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/forms.scss */
+.field {
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+  text-align: left;
+  margin-bottom: 12px;
+}
+
+/* line 18, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/forms.scss */
+.actions {
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+/* line 26, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/forms.scss */
+.inputStandard {
+  width: 360px;
+  height: 50px;
+  padding: 0px 10px;
+  border: 1px solid #ebebeb;
+  border-radius: 15px;
+  background-color: #ffffff;
+  background-size: cover;
+  font-family: Cabin;
+  font-size: 14px;
+  color: #333333;
+  text-decoration: none solid #333333;
+}
+
+/* line 40, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/forms.scss */
+.labelStandard {
+  font-family: Cabin;
+  font-size: 12px;
+  color: #333333;
+  font-weight: 700;
+  text-decoration: none solid #333333;
+  text-transform: uppercase;
+}
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+/* line 7, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/scaffolds.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+/* line 28, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/scaffolds.scss */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* line 32, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/scaffolds.scss */
+body {
+  line-height: 1;
+}
+
+/* line 35, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/scaffolds.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 38, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/scaffolds.scss */
+blockquote, q {
+  quotes: none;
+}
+
+/* line 41, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/scaffolds.scss */
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+/* line 46, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/scaffolds.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -10,14 +120,15 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
- *= require forms
+
+
+
  */
 
  /* h1, h2, h3, h4, h5, p {
    font: 'Helvetica'
  } */
+
 
 @import url('https://fonts.googleapis.com/css?family=Cabin');
 
@@ -201,6 +312,10 @@
   text-decoration: none solid rgb(255, 255, 255);
   text-align: center;
 }
+
+
+/* AWS org o-wdiwai3rc4 */
+
 
 #sideMenu {
   background-color: #fff;
