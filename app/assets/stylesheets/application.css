@@ -14,17 +14,193 @@
  *= require_self
  */
 
+ /* h1, h2, h3, h4, h5, p {
+   font: 'Helvetica'
+ } */
+
+@import url('https://fonts.googleapis.com/css?family=Cabin');
+
+ /* @font-face {
+   font-family: "Cabin";
+   src: url('../assets/Cabin.otf');
+ } */
+
+ body {
+   background-color: #fff;
+   color: #333;
+   font-family: Cabin, arial, helvetica, sans-serif;
+   margin: 0;
+ }
+
 .topNav {
   height: 50px;
   border-bottom: 1px solid black;
   text-align: center;
 }
 
+.alert {
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+.alert-success {
+  width: 381px;
+  padding: 15px;
+  border: 1px solid #d6e9c6;
+  border-radius: 4px;
+  background-color: #dff0d8;
+  font-family: Arial;
+  font-size: 14px;
+  color: #3c763d;
+  font-weight: 700;
+  text-decoration: none solid rgb(60, 118, 61);
+}
+
+.btnPrimarySmall {
+  width: 80px;
+  height: 37px;
+  padding: 6px 20px;
+  border-radius: 40px;
+  background-color: #a540e4;
+  background-size: cover;
+  font-family: Cabin;
+  font-size: 18px;
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: none solid rgb(255, 255, 255);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnSecondarySmall {
+  width: 80px;
+  height: 37px;
+  padding: 6px 20px;
+  border-radius: 40px;
+  border: #a540e4 solid 1px;
+  background-size: cover;
+  font-family: Cabin;
+  font-size: 18px;
+  color: #a540e4;
+  font-weight: 700;
+  text-decoration: none solid rgb(255, 255, 255);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.splitNav {
+  margin: auto;
+  text-align: center;
+  justify-content: center;
+  flex-direction: row;
+  cursor: pointer;
+  background-color: #fff;
+  background-size: cover;
+  /* box-shadow: 0px 1px 2px rgba(0,0,0,0.2); */
+}
+
+.splitNavItem {
+  width: 125px;
+  height: 19px;
+  font-family: Cabin;
+  font-size: 16px;
+  color: #333333;
+  text-decoration: none solid rgb(51, 51, 51);
+  text-align: center;
+  display: inline-block;
+}
+
+.splitNavItem h3 {
+  font-weight: 200
+}
+
+.selectedSplitNavItem {
+  border-bottom: #1c99ce solid 5px;
+  padding-bottom: 10px;
+}
+
+.availabilityContainer {
+  background-color: #f7f7f7;
+  min-height: 500px;
+  width: 100%;
+  margin: auto;
+  padding-bottom: 40px;
+}
+
+.availableSplitContainer {
+  padding: 12px;
+}
+
+
+.splitItem {
+  width: 378px;
+  min-height: 100px;
+  border-radius: 15px;
+  background-color: #ffffff;
+  background-size: cover;
+  box-shadow: 0px 1px 5px rgba(0,0,0,0.15);
+  margin: auto;
+  padding: 5px;
+  margin-bottom:15px;
+}
+
+.splitItemContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 4px;
+  align-items: center;
+}
+
+.splitItemApprovalBanner {
+  background-color:  #333;
+  color: #fff;
+  width: 100%;
+  border-radius: 10px;
+  text-align: center;
+  padding: 3px;
+}
+
+.splitImage {
+  height: 70px;
+  width: 70px;
+  margin-top: 15px;
+  border-radius: 100%;
+
+}
+
+.splitItemBtnSection {
+  text-align: center;
+
+}
+.splitItemBtnSection p {
+  font-weight: 600;
+  padding-bottom: 5px;
+}
+
+.bannerBtn {
+  width: 100%;
+  height: 47px;
+  padding: 20px 130px;
+  background-color: #320b57;
+  background-size: cover;
+  font-family: Cabin;
+  font-size: 18px;
+  color: #ffffff;
+  text-decoration: none solid rgb(255, 255, 255);
+  text-align: center;
+}
+
+
 /* AWS org o-wdiwai3rc4 */
 
 
 #sideMenu {
-  background-color: grey;
+  background-color: #fff;
   position: absolute;
   width: 50%;
   min-width: 350px;
@@ -40,4 +216,8 @@
   color: black;
   left: 0;
   top: 0;
+  height: 40px;
+  width: 30px;
+  padding: 10px;
+
 }

@@ -10,6 +10,8 @@ class AvailabilitiesController < ApplicationController
   # GET /availabilities/1
   # GET /availabilities/1.json
   def show
+    # if @availability.user = current_user
+    #   Split.where('availability_id = ? AND ()', @availability.id)
   end
 
   # GET /availabilities/new
@@ -26,10 +28,11 @@ class AvailabilitiesController < ApplicationController
   def create
     @availability = Availability.new(availability_params)
     @availability.user_id = current_user.id
+    @availability.group_id = current_user.groups.first.id
 
     respond_to do |format|
       if @availability.save
-        format.html { redirect_to availabilities_url, notice: 'Availability was successfully created.' }
+        format.html { redirect_to dashboard_url, notice: 'Your split has been added.' }
         format.json { render :show, status: :created, location: @availability }
       else
         format.html { render :new }
@@ -70,6 +73,6 @@ class AvailabilitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def availability_params
-      params.require(:availability).permit(:start_time, :end_time, :user_id)
+      params.require(:availability).permit(:start_time, :end_time, :user_id, :location, :location_address, :activity)
     end
 end

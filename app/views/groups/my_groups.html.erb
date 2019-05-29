@@ -1,0 +1,9 @@
+<% @groups.each do |g| %>
+  <%= g.name %>
+  Group Members
+  <% g.users.each do |user| %>
+    <%= user.first_name %>
+  <% end %>
+
+  <%= link_to 'Invite a new person', new_group_invite_path %>
+<% end %>

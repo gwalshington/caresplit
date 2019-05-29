@@ -1,2 +1,36 @@
-<h1>Dashboard</h1>
-<h3>Hello <%= current_user.first_name %>!</h3>
+<div class="splitNav">
+    <h3 class="splitNavItem selectedSplitNavItem" id="availableNav">Available</h3>
+    <h3 class="splitNavItem" id="bookedNav">Booked</h3>
+    <h3 class="splitNavItem" id="hostNav">Hosting</h3>
+</div>
+<div class="availabilityContainer">
+  <div class="availableSplitContainer">
+    <% @availabilities.each.with_index do |a, index| %>
+      <% if(index === 0 || a.start_time.strftime('%^a, %^b %-d') != @availabilities[index-1].start_time.strftime('%^a, %^b %-d'))  %>
+        <h1><%= a.start_time.strftime('%^a, %^b %-d') %></h1>
+      <% end %>
+      <%= render partial: 'availabilities/availability_item', :locals => {availability: a} %>
+    <% end %>
+  </div>
+
+  <div class="bookedSplitContainer" style="display: none;">
+    <% @bookedSplits.each.with_index do |a, index| %>
+      <% if(index === 0 || a.availability.start_time.strftime('%^a, %^b %-d') != @availabilities[index-1].start_time.strftime('%^a, %^b %-d'))  %>
+        <h1><%= a.availability.start_time.strftime('%^a, %^b %-d') %></h1>
+      <% end %>
+      <%= render partial: 'availabilities/split_item', :locals => {split: a} %>
+    <% end %>
+  </div>
+
+  <div class="hostSplitContainer" style="display: none;">
+    <% @hostingSplits.each.with_index do |a, index| %>
+      <% if(index === 0 || a.availability.start_time.strftime('%^a, %^b %-d') != @availabilities[index-1].start_time.strftime('%^a, %^b %-d'))  %>
+        <h1><%= a.availability.start_time.strftime('%^a, %^b %-d') %></h1>
+      <% end %>
+      <%= render partial: 'availabilities/split_item', :locals => {split: a} %>
+    <% end %>
+  </div>
+  <div style="text-align: center; height: 50px; margin-top: 50px;">
+    <%= link_to '+ Add Availability', new_availability_path, class: 'bannerBtn' %>
+  </div>
+</div>

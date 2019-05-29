@@ -10,14 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190514182234) do
+ActiveRecord::Schema.define(version: 20190528162540) do
 
   create_table "availabilities", force: :cascade do |t|
     t.datetime "start_time"
     t.datetime "end_time"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "location"
+    t.string   "location_address"
+    t.string   "activity"
+    t.integer  "group_id"
+    t.index ["group_id"], name: "index_availabilities_on_group_id"
     t.index ["user_id"], name: "index_availabilities_on_user_id"
   end
 
@@ -53,6 +58,17 @@ ActiveRecord::Schema.define(version: 20190514182234) do
     t.string  "name"
     t.integer "creator_id"
     t.text    "notes"
+  end
+
+  create_table "splits", force: :cascade do |t|
+    t.integer  "availability_id"
+    t.integer  "user_id"
+    t.boolean  "approved",        default: false
+    t.boolean  "cancelled",       default: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.index ["availability_id"], name: "index_splits_on_availability_id"
+    t.index ["user_id"], name: "index_splits_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

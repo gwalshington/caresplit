@@ -13,6 +13,10 @@ class GroupsController < ApplicationController
   def show
   end
 
+  def my_groups
+    @groups = current_user.groups
+  end
+
   # GET /groups/new
   def new
     @group = Group.new

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  availability: one
+  user: one
+  approved: false
+  cancelled: false
+
+two:
+  availability: two
+  user: two
+  approved: false
+  cancelled: false

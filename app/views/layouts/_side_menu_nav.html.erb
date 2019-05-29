@@ -1,19 +1,15 @@
 <div id="sideMenu">
-  <h1>Side Menu</h1>
-  <%= link_to "Home", dashboard_path %>
+  <h1>Menu</h1>
+  <%= link_to "Splits", dashboard_path %>
   <br/>
-  <%= link_to "Update My Availability", availabilities_path  %>
-  <p>Splits I'm hosting</p>
-  <p>Splits I've booked</p>
-  <p>Account</p>
-  <%= link_to 'Edit profile', edit_user_registration_path %>
-  <br/>
+  <%= link_to "My Group", my_groups_path %>
+  <br />
+  <%= link_to 'My Account', edit_user_registration_path %>
+  <br />
   <%= link_to "FAQ", faq_path  %>
-  <br/>
+  <br />
   <%= link_to "Terms of Use", terms_of_service_path  %>
   <br/>
   <%= link_to "Logout", destroy_user_session_path, method: :delete  %>
 <% else %>
-
-  <p>Credit Balance: 3 hours</p>
 </div>

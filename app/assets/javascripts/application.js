@@ -60,3 +60,33 @@ $(document).on("keydown", "#phoneNumber", function(event){
       event.preventDefault();
   }
 });
+
+var removeSplitNav
+
+$(document).on("click", "#availableNav", function(){
+  console.log('availableNav')
+  $('.selectedSplitNavItem').removeClass('selectedSplitNavItem');
+  $('#availableNav').addClass('selectedSplitNavItem')
+  $('.availableSplitContainer').css("display", 'block')
+  $('.bookedSplitContainer').css('display', 'none');
+  $('.hostSplitContainer').css('display', 'none');
+  //console.log('click')
+});
+$(document).on("click", "#bookedNav", function(){
+  console.log('availableNav')
+  $('.selectedSplitNavItem').removeClass('selectedSplitNavItem');
+  $('#bookedNav').addClass('selectedSplitNavItem')
+  $('.availableSplitContainer').css('display', 'none');
+  $('.bookedSplitContainer').css("display", 'block')
+  $('.hostSplitContainer').css('display', 'none');
+  //console.log('click')
+});
+$(document).on("click", "#hostNav", function(){
+  console.log('availableNav')
+  $('.selectedSplitNavItem').removeClass('selectedSplitNavItem');
+  $('#hostNav').addClass('selectedSplitNavItem')
+  $('.availableSplitContainer').css('display', 'none');
+  $('.bookedSplitContainer').css('display', 'none');
+  $('.hostSplitContainer').css("display", 'block')
+  //console.log('click')
+});
