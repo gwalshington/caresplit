@@ -12,7 +12,7 @@
         <% if availability.user_id === current_user.id %>
           <%= link_to('Edit', edit_availability_path(availability), class: 'btnSecondarySmall') %>
         <% else %>
-          <%= link_to('View', availability_path(availability), class: 'btnPrimarySmall') %>
+          <%= link_to('View', availability_path(availability), class: 'btnPrimary btnPrimarySmall') %>
         <% end %>
     </div>
   </div>

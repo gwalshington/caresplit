@@ -1,5 +1,9 @@
 class AvailabilitiesController < ApplicationController
+  before_action :authenticate_user!
+  before_action :authenticate_admin, only: [:index, :destroy]
+
   before_action :set_availability, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_group_user, only: [:show, :view, :edit]
 
   # GET /availabilities
   # GET /availabilities.json
@@ -69,6 +73,12 @@ class AvailabilitiesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_availability
       @availability = Availability.find(params[:id])
+    end
+
+    def authenticate_group_user
+      if !current_user.groups.pluck(:id).include? @availability.group_id
+        redirect_to dashboard_path, error: 'You are not in that group.'
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

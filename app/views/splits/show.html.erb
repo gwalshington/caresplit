@@ -20,7 +20,7 @@
   <%= @split.cancelled %>
 </p>
 <% if (@split.availability.user_id === current_user.id) && !@split.approved && !@split.cancelled %>
-    <%= link_to('Approve Split', approve_split_path(@split), class: 'btnPrimarySmall') %>
+    <%= link_to('Approve Split', approve_split_path(@split), class: 'btnPrimary btnPrimarySmall') %>
     <%= link_to('Decline Split', decline_split_path(@split), class: 'btnSecondarySmall') %>
 <% elsif  @split.approved && !@split.cancelled %>
     <%= link_to('Cancel Split', cancel_split_path(@split), class: 'btnSecondarySmall') %>

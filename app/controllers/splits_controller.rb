@@ -1,6 +1,8 @@
 class SplitsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :authenticate_admin, only: [:index, :destroy]
   before_action :set_split, only: [:show, :edit, :update, :destroy, :approve_split, :decline_split, :cancel_split]
-
+  before_action :authenticate_split_user, only: [:show, :view, :edit, :approve_split, :decline_split, :cancel_split ]
   # GET /splits
   # GET /splits.json
   def index
@@ -22,9 +24,6 @@ class SplitsController < ApplicationController
   end
 
   def request_split
-    puts 'request_split'
-    puts params[:availability_id]
-
     @split = Split.new(availability_id: params[:availability_id], user_id: current_user.id, approved: false)
 
     respond_to do |format|
@@ -131,6 +130,12 @@ class SplitsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_split
       @split = Split.find(params[:id])
+    end
+
+    def authenticate_split_user
+      if(@split.user_id != current_user.id && @split.availability.user_id != current_user.id)
+        redirect_to dashboard_path, alert: 'You do not have access to that Split'
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

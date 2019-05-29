@@ -1,6 +1,8 @@
 class GroupsController < ApplicationController
   before_action :authenticate_user!
+  before_action :authenticate_admin, only: [:index]
   before_action :set_group, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_group_user, except: [:index, :new, :create]
 
   # GET /groups
   # GET /groups.json
@@ -74,6 +76,12 @@ class GroupsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_group
       @group = Group.find(params[:id])
+    end
+
+    def authenticate_group_user
+      if !current_user.groups.pluck(:id).include? @group.id
+        redirect_to dashboard_path, error: 'You are not in that group.'
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

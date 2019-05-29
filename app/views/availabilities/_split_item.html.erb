@@ -15,7 +15,7 @@
     <div class="splitItemBtnSection">
       <p style="">2 Credits</p>
         <% if (split.availability.user_id === current_user.id) && !split.approved && !split.cancelled %>
-            <%= link_to('Approve', approve_split_path(split), class: 'btnPrimarySmall') %>
+            <%= link_to('Approve', approve_split_path(split), class: 'btnPrimary btnPrimarySmall') %>
             <%= link_to('Decline', decline_split_path(split), class: 'btnSecondarySmall') %>
         <% else %>
           <%= link_to('View', split_path(split), class: 'btnPrimarySmall') %>
