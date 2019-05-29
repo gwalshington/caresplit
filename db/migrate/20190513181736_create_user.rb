@@ -3,8 +3,9 @@ class CreateUser < ActiveRecord::Migration[5.0]
     create_table :users do |t|
       t.string :first_name
       t.string :last_name
-      t.integer :phone, limit: 5
+      t.string :phone
       t.text :notes
+      t.boolean :admin, default: false
     end
   end
 end

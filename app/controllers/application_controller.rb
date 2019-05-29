@@ -10,4 +10,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_in, keys: [:first_name, :last_name, :phone, :photo])
     devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :phone, :photo])
   end
+
+  def authenticate_admin
+    if !current_user.admin
+      redirect_to dashboard_path, alert: 'You do not have access to that page.'
+    end
+  end
 end

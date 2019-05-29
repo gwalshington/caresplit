@@ -1,0 +1,25 @@
+<div class="splitItem">
+  <% if split.approved != true %>
+    <div class="splitItemApprovalBanner">
+      <h3>WAITING ON <%= split.user_id === current_user.id ? "" : "YOUR"%> APPROVAL</h3>
+    </div>
+  <% end %>
+  <div class="splitItemContent">
+    <%= image_tag(image_url(split.availability.user.photo(:thumb)), class: 'splitImage') %>
+    <div>
+      <p style="font-weight: 600"><%= split.availability.user.id === current_user.id ? "Me" : split.availability.user.first_name %></p>
+      <p><%= split.availability.location %></p>
+      <p><%= split.availability.location_address %></p>
+      <p><%= split.availability.start_time.strftime('%l:%M %P') %> - <%= split.availability.end_time.strftime('%l:%M %P') %></p>
+    </div>
+    <div class="splitItemBtnSection">
+      <p style="">2 Credits</p>
+        <% if (split.availability.user_id === current_user.id) && !split.approved && !split.cancelled %>
+            <%= link_to('Approve', approve_split_path(split), class: 'btnPrimary btnPrimarySmall') %>
+            <%= link_to('Decline', decline_split_path(split), class: 'btnSecondarySmall') %>
+        <% else %>
+          <%= link_to('View', split_path(split), class: 'btnPrimarySmall') %>
+        <% end %>
+    </div>
+  </div>
+</div>

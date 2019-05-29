@@ -1,0 +1,10 @@
+<h1><%= @user.first_name %></h1>
+
+Children:
+<% @user.children.each do |child| %>
+  <div>
+    <h3><%= child.first_name %></h3>
+    <h3><%= child.birthday %></h3>
+    <h3><%= child.notes %></h3>
+  </div>
+<% end %>

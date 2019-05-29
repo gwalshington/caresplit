@@ -68,13 +68,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if @invite != nil
       GroupUser.create(user_id: resource.id, group_id: @invite.group_id, invited_by: @invite.user_id)
       @invite.delete
+      return new_child_url
+    else
+      return new_group_url
     end
-    return new_child_url
-    # if resource.children.count < 1
-    #   return new_child_url
-    # else
-    #   return dashboard_url
-    # end
   end
 
   # The path used after sign up for inactive accounts.

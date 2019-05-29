@@ -11,27 +11,23 @@
   <body>
     <% if user_signed_in? %>
       <div class="topNav">
-        <p id="hambugerMenu">
-          ------<br />
-          ------<br />
-          ------<br />
-        </p>
-        <h1 class="topNavHeader"><%= @page_title != nil ? @page_title : 'Caresplit' %></h1>
+          <%= image_tag('menu.png', id: "hambugerMenu")%>
+        <%= link_to image_tag('logo.png', style:"height: 50px;"), dashboard_path, class:"topNavHeader" %>
       </div>
       <%= render partial: 'layouts/side_menu_nav' %>
+      <% if @page_title != nil %>
+        <h1 style="padding: 20px; font-size: 24px;"><%= @page_title %></h1>
+      <% end %>
+      <% if notice %>
+        <p class="alert alert-success">Success! <%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-danger">Error! <%= alert %></p>
+      <% end %>
     <% else %>
       <p id="hambugerMenu"></p>
     <% end %>
-    <% if notice %>
-      <p class="alert alert-success"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert alert-danger"><%= alert %></p>
-    <% end %>
-    <% if !user_signed_in? %>
-      <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-      <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-    <% end %>
+    
     <%= yield %>
 
   </body>

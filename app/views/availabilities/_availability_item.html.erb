@@ -1,0 +1,19 @@
+<div class="splitItem">
+  <div class="splitItemContent">
+    <%= image_tag(image_url(availability.user.photo(:thumb)), class: 'splitImage') %>
+    <div>
+      <p style="font-weight: 600"><%= availability.user.id === current_user.id ? "Me" : availability.user.first_name %></p>
+      <p><%= availability.location %></p>
+      <p><%= availability.location_address %></p>
+      <p><%= availability.start_time.strftime('%l:%M %P') %> - <%= availability.end_time.strftime('%l:%M %P') %></p>
+    </div>
+    <div class="splitItemBtnSection">
+      <p style="">2 Credits</p>
+        <% if availability.user_id === current_user.id %>
+          <%= link_to('Edit', edit_availability_path(availability), class: 'btnSecondarySmall') %>
+        <% else %>
+          <%= link_to('View', availability_path(availability), class: 'btnPrimary btnPrimarySmall') %>
+        <% end %>
+    </div>
+  </div>
+</div>
