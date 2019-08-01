@@ -2,7 +2,7 @@ class GroupsController < ApplicationController
   before_action :authenticate_user!
   before_action :authenticate_admin, only: [:index]
   before_action :set_group, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_group_user, except: [:index, :new, :create, :my_groups]
+  before_action :authenticate_group_user, except: [:index, :new, :create, :my_groups, :group_onboard, :create_group_onboard]
 
   # GET /groups
   # GET /groups.json
@@ -17,6 +17,57 @@ class GroupsController < ApplicationController
 
   def my_groups
     @groups = current_user.groups
+  end
+
+  def group_onboard
+    @group = current_user.groups.first
+    @group_users = @group.users.first(3)
+  end
+
+  def create_group_onboard
+    puts params
+
+    #create group
+    if params[:group][:name] != ''
+      puts 'params name is not blank'
+      @group = Group.new(name: params[:group][:name], creator_id: current_user.id)
+
+      if @group.save
+        #make current user group admin
+        GroupUser.create(user_id: current_user.id, group_id: @group.id, admin: true)
+
+        #create group invitees and email each user
+        params[:group_user].each do |user|
+          if(user[:email] != '')
+            @group_invite = GroupInvite.new(email: user[:email], group_id: @group.id, user_id: current_user.id)
+            if @group_invite.save
+              #email group invitees
+              GroupInviteMailer.send_invite(@group_invite.id).deliver_now
+            end
+          end
+        end
+
+        respond_to do |format|
+            format.html { redirect_to welcome_new_user_url }
+            format.json { head :no_content }
+        end
+
+      else
+        puts 'group name is not blank'
+        respond_to do |format|
+          format.html { redirect_to new_group_url, alert: 'This group name is already taken.' }
+          format.json { render json: @group.errors, status: :unprocessable_entity }
+        end
+        return
+      end
+    else
+      puts 'group name is blank'
+      respond_to do |format|
+        format.html { redirect_to new_group_url, alert: 'Please provide a name for the group.' }
+        format.json { render json: {}, status: :unprocessable_entity }
+      end
+      return
+    end
   end
 
   # GET /groups/new

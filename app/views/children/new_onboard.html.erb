@@ -1,0 +1,44 @@
+<h1>Tell us about your children</h1>
+
+<%= image_tag('line.svg') %>
+
+<%= form_tag({:action => 'create_children_onboard'}) do %>
+  <div id="child_form">
+    <div class="field">
+      <h3>first_name</h3>
+      <%= text_field_tag 'children[][first_name]', '', class: "inputStandard" %>
+    </div>
+
+    <div class="field">
+      <h3>birthday</h3>
+      <%= date_select('children[][birthday]', '', options={start_year: Date.today.year-19, end_year: Date.today.year}) %>
+    </div>
+
+    <div class="field">
+      <h3>gender</h3>
+      <%= collection_select 'children[][gender_id]', :id, Gender.all, :id, :name %>
+    </div>
+
+    <div class="field">
+      <h3>notes</h3>
+      <%= text_area_tag 'children[][notes]' %>
+    </div>
+  </div>
+  <%= render partial: 'dynamic_form' %>
+  <%= button_tag 'Add Another Child', id: 'add_child_form' %>
+
+  <div class="actions">
+    <%= submit_tag %>
+  </div>
+<% end %>
+
+<script>
+
+$('#add_child_form').bind('click', function(e) {
+    console.log('click')
+    e.preventDefault();
+    //var row = $('#child_form').clone().removeClass('hidden new_user_row');
+    var row = $('#new_child_form').clone()
+    $('#child_form').append(row.removeAttr("id").toggle())
+});
+</script>

@@ -1,5 +1,45 @@
 <h1>Now let's create a Split Group!</h1>
 
-<%= render 'form', group: @group %>
+<div class="formStandard">
+  <%= form_tag({:action => 'create_group_onboard'}) do %>
 
-<%= link_to 'Back', groups_path %>
+    <div class="field">
+      <h3>Group Name</h3>
+      <%= text_field_tag 'group[name]', '', options={class: "inputStandard"} %>
+    </div>
+
+    <h3>Add your mom friends to start splitting care</h3>
+
+    <div id="user_form" class="field">
+      <h3>EMAIL ADDRESS</h3>
+      <%= text_field_tag 'group_user[][email]', '', class: "inputStandard" %>
+    </div>
+
+    <div id="new_user_form" class="field" style="display:none;">
+      <h3>EMAIL ADDRESS</h3>
+      <%= text_field_tag 'group_user[][email]', '', class: "inputStandard" %>
+    </div>
+    <button id="add_group_user">Add</button>
+    <!-- <div class="field">
+      <%#= label :notes %>
+      <%#= text_area :notes %>
+    </div> -->
+
+    <div class="actions">
+      <%= submit_tag "Finish" %>
+    </div>
+  <% end %>
+</div>
+
+
+
+<script>
+
+$('#add_group_user').bind('click', function(e) {
+    console.log('click')
+    e.preventDefault();
+    //var row = $('#child_form').clone().removeClass('hidden new_user_row');
+    var row = $('#new_user_form').clone()
+    $('#user_form').append(row.removeAttr("id").toggle())
+});
+</script>

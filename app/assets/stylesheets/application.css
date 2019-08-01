@@ -33,15 +33,21 @@
    margin: 0;
  }
 
+ .hidden {
+   display: none;
+ }
+
 .topNav {
   height: 50px;
   border-bottom: 1px solid black;
   text-align: center;
 }
 
+
 .alert {
   margin: auto;
   margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .alert-success {
@@ -55,6 +61,19 @@
   color: #3c763d;
   font-weight: 700;
   text-decoration: none solid rgb(60, 118, 61);
+}
+
+.alert-error {
+  width: 381px;
+  padding: 15px;
+  border: 1px solid #ebccd1;
+  border-radius: 4px;
+  font-family: Arial;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none solid rgb(60, 118, 61);
+  color: #a94442;
+  background-color: #f2dede;
 }
 
 .btnPrimary {
@@ -223,4 +242,15 @@
   width: 30px;
   padding: 10px;
 
+}
+
+.creditSection {
+  background-color: #333333;
+  width: 100%;
+}
+.creditText {
+  font-size: 16px;
+  padding: 7px;
+  color: white;
+  text-align: center;
 }

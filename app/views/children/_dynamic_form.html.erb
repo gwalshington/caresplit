@@ -1,0 +1,21 @@
+<div id="new_child_form" style="display:none">
+  <div class="field">
+    <h3>first_name</h3>
+    <%= text_field_tag 'children[][first_name]' %>
+  </div>
+
+  <div class="field">
+    <h3>birthday</h3>
+    <%= date_select('children[][birthday]', '', options={start_year: Date.today.year-19, end_year: Date.today.year}) %>
+  </div>
+
+  <div class="field">
+    <h3>gender</h3>
+    <%= collection_select 'children[][gender_id]', :id, Gender.all, :id, :name %>
+  </div>
+
+  <div class="field">
+    <h3>notes</h3>
+    <%= text_area_tag 'children[][notes]' %>
+  </div>
+</div>

@@ -1,3 +1,4 @@
+<div>
 <% @groups.each do |g| %>
   <%= g.name %>
   Group Members
@@ -7,3 +8,4 @@
 
   <%= link_to 'Invite a new person', new_group_invite_path %>
 <% end %>
+</div>

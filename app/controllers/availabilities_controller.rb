@@ -14,8 +14,7 @@ class AvailabilitiesController < ApplicationController
   # GET /availabilities/1
   # GET /availabilities/1.json
   def show
-    # if @availability.user = current_user
-    #   Split.where('availability_id = ? AND ()', @availability.id)
+    @credits = (@availability.end_time.to_i - @availability.start_time.to_i)/3600
   end
 
   # GET /availabilities/new

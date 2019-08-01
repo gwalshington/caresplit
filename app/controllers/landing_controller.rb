@@ -23,6 +23,10 @@ class LandingController < ApplicationController
     @hostingSplits = Split.where('splits.availability_id IN (?) AND cancelled != ?', current_user.availabilities.pluck(:id), true).joins(:availability).where('end_time >= ?', Date.yesterday)
   end
 
+  def welcome_new_user
+
+  end
+
   def faq
   end
 

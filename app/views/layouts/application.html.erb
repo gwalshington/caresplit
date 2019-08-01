@@ -12,8 +12,11 @@
     <% if user_signed_in? %>
       <div class="topNav">
           <%= image_tag('menu.png', id: "hambugerMenu")%>
-        <%= link_to image_tag('logo.png', style:"height: 50px;"), dashboard_path, class:"topNavHeader" %>
+          <%= link_to image_tag('logo.png', style:"height: 50px;"), dashboard_path, class:"topNavHeader" %>
       </div>
+      <% if user_signed_in? %>
+        <div class="creditSection"><h3 class="creditText">Credits available: <%= current_user.credits %></h3></div>
+      <% end %>
       <%= render partial: 'layouts/side_menu_nav' %>
       <% if @page_title != nil %>
         <h1 style="padding: 20px; font-size: 24px;"><%= @page_title %></h1>
@@ -22,12 +25,12 @@
         <p class="alert alert-success">Success! <%= notice %></p>
       <% end %>
       <% if alert %>
-        <p class="alert alert-danger">Error! <%= alert %></p>
+        <p class="alert alert-error">Error! <%= alert %></p>
       <% end %>
     <% else %>
       <p id="hambugerMenu"></p>
     <% end %>
-    
+
     <%= yield %>
 
   </body>
