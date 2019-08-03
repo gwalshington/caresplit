@@ -24,6 +24,41 @@
 <% elsif @credits > current_user.credits  %>
   <div class="alert alert-error" style="text-align: center;">Not Enough Credits to Book</div>
 <% elsif @availability.splits.count === 0  %>
-  <h3 class="btnPrimary btnPrimarySmall">Request</h3 >
-  <%= link_to 'Request', request_split_path(@availability), class: "btnPrimary btnPrimarySmall" %>
+  <h3 class="btnPrimary btnPrimarySmall" id="request-split">Request</h3 >
 <% end %>
+
+<div id="chooseChildrenPopUp" style="display:none;">
+  <div class="greyChildBackground">
+  </div>
+  <div class="popUpContainer">
+  <%= form_tag({:action => 'request_split', :controller=>"splits"}) do %>
+      <div class="popUpHeader">
+        <h1 class="cabinText">REQUEST SPLIT</h1>
+        <%= image_tag('closeThick', id: 'closeChildrenPopUp') %>
+      </div>
+      <div class="popUpContent">
+        <h3 class="popUpInstructions">Please select children who will attend:</h3>
+        <% @children.each do |child| %>
+          <div class="checkBoxSection">
+            <%= check_box('child', child.id, {}, true, false) %>
+            <h3 class="checkBoxLabel"><%= child.first_name %></h3>
+          </div>
+        <% end %>
+      </div>
+      <%= hidden_field(:availability, :id, value: @availability.id) %>
+
+    <div class="actions" style="margin: 15px;">
+        <h3 class="btnSecondary">Cancel</h3>
+        <%= submit_tag "Request", class: 'btnPrimary btnSubmit' %>
+    </div>
+  <% end %>
+  </div>
+</div>
+
+<script>
+  $('#request-split, #closeChildrenPopUp').bind('click', function(e) {
+    console.log('click')
+    e.preventDefault();
+    $('#chooseChildrenPopUp').toggle();
+  })
+</script>

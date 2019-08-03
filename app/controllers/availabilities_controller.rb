@@ -15,6 +15,7 @@ class AvailabilitiesController < ApplicationController
   # GET /availabilities/1.json
   def show
     @credits = (@availability.end_time.to_i - @availability.start_time.to_i)/3600
+    @children = current_user.children
   end
 
   # GET /availabilities/new

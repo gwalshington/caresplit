@@ -1,0 +1,29 @@
+
+
+<p>
+  <strong>Split:</strong>
+  <%= @credit.split %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @credit.user %>
+</p>
+
+<p>
+  <strong>Add credits:</strong>
+  <%= @credit.add_credits %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @credit.value %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @credit.notes %>
+</p>
+
+<%= link_to 'Edit', edit_credit_path(@credit) %> |
+<%= link_to 'Back', credits_path %>

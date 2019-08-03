@@ -3,6 +3,18 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
 
+
+  def adjust_credits(split_id, user_id, add_credits, value, notes)
+    Credit.create(split_id: split_id, user_id: user_id, add_credits: add_credits, value: value, notes: notes)
+    @user = User.find(user_id)
+    if add_credits === true
+      @user.credits += value
+    elsif add_credits === false
+      @user.credits -= value
+    end
+    @user.save
+  end
+
   protected
 
   def configure_permitted_parameters

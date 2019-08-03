@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190731154706) do
+ActiveRecord::Schema.define(version: 20190802190743) do
 
   create_table "availabilities", force: :cascade do |t|
     t.datetime "start_time"
@@ -34,6 +34,18 @@ ActiveRecord::Schema.define(version: 20190731154706) do
     t.integer "gender_id"
     t.index ["gender_id"], name: "index_children_on_gender_id"
     t.index ["user_id"], name: "index_children_on_user_id"
+  end
+
+  create_table "credits", force: :cascade do |t|
+    t.integer  "split_id"
+    t.integer  "user_id"
+    t.boolean  "add_credits"
+    t.integer  "value"
+    t.string   "notes"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["split_id"], name: "index_credits_on_split_id"
+    t.index ["user_id"], name: "index_credits_on_user_id"
   end
 
   create_table "genders", force: :cascade do |t|
@@ -66,6 +78,13 @@ ActiveRecord::Schema.define(version: 20190731154706) do
     t.string  "name"
     t.integer "creator_id"
     t.text    "notes"
+  end
+
+  create_table "split_children", force: :cascade do |t|
+    t.integer "split_id"
+    t.integer "child_id"
+    t.index ["child_id"], name: "index_split_children_on_child_id"
+    t.index ["split_id"], name: "index_split_children_on_split_id"
   end
 
   create_table "splits", force: :cascade do |t|

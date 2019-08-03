@@ -16,6 +16,12 @@
 
 $(document).on("click", "#hambugerMenu", function(){
   $('#sideMenu').toggle()
+  $('#hambugerMenu').toggle()
+});
+
+$(document).on("click", "#closeMenu", function(){
+  $('#sideMenu').toggle()
+  $('#hambugerMenu').toggle()
 });
 
 

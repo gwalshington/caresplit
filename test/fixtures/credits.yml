@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  split: one
+  user: one
+  add_credits: false
+  value: 1
+  notes: MyString
+
+two:
+  split: two
+  user: two
+  add_credits: false
+  value: 1
+  notes: MyString

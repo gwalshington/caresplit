@@ -1,3 +1,26 @@
 // Place all the styles related to the groups controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.groupMemberContainer {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 30px;
+}
+
+.groupMember {
+  display: inline-block;
+  text-align: center;
+  padding: 15px;
+}
+
+.groupMember h3 {
+  padding-top: 10px;
+  width: 106px;
+  height: 18px;
+  font-family: Cabin;
+  color: #333333;
+  font-weight: 700;
+  text-decoration: none solid rgb(51, 51, 51);
+  text-align: center;
+}

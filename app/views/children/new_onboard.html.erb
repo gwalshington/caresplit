@@ -1,37 +1,45 @@
-<h1>Tell us about your children</h1>
-
-<%= image_tag('line.svg') %>
-
-<%= form_tag({:action => 'create_children_onboard'}) do %>
-  <div id="child_form">
-    <div class="field">
-      <h3>first_name</h3>
-      <%= text_field_tag 'children[][first_name]', '', class: "inputStandard" %>
+<div class="pageContainer">
+  <h2 class="signUpHeader">Tell us about your children</h2>
+  <div class="formStandard">
+    <div class="signUpProgress">
+      <%= image_tag('line.svg', style: "z-index: 100;") %>
+      <div class="dotContainer">
+        <div class="dot purpleDot"></div>
+        <div class="dot pinkDot"></div>
+        <div class="dot greyDot"></div>
+      </div>
     </div>
+    <%= form_tag({:action => 'create_children_onboard'}) do %>
+      <div id="child_form">
+        <div class="field">
+          <h3>first_name</h3>
+          <%= text_field_tag 'children[][first_name]', '', class: "inputStandard" %>
+        </div>
 
-    <div class="field">
-      <h3>birthday</h3>
-      <%= date_select('children[][birthday]', '', options={start_year: Date.today.year-19, end_year: Date.today.year}) %>
-    </div>
+        <div class="field">
+          <h3>birthday</h3>
+          <%= date_select('children[][birthday]', '', options={start_year: Date.today.year-19, end_year: Date.today.year}) %>
+        </div>
 
-    <div class="field">
-      <h3>gender</h3>
-      <%= collection_select 'children[][gender_id]', :id, Gender.all, :id, :name %>
-    </div>
+        <div class="field">
+          <h3>gender</h3>
+          <%= collection_select 'children[][gender_id]', :id, Gender.all, :id, :name %>
+        </div>
 
-    <div class="field">
-      <h3>notes</h3>
-      <%= text_area_tag 'children[][notes]' %>
-    </div>
+        <div class="field">
+          <h3>notes</h3>
+          <%= text_area_tag 'children[][notes]' %>
+        </div>
+      </div>
+      <%= render partial: 'dynamic_form' %>
+      <%= button_tag 'Add Another Child', id: 'add_child_form' %>
+
+      <div class="actions">
+        <%= submit_tag %>
+      </div>
+    <% end %>
   </div>
-  <%= render partial: 'dynamic_form' %>
-  <%= button_tag 'Add Another Child', id: 'add_child_form' %>
-
-  <div class="actions">
-    <%= submit_tag %>
-  </div>
-<% end %>
-
+</div>
 <script>
 
 $('#add_child_form').bind('click', function(e) {

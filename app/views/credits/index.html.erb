@@ -1,0 +1,28 @@
+
+<table class="creditHistory">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% available_credits = current_user.credits %>
+    <% @credits.each do |credit| %>
+      <% if @credits[0] != credit %>
+        <% available_credits = (credit.add_credits ? (available_credits+credit.value) : (available_credits-credit.value) ) %>
+      <% end %>
+      <tr class="creditHistory">
+        <td class="creditHistory creditFirstRow"><%= credit.split.availability.start_time.strftime('%m/%d/%Y') %></td>
+        <td class="creditHistory creditSecondRow"><%= credit.notes %></td>
+        <td class="creditHistory creditThirdRow"><h3><% if credit.add_credits %><span class="green" style="font-weight: 700;"><% end %><%= credit.add_credits ? '+' : '-' %><%= credit.value %><% if credit.add_credits %></span><% end %></h3>
+          <h3 class="creditSum"><%= available_credits %> available</h3>
+        </td>
+        <br />
+      </tr>
+
+    <% end %>
+  </tbody>
+</table>

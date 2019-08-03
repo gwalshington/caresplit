@@ -1,36 +1,44 @@
-<h1>Now let's create a Split Group!</h1>
-
-<div class="formStandard">
-  <%= form_tag({:action => 'create_group_onboard'}) do %>
-
-    <div class="field">
-      <h3>Group Name</h3>
-      <%= text_field_tag 'group[name]', '', options={class: "inputStandard"} %>
+<div class="pageContainer">
+  <h2 class="signUpHeader">Now let's create a Split Group!</h2>
+  <div class="formStandard">
+    <div class="signUpProgress">
+      <%= image_tag('line.svg', style: "z-index: 100;") %>
+      <div class="dotContainer">
+        <div class="dot purpleDot"></div>
+        <div class="dot pinkDot"></div>
+        <div class="dot blueDot"></div>
+      </div>
     </div>
+    <%= form_tag({:action => 'create_group_onboard'}) do %>
 
-    <h3>Add your mom friends to start splitting care</h3>
+      <div class="field">
+        <h3>Group Name</h3>
+        <%= text_field_tag 'group[name]', '', options={class: "inputStandard"} %>
+      </div>
 
-    <div id="user_form" class="field">
-      <h3>EMAIL ADDRESS</h3>
-      <%= text_field_tag 'group_user[][email]', '', class: "inputStandard" %>
-    </div>
+      <h3>Add your mom friends to start splitting care</h3>
 
-    <div id="new_user_form" class="field" style="display:none;">
-      <h3>EMAIL ADDRESS</h3>
-      <%= text_field_tag 'group_user[][email]', '', class: "inputStandard" %>
-    </div>
-    <button id="add_group_user">Add</button>
-    <!-- <div class="field">
-      <%#= label :notes %>
-      <%#= text_area :notes %>
-    </div> -->
+      <div id="user_form" class="field">
+        <h3>EMAIL ADDRESS</h3>
+        <%= text_field_tag 'group_user[][email]', '', class: "inputStandard" %>
+      </div>
 
-    <div class="actions">
-      <%= submit_tag "Finish" %>
-    </div>
-  <% end %>
+      <div id="new_user_form" class="field" style="display:none;">
+        <h3>EMAIL ADDRESS</h3>
+        <%= text_field_tag 'group_user[][email]', '', class: "inputStandard" %>
+      </div>
+      <button id="add_group_user">Add</button>
+      <!-- <div class="field">
+        <%#= label :notes %>
+        <%#= text_area :notes %>
+      </div> -->
+
+      <div class="actions">
+        <%= submit_tag "Finish" %>
+      </div>
+    <% end %>
+  </div>
 </div>
-
 
 
 <script>

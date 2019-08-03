@@ -7,7 +7,7 @@
   <div class="availableSplitContainer">
     <% @availabilities.each.with_index do |a, index| %>
       <% if(index === 0 || a.start_time.strftime('%^a, %^b %-d') != @availabilities[index-1].start_time.strftime('%^a, %^b %-d'))  %>
-        <h1><%= a.start_time.strftime('%^a, %^b %-d') %></h1>
+        <h1 class="listItemDate"><%= a.start_time.strftime('%^a - %^b %-d') %></h1>
       <% end %>
       <%= render partial: 'availabilities/availability_item', :locals => {availability: a} %>
     <% end %>
@@ -16,7 +16,7 @@
   <div class="bookedSplitContainer" style="display: none;">
     <% @bookedSplits.each.with_index do |a, index| %>
       <% if(index === 0 || (a.availability.start_time.strftime('%^a, %^b %-d') != @bookedSplits[index-1].availability.start_time.strftime('%^a, %^b %-d')))  %>
-        <h1><%= a.availability.start_time.strftime('%^a, %^b %-d') %></h1>
+        <h1 class="listItemDate"><%= a.availability.start_time.strftime('%^a - %^b %-d') %></h1>
       <% end %>
       <%= render partial: 'availabilities/split_item', :locals => {split: a} %>
     <% end %>
@@ -25,7 +25,7 @@
   <div class="hostSplitContainer" style="display: none;">
     <% @hostingSplits.each.with_index do |a, index| %>
       <% if(index === 0 || a.availability.start_time.strftime('%^a, %^b %-d') != @hostingSplits[index-1].availability.start_time.strftime('%^a, %^b %-d'))  %>
-        <h1><%= a.availability.start_time.strftime('%^a, %^b %-d') %></h1>
+        <h1 class="listItemDate"><%= a.availability.start_time.strftime('%^a - %^b %-d') %></h1>
       <% end %>
       <%= render partial: 'availabilities/split_item', :locals => {split: a} %>
     <% end %>

@@ -1,11 +1,15 @@
-<div>
+<h1 class="pageTitle">My Group</h1>
+<div class="pageContainer">
 <% @groups.each do |g| %>
-  <%= g.name %>
-  Group Members
-  <% g.users.each do |user| %>
-    <%= user.first_name %>
-  <% end %>
-
-  <%= link_to 'Invite a new person', new_group_invite_path %>
+  <h1><%= g.name %></h1>
+  <div class="groupMemberContainer">
+    <% g.users.each do |user| %>
+      <div class="groupMember">
+        <%= image_tag(image_url(user.photo(:thumb)), class: 'splitImage') %>
+        <h3><%= user.first_name %></h3>
+      </div>
+    <% end %>
+  </div>
+  <%= link_to 'Invite a new person', new_group_invite_path, class: 'btnPrimary btnPrimaryLarge' %>
 <% end %>
 </div>

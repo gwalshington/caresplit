@@ -16,11 +16,10 @@
 }
 
 .actions {
-  width: 100%;
   max-width: 400px;
   margin: auto;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 .inputStandard {
@@ -44,4 +43,66 @@
   font-weight: 700;
   text-decoration: none solid rgb(51, 51, 51);
   text-transform: uppercase;
+}
+
+.formHeader {
+  width: 333px;
+  height: 24px;
+  font-family: Cabin;
+  font-size: 20px;
+  color: #333333;
+  font-weight: 700;
+  text-decoration: none solid rgb(51, 51, 51);
+  text-align: center;
+  padding: 20px;
+  margin: auto;
+}
+
+.signUpHeader {
+  width: 333px;
+  height: 48px;
+  font-family: Montserrat;
+  font-size: 20px;
+  color: #333333;
+  text-decoration: none solid rgb(51, 51, 51);
+  text-align: center;
+  margin: auto;
+}
+
+
+
+// SIGN UP CIRCLES
+.signUpProgress {
+  justify-content: center;
+  padding: 35px;
+  width: 172px;
+  margin: auto;
+}
+
+.dot {
+  width: 24px;
+  height: 24px;
+  background-size: cover;
+  border-radius: 100%;
+  margin-top: -16px;
+}
+.purpleDot {
+  background-color: #320b57;
+}
+.greyDot {
+  background-color: #ebebeb;
+}
+
+.pinkDot {
+  background-color: #e12dcc;
+}
+
+.blueDot {
+  background-color: #1c99ce;
+}
+
+.dotContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 172px;
 }
