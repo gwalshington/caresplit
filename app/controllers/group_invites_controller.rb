@@ -1,6 +1,6 @@
 class GroupInvitesController < ApplicationController
   before_action :set_group_invite, only: [:show, :edit, :update, :destroy]
-  
+
   # GET /group_invites
   # GET /group_invites.json
   def index
@@ -18,6 +18,24 @@ class GroupInvitesController < ApplicationController
     @group_invite = GroupInvite.new
   end
 
+  def add_bulk_friends
+
+    params[:group_user].each do |user|
+      if(user[:email] != '')
+        @group_invite = GroupInvite.new(email: user[:email], group_id: current_user.groups.first.id, user_id: current_user.id)
+        if @group_invite.save
+          #email group invitees
+          GroupInviteMailer.send_invite(@group_invite.id).deliver_now
+        end
+      end
+    end
+
+    respond_to do |format|
+        format.html { redirect_to welcome_new_user_url }
+        format.json { head :no_content }
+    end
+  end
+
   # GET /group_invites/1/edit
   def edit
   end
@@ -33,7 +51,7 @@ class GroupInvitesController < ApplicationController
     respond_to do |format|
       if @group_invite.save
         GroupInviteMailer.send_invite(@group_invite.id).deliver_now
-        format.html { redirect_to group_invites_path, notice: 'Group invite was successfully created.' }
+        format.html { redirect_to my_groups_path, notice: 'Invite was successfully sent.' }
         format.json { render :show, status: :created, location: @group_invite }
       else
         format.html { render :new }

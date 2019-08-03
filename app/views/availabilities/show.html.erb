@@ -1,23 +1,82 @@
-<p id="notice"><%= notice %></p>
+<div id="chooseChildrenPopUp" style="display:none;">
+  <div class="greyChildBackground">
+  </div>
+  <div class="popUpContainer">
+  <%= form_tag({:action => 'request_split', :controller=>"splits"}) do %>
+      <div class="popUpHeader">
+        <h1 class="cabinText">REQUEST SPLIT</h1>
+        <%= image_tag('closeThick', id: 'closeChildrenPopUp') %>
+      </div>
+      <div class="popUpContent">
+        <h3 class="popUpInstructions">Please select children who will attend:</h3>
+        <% @children.each do |child| %>
+          <div class="checkBoxSection">
+            <%= check_box('child', child.id, {}, true, false) %>
+            <h3 class="checkBoxLabel"><%= child.first_name %></h3>
+          </div>
+        <% end %>
+      </div>
+      <%= hidden_field(:availability, :id, value: @availability.id) %>
 
-<p>
-  <strong>Start time:</strong>
-  <%= @availability.start_time %>
-</p>
+    <div class="actions" style="margin: 15px;">
+        <h3 class="btnSecondary" id="cancelChildrenPopUp">Cancel</h3>
+        <%= submit_tag "Request", class: 'btnPrimary btnSubmit' %>
+    </div>
+  <% end %>
+  </div>
+</div>
 
-<p>
-  <strong>End time:</strong>
-  <%= @availability.end_time %>
-</p>
+<div class="formStandard">
+  <div class="splitHeader">
+    <div class="splitImageSection">
+      <%= image_tag(image_url(@availability.user.photo(:thumb)), class: 'splitImage') %>
+      <h3><%= formatUserName(@availability.user) %></h3>
+    </div>
+    <div>
+      <%= @credits %> CREDITS
+    </div>
+  </div>
+  <div class="splitInfo">
+    <h3 class="labelStandard">DATE</h3>
+    <h3><%= @availability.start_time.strftime('%d/%m/%Y') %></h3>
+  </div>
+  <div class="splitInfo">
+    <h3 class="labelStandard">START TIME</h3>
+    <h3><%= @availability.start_time.strftime('%l:%M %p') %></h3>
+  </div>
+  <div class="splitInfo">
+    <h3 class="labelStandard">END TIME</h3>
+    <h3><%= @availability.end_time.strftime('%l:%M %p') %></h3>
+  </div>
+  <div class="splitInfo">
+    <h3 class="labelStandard">ACTIVITY</h3>
+    <h3><%= @availability.activity %></h3>
+  </div>
+  <div class="splitInfo">
+    <h3 class="labelStandard">NOTES</h3>
+    <h3><%= @availability.activity %></h3>
+  </div>
+  <div class="splitInfo">
+    <h3 class="labelStandard">LOCATION</h3>
+    <h3><%= @availability.location %></h3>
+    <h3><%= @availability.location_address %></h3>
+  </div>
+  <div class="actions">
+    <% if @availability.user === current_user %>
+      <%= link_to 'Edit', edit_availability_path(@availability), class: "btnPrimary btnPrimaryLarge" %>
+      <%= link_to 'Cancel Split', edit_availability_path(@availability), class: "btnSecondarySmall" %>
+    <% elsif @credits > current_user.credits  %>
+      <div class="alert alert-error" style="text-align: center;">Not Enough Credits to Book</div>
+    <% elsif @availability.splits.count === 0  %>
+      <h3 class="btnPrimary btnPrimaryLarge" id="request-split">Request</h3 >
+    <% end %>
+  </div>
+</div>
 
-<p>
-  <strong>User:</strong>
-  <%= @availability.user %>
-</p>
-
-<% if @availability.user === current_user %>
-  <%= link_to 'Edit', edit_availability_path(@availability), class: "btnPrimary btnPrimarySmall" %>
-  <%= link_to 'Cancel Split', edit_availability_path(@availability), class: "btnSecondarySmall" %>
-<% elsif @availability.splits.count === 0  %>
-  <%= link_to 'Request', request_split_path(@availability), class: "btnPrimary btnPrimarySmall" %>
-<% end %>
+<script>
+  $('#request-split, #closeChildrenPopUp, #cancelChildrenPopUp').bind('click', function(e) {
+    console.log('click')
+    e.preventDefault();
+    $('#chooseChildrenPopUp').toggle();
+  })
+</script>

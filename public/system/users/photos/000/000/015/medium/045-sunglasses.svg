@@ -1,0 +1,61 @@
+push graphic-context
+encoding "iso-8859-1"
+viewbox 0 0 512 512
+affine 1 0 0 1 0 0
+push graphic-context
+fill '#4FD9E0'
+circle 256,256 256,512
+pop graphic-context
+push graphic-context
+fill '#16A9C7'
+path 'M298.718,508.432c113.99-19.151,202.411-113.621,212.336-230.486L446.108,213L65.892,244.333  l62.412,62.412l-26.828,4.445L298.718,508.432z'
+pop graphic-context
+push graphic-context
+fill '#7369C3'
+path 'M71.759,225.667l7.197,42.21c6.545,38.383,39.809,66.456,78.747,66.456l0,0  c40.029,0,73.877-29.626,79.179-69.302l5.261-39.365H71.759V225.667z'
+pop graphic-context
+push graphic-context
+push graphic-context
+fill '#4B469B'
+path 'M440.241,225.667l-7.197,42.21c-6.545,38.383-39.809,66.456-78.747,66.456l0,0   c-40.029,0-73.877-29.626-79.179-69.302l-5.261-39.365h170.384V225.667z'
+pop graphic-context
+push graphic-context
+fill '#4B469B'
+rectangle 65.892,213 446.102,244.33
+pop graphic-context
+pop graphic-context
+push graphic-context
+fill '#112742'
+rectangle 255.57,213 446.11,244.33
+pop graphic-context
+push graphic-context
+pop graphic-context
+push graphic-context
+pop graphic-context
+push graphic-context
+pop graphic-context
+push graphic-context
+pop graphic-context
+push graphic-context
+pop graphic-context
+push graphic-context
+pop graphic-context
+push graphic-context
+pop graphic-context
+push graphic-context
+pop graphic-context
+push graphic-context
+pop graphic-context
+push graphic-context
+pop graphic-context
+push graphic-context
+pop graphic-context
+push graphic-context
+pop graphic-context
+push graphic-context
+pop graphic-context
+push graphic-context
+pop graphic-context
+push graphic-context
+pop graphic-context
+pop graphic-context

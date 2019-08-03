@@ -14,8 +14,8 @@ class AvailabilitiesController < ApplicationController
   # GET /availabilities/1
   # GET /availabilities/1.json
   def show
-    # if @availability.user = current_user
-    #   Split.where('availability_id = ? AND ()', @availability.id)
+    @credits = (@availability.end_time.to_i - @availability.start_time.to_i)/3600
+    @children = current_user.children
   end
 
   # GET /availabilities/new
@@ -83,6 +83,6 @@ class AvailabilitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def availability_params
-      params.require(:availability).permit(:start_time, :end_time, :user_id, :location, :location_address, :activity)
+      params.require(:availability).permit(:start_time, :end_time, :user_id, :location, :location_address, :activity, :notes)
     end
 end

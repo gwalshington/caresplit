@@ -3,6 +3,7 @@ class SplitsController < ApplicationController
   before_action :authenticate_admin, only: [:index, :destroy]
   before_action :set_split, only: [:show, :edit, :update, :destroy, :approve_split, :decline_split, :cancel_split]
   before_action :authenticate_split_user, only: [:show, :view, :edit, :approve_split, :decline_split, :cancel_split ]
+
   # GET /splits
   # GET /splits.json
   def index
@@ -24,14 +25,23 @@ class SplitsController < ApplicationController
   end
 
   def request_split
-    @split = Split.new(availability_id: params[:availability_id], user_id: current_user.id, approved: false)
+    @children = params[:child]
+    @id = params[:availability][:id]
 
+    @split = Split.new(availability_id: @id, user_id: current_user.id, approved: false)
+    @credits = (@split.availability.end_time.to_i - @split.availability.start_time.to_i)/3600
+    @notes = "Booked " + @split.availability.user.first_name + " " + @split.availability.user.last_name[0] + "."
     respond_to do |format|
       if @split.save
-        format.html { redirect_to dashboard_path, notice: 'Split was requested.' }
+        @children.each do |child|
+          SplitChild.create(split_id: @split.id, child_id: child)
+        end
+        adjust_credits(@split.id, current_user.id, false, @credits, @notes)
+
+        format.html { redirect_to dashboard_path, notice: 'Split was requested!' }
         format.json { render :show, status: :created, location: @split }
       else
-        format.html { render availability_path(params[:availability_id]) }
+        format.html { redirect_to availability_path(@id), alert: 'Something went wrong!' }
         format.json { render json: @split.errors, status: :unprocessable_entity }
       end
     end
@@ -39,11 +49,17 @@ class SplitsController < ApplicationController
 
   def approve_split
     @split.approved = true
+    @credits = (@split.availability.end_time.to_i - @split.availability.start_time.to_i)/3600
+    @notes = "Hosted " + @split.user.first_name + " " + @split.user.last_name[0] + "."
+
     #todo - mail approved email
     # todo - create notification
 
     respond_to do |format|
       if @split.save
+        #give credits to user who requested split
+        adjust_credits(@split.id, current_user.id, true, @credits, @notes)
+
         format.html { redirect_to dashboard_path, notice: 'Split was approved!' }
         format.json { render :show, status: :created, location: @split }
       else
@@ -56,12 +72,20 @@ class SplitsController < ApplicationController
   def decline_split
     @split.approved = false
     @split.cancelled = true
+    @credits = (@split.availability.end_time.to_i - @split.availability.start_time.to_i)/3600
+
+
     #todo - mail decline email
     # todo - create notification
 
     respond_to do |format|
       if @split.save
-        format.html { redirect_to dashboard_path, notice: 'Split was approved!' }
+        #credit back person who booked split.
+        @user = @split.user
+        @notes = "" + @split.availability.user.first_name + " " + @split.availability.user.last_name[0] + " cancelled the split."
+        adjust_credits(@split.id, @user.id, true, @credits, @notes)
+
+        format.html { redirect_to dashboard_path, notice: 'Split was cancelled.' }
         format.json { render :show, status: :created, location: @split }
       else
         format.html { render :new }
@@ -75,8 +99,17 @@ class SplitsController < ApplicationController
     #todo - mail cancelled email
     # todo - create notification
 
+    @credits = (@split.availability.end_time.to_i - @split.availability.start_time.to_i)/3600
+    @notes = "Split was cancelled."
+
     respond_to do |format|
       if @split.save
+        #credit back person who booked split.
+        adjust_credits(@split.id, @split.user.id, true, @credits, @notes)
+
+        #subtract credits from person who was hosting
+        adjust_credits(@split.id, @split.availability.user.id, false, @credits, @notes)
+
         format.html { redirect_to dashboard_path, notice: 'Split was approved!' }
         format.json { render :show, status: :created, location: @split }
       else

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :credits
+  resources :genders
   resources :splits
   resources :availabilities
   resources :groups
@@ -22,9 +24,15 @@ Rails.application.routes.draw do
   get 'faq', to: 'landing#faq', as: 'faq'
   get 'profile/:id', to: 'landing#profile', as: 'profile'
   get 'my_groups', to: 'groups#my_groups', as: 'my_groups'
-  get 'request_split/:availability_id', to: 'splits#request_split', as: 'request_split'
+  post 'request_split', to: 'splits#request_split', as: 'request_split'
   get 'approve_split/:id', to: 'splits#approve_split', as: 'approve_split'
   get 'decline_split/:id', to: 'splits#decline_split', as: 'decline_split'
   get 'cancel_split/:id', to: 'splits#cancel_split', as: 'cancel_split'
+  get 'new_child_onboard', to: 'children#new_onboard', as: 'new_child_onboard'
+  post 'create_children_onboard', to: 'children#create_children_onboard', as: 'create_children_onboard'
+  get 'group_onboard', to: 'groups#group_onboard', as: 'group_onboard'
+  post 'create_group_onboard', to: 'groups#create_group_onboard', as: 'create_group_onboard'
+  get 'welcome', to: 'landing#welcome_new_user', as: 'welcome_new_user'
+  post 'add_bulk_friends', to: 'group_invites#add_bulk_friends', as: 'add_bulk_friends'
 
 end

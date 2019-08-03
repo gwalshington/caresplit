@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190529165535) do
+ActiveRecord::Schema.define(version: 20190803210150) do
 
   create_table "availabilities", force: :cascade do |t|
     t.datetime "start_time"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20190529165535) do
     t.string   "location_address"
     t.string   "activity"
     t.integer  "group_id"
+    t.string   "notes"
     t.index ["group_id"], name: "index_availabilities_on_group_id"
     t.index ["user_id"], name: "index_availabilities_on_user_id"
   end
@@ -31,7 +32,27 @@ ActiveRecord::Schema.define(version: 20190529165535) do
     t.date    "birthday"
     t.text    "notes"
     t.integer "user_id"
+    t.integer "gender_id"
+    t.index ["gender_id"], name: "index_children_on_gender_id"
     t.index ["user_id"], name: "index_children_on_user_id"
+  end
+
+  create_table "credits", force: :cascade do |t|
+    t.integer  "split_id"
+    t.integer  "user_id"
+    t.boolean  "add_credits"
+    t.integer  "value"
+    t.string   "notes"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["split_id"], name: "index_credits_on_split_id"
+    t.index ["user_id"], name: "index_credits_on_user_id"
+  end
+
+  create_table "genders", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "group_invites", force: :cascade do |t|
@@ -58,6 +79,13 @@ ActiveRecord::Schema.define(version: 20190529165535) do
     t.string  "name"
     t.integer "creator_id"
     t.text    "notes"
+  end
+
+  create_table "split_children", force: :cascade do |t|
+    t.integer "split_id"
+    t.integer "child_id"
+    t.index ["child_id"], name: "index_split_children_on_child_id"
+    t.index ["split_id"], name: "index_split_children_on_split_id"
   end
 
   create_table "splits", force: :cascade do |t|
@@ -93,6 +121,7 @@ ActiveRecord::Schema.define(version: 20190529165535) do
     t.integer  "photo_file_size",        limit: 8
     t.datetime "photo_updated_at"
     t.boolean  "admin",                             default: false
+    t.integer  "credits",                           default: 10
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

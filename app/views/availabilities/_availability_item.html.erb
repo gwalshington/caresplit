@@ -8,7 +8,8 @@
       <p><%= availability.start_time.strftime('%l:%M %P') %> - <%= availability.end_time.strftime('%l:%M %P') %></p>
     </div>
     <div class="splitItemBtnSection">
-      <p style="">2 Credits</p>
+      <% @credits = ((availability.end_time.to_i/3600)-(availability.start_time.to_i/3600)) %>
+      <p style=""><%= @credits %> <%= @credits === 1 ? 'CREDIT' : 'CREDITS' %></p>
         <% if availability.user_id === current_user.id %>
           <%= link_to('Edit', edit_availability_path(availability), class: 'btnSecondarySmall') %>
         <% else %>

@@ -13,12 +13,13 @@
       <p><%= split.availability.start_time.strftime('%l:%M %P') %> - <%= split.availability.end_time.strftime('%l:%M %P') %></p>
     </div>
     <div class="splitItemBtnSection">
-      <p style="">2 Credits</p>
+      <% @credits = ((split.availability.end_time.to_i/3600)-(split.availability.start_time.to_i/3600)) %>
+      <p style=""><%= @credits %> <%= @credits === 1 ? 'CREDIT' : 'CREDITS' %></p>
         <% if (split.availability.user_id === current_user.id) && !split.approved && !split.cancelled %>
-            <%= link_to('Approve', approve_split_path(split), class: 'btnPrimary btnPrimarySmall') %>
+            <%= link_to('Approve', approve_split_path(split), class: 'btnPrimary btnPrimarySmall', style:"margin-bottom: 2px;") %>
             <%= link_to('Decline', decline_split_path(split), class: 'btnSecondarySmall') %>
         <% else %>
-          <%= link_to('View', split_path(split), class: 'btnPrimarySmall') %>
+          <%= link_to('View', split_path(split), class: 'btnPrimary btnPrimarySmall') %>
         <% end %>
     </div>
   </div>

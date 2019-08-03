@@ -1,42 +1,49 @@
-<%= form_for(availability) do |f| %>
-  <% if availability.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(availability.errors.count, "error") %> prohibited this availability from being saved:</h2>
+<div class="formStandard">
+  <%= form_for(availability) do |f| %>
+    <% if availability.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(availability.errors.count, "error") %> prohibited this availability from being saved:</h2>
 
-      <ul>
-      <% availability.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% availability.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :start_time %>
+      <%= f.datetime_select :start_time %>
+    </div>
+
+    <div class="field">
+      <%= f.label :end_time %>
+      <%= f.datetime_select :end_time %>
+    </div>
+
+    <div class="field">
+      <%= f.label :location, class: 'labelStandard' %>
+      <%= f.text_field :location, class: 'inputStandard' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :location_address, class: 'labelStandard' %>
+      <%= f.text_field :location_address, class: 'inputStandard' %>
+    </div>
+
+    <div class="field">
+      <%= f.label 'ACTIVITY (OPTIONAL)', class: 'labelStandard' %>
+      <%= f.text_field :activity, class: 'inputStandard' %>
+    </div>
+
+    <div class="field">
+      <%= f.label 'NOTES', class: 'labelStandard' %>
+      <%= f.text_field :notes, class: 'inputStandard' %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit 'Sumbit', class: 'btnPrimary btnPrimaryLarge' %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :start_time %>
-    <%= f.datetime_select :start_time %>
-  </div>
-
-  <div class="field">
-    <%= f.label :end_time %>
-    <%= f.datetime_select :end_time %>
-  </div>
-
-  <div class="field">
-    <%= f.label :location %>
-    <%= f.text_field :location %>
-  </div>
-
-  <div class="field">
-    <%= f.label :location_address %>
-    <%= f.text_field :location_address %>
-  </div>
-
-  <div class="field">
-    <%= f.label :activity %>
-    <%= f.text_field :activity %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

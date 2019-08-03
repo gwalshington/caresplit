@@ -1,0 +1,54 @@
+<div class="pageContainer">
+  <h2 class="formHeader">Tell us about your children</h2>
+  <div class="formStandard">
+    <div class="signUpProgress">
+      <%= image_tag('line.svg', style: "z-index: 100;") %>
+      <div class="dotContainer">
+        <div class="dot purpleDot"></div>
+        <div class="dot pinkDot"></div>
+        <div class="dot greyDot"></div>
+      </div>
+    </div>
+    <%= form_tag({:action => 'create_children_onboard'}) do %>
+      <div id="child_form">
+        <div class="field" style="display: flex;">
+          <div style="width: 75%">
+            <h3 class="labelStandard">first_name</h3>
+            <%= text_field_tag 'children[][first_name]', '', class: "inputStandard", style: "width: 75%;" %>
+          </div>
+          <div style="width: 25%">
+            <h3 class="labelStandard">gender</h3>
+            <%= collection_select 'children[][gender_id]', :id, Gender.all, :id, :name %>
+          </div>
+        </div>
+
+        <div class="field">
+          <h3 class="labelStandard">birthday</h3>
+          <%= date_select('children[][birthday]', '', options={start_year: Date.today.year-19, end_year: Date.today.year}) %>
+        </div>
+
+        <div class="field">
+          <h3 class="labelStandard">notes</h3>
+          <%= text_area_tag('children[][notes]', '', class: "inputStandard") %>
+        </div>
+      </div>
+      <%= render partial: 'dynamic_form' %>
+      <div class="subActions">
+        <%= button_tag '+ Add Another', id: 'add_child_form', class: 'darkBtnPrimary' %>
+      </div>
+      <div class="actions">
+        <%= submit_tag 'Continue', class: 'btnPrimary btnPrimaryLarge' %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<script>
+
+$('#add_child_form').bind('click', function(e) {
+    console.log('click')
+    e.preventDefault();
+    //var row = $('#child_form').clone().removeClass('hidden new_user_row');
+    var row = $('#new_child_form').clone()
+    $('#child_form').append(row.removeAttr("id").toggle())
+});
+</script>

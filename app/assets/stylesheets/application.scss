@@ -33,15 +33,36 @@
    margin: 0;
  }
 
+ .green {
+   color: #028500;
+ }
+
+ .hidden {
+   display: none;
+ }
+
 .topNav {
   height: 50px;
   border-bottom: 1px solid black;
   text-align: center;
 }
 
+.pageTitle {
+  width: 378px;
+  height: 24px;
+  font-family: Cabin;
+  font-size: 20px;
+  color: #333333;
+  font-weight: 700;
+  text-decoration: none solid rgb(51, 51, 51);
+  margin: 20px;
+}
+
+
 .alert {
   margin: auto;
   margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .alert-success {
@@ -55,6 +76,19 @@
   color: #3c763d;
   font-weight: 700;
   text-decoration: none solid rgb(60, 118, 61);
+}
+
+.alert-error {
+  width: 381px;
+  padding: 15px;
+  border: 1px solid #ebccd1;
+  border-radius: 4px;
+  font-family: Arial;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none solid rgb(60, 118, 61);
+  color: #a94442;
+  background-color: #f2dede;
 }
 
 .btnPrimary {
@@ -72,13 +106,57 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
+
+.darkBtnPrimary {
+  height: 47px;
+  padding: 6px 10px;
+  border-radius: 40px;
+  background-color: #320b57;
+  background-size: cover;
+  font-family: Cabin;
+  font-size: 18px;
+  color: #ffffff;
+  text-decoration: none solid rgb(255, 255, 255);
+  text-align: center;
+}
+
+.btnSecondary {
+  height: 37px;
+  padding: 6px 20px;
+  border-radius: 40px;
+  border: #a540e4 solid 1px;
+  background-size: cover;
+  font-family: Cabin;
+  font-size: 18px;
+  color: #a540e4;
+  font-weight: 700;
+  text-decoration: none solid rgb(255, 255, 255);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
 .btnPrimarySmall {
   width: 80px;
 }
 
 .btnPrimaryLarge {
   width: 350px;
+  height: 45px;
+}
+
+.btnSecondaryLarge {
+  width: 350px;
+  height: 45px;
+}
+
+.btnSubmit {
+  height: 52px;
+  padding: 6px 25px;
 }
 
 .btnSecondarySmall {
@@ -140,6 +218,8 @@
 
 .availableSplitContainer {
   padding: 12px;
+  max-width: 378px;
+  margin: auto;
 }
 
 
@@ -155,6 +235,10 @@
   margin-bottom:15px;
 }
 
+.listItemDate {
+  margin: 20px 0;
+}
+
 .splitItemContent {
   display: flex;
   flex-direction: row;
@@ -166,7 +250,6 @@
 .splitItemApprovalBanner {
   background-color:  #333;
   color: #fff;
-  width: 100%;
   border-radius: 10px;
   text-align: center;
   padding: 3px;
@@ -177,7 +260,6 @@
   width: 70px;
   margin-top: 15px;
   border-radius: 100%;
-
 }
 
 .splitItemBtnSection {
@@ -185,8 +267,13 @@
 
 }
 .splitItemBtnSection p {
-  font-weight: 600;
-  padding-bottom: 5px;
+  width: 115px;
+  height: 18px;
+  font-family: Cabin;
+  color: #333333;
+  font-weight: 700;
+  text-decoration: none solid rgb(51, 51, 51);
+  text-align: center;
 }
 
 .bannerBtn {
@@ -202,6 +289,76 @@
   text-align: center;
 }
 
+#chooseChildrenPopUp {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+}
+
+.greyChildBackground {
+  background-color: #000000;
+  opacity: .5;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  position: absolute;
+}
+
+.popUpContainer {
+  background-color: white;
+  position: sticky;
+  max-width: 350px;
+  margin: auto;
+  padding: 14px;
+  margin-top: 150px;
+}
+
+.popUpHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.popUpContent {
+  padding: 0 20px;
+}
+.popUpInstructions {
+  padding-bottom: 10px;
+}
+
+.checkBoxLabel {
+    width: 241px;
+    height: 17px;
+    font-family: Arial;
+    font-size: 14px;
+    color: #4d4d4d;
+    font-weight: 400;
+    text-decoration: none solid rgb(77, 77, 77);
+    padding-left: 5px;
+}
+
+.checkBoxSection {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+
+h1.cabinText {
+  width: 300px;
+  height: 25px;
+  font-family: Cabin;
+  font-size: 21px;
+  color: #333333;
+  font-weight: 700;
+  text-decoration: none solid rgb(51, 51, 51);
+}
+
 #sideMenu {
   background-color: #fff;
   position: absolute;
@@ -214,13 +371,56 @@
 }
 
 #hambugerMenu {
-  position: absolute;
-  z-index: 999;
+  position: fixed;
   color: black;
   left: 0;
   top: 0;
   height: 40px;
   width: 30px;
   padding: 10px;
+  cursor: pointer;
+}
 
+.creditSection {
+  background-color: #333333;
+  width: 100%;
+}
+.creditText {
+  font-size: 16px;
+  padding: 7px;
+  color: white;
+  text-align: center;
+}
+
+.navMenuHeader {
+  display: flex;
+  align-items: center;
+  margin: 20px;
+}
+
+.navMenuText {
+  font-family: Cabin;
+  font-size: 20px;
+  color: #333333;
+  font-weight: 700;
+  text-decoration: none solid rgb(51, 51, 51);
+}
+
+.navMenuItem {
+  padding: 10px
+}
+
+.pageContainer {
+  padding: 12px;
+  max-width: 378px;
+  margin: auto;
+}
+
+.welcomePage {
+  background-image: image-url('welcome.png');
+  background-color: #ebebeb;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  //filter: blur(2px);
 }
