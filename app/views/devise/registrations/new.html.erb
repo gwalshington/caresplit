@@ -13,8 +13,8 @@
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="uploadUserImageSection">
-      <%= f.label :photo, class: "settingsPhotoLabel", :style => "background-image: url(#{image_path('avatar')})" do %>
-            <%= image_tag(image_url('camera'), class: 'uploadCameraImage') %>
+      <%= f.label :photo, class: "settingsPhotoLabel", :style => "background-image: url(#{image_path('avatar.svg')})" do %>
+            <%= image_tag(image_url('camera.svg'), class: 'uploadCameraImage') %>
       <% end %>
       <%= f.file_field :photo, class: "settingsPhotoInput" %>
     </div>
