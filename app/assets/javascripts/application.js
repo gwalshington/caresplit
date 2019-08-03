@@ -92,3 +92,22 @@ $(document).on("click", "#hostNav", function(){
   resetSplitNav()
   $('.hostSplitContainer').css("display", 'block')
 });
+
+
+// Settings image upload - displays the uploaded image before it is saved to the db
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        console.log(reader)
+
+        reader.onload = function (e) {
+          $('.settingsPhotoLabel').attr('style', 'background: url(' + e.target.result + ') no-repeat center center; background-size: cover;');
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$(document).on("change", ".settingsPhotoInput", function() {
+  readURL(this);
+})

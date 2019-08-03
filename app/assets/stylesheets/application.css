@@ -109,6 +109,19 @@
   cursor: pointer;
 }
 
+.darkBtnPrimary {
+  height: 47px;
+  padding: 6px 10px;
+  border-radius: 40px;
+  background-color: #320b57;
+  background-size: cover;
+  font-family: Cabin;
+  font-size: 18px;
+  color: #ffffff;
+  text-decoration: none solid rgb(255, 255, 255);
+  text-align: center;
+}
+
 .btnSecondary {
   height: 37px;
   padding: 6px 20px;
@@ -132,6 +145,7 @@
 
 .btnPrimaryLarge {
   width: 350px;
+  height: 45px;
 }
 
 .btnSubmit {
