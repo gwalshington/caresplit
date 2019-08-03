@@ -48,5 +48,8 @@ table {
 }
 
 input:focus {
-    outline: none;
+  outline: none;
+}
+button:focus {
+	outline: none;
 }

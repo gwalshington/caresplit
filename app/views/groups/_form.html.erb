@@ -1,28 +1,34 @@
-<%= form_for(group) do |f| %>
-  <% if group.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
+<div class="pageContainer">
+  <h2 class="signUpHeader">New Group</h2>
+    <div class="formStandard">
+    <%= form_for(group) do |f| %>
+      <% if group.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
 
-      <ul>
-      <% group.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+          <ul>
+          <% group.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name, class: "inputStandard" %>
+      <div class="field">
+        <%= f.label 'NAME', class: "labelStandard" %>
+        <%= f.text_field :name, class: "inputStandard" %>
+      </div>
+      
+
+
+      <!-- <div class="field">
+        <%#= f.label :notes %>
+        <%#= f.text_area :notes %>
+      </div> -->
+
+      <div class="actions">
+        <%= f.submit, class: "btnPrimary btnPrimaryLarge" %>
+      </div>
+    <% end %>
   </div>
-
-
-  <!-- <div class="field">
-    <%#= f.label :notes %>
-    <%#= f.text_area :notes %>
-  </div> -->
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

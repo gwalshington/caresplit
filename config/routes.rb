@@ -33,6 +33,6 @@ Rails.application.routes.draw do
   get 'group_onboard', to: 'groups#group_onboard', as: 'group_onboard'
   post 'create_group_onboard', to: 'groups#create_group_onboard', as: 'create_group_onboard'
   get 'welcome', to: 'landing#welcome_new_user', as: 'welcome_new_user'
-
+  post 'add_bulk_friends', to: 'group_invites#add_bulk_friends', as: 'add_bulk_friends'
 
 end

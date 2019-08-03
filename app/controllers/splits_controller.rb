@@ -34,15 +34,13 @@ class SplitsController < ApplicationController
     respond_to do |format|
       if @split.save
         @children.each do |child|
-          puts child
-          SplitChildren.create(split_id: @split.id, child_id: child)
+          SplitChild.create(split_id: @split.id, child_id: child)
         end
         adjust_credits(@split.id, current_user.id, false, @credits, @notes)
 
         format.html { redirect_to dashboard_path, notice: 'Split was requested!' }
         format.json { render :show, status: :created, location: @split }
       else
-        puts @id
         format.html { redirect_to availability_path(@id), alert: 'Something went wrong!' }
         format.json { render json: @split.errors, status: :unprocessable_entity }
       end

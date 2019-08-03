@@ -40,7 +40,7 @@
       <% end %>
 
       <div class="field">
-        <%= f.label 'PASSWORD', class: "labelStandard" %> <i class="labelStandard">(leave blank if you don't want to change it)</i><br />
+        <%= f.label 'PASSWORD', class: "labelStandard" %> <i class="labelStandard"><br />(leave blank if you don't want to change it)</i><br />
         <%= f.password_field :password, autocomplete: "new-password", class: "inputStandard" %>
         <% if @minimum_password_length %>
           <br />
@@ -49,14 +49,11 @@
       </div>
 
       <div class="field">
-        <%= f.label :password_confirmation, class: "labelStandard" %><br />
+        <%= f.label :password_confirmation, class: "labelStandard" %><i class="labelStandard"><br />(leave blank if you don't want to change it)</i><br />
         <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "inputStandard" %>
       </div>
 
-      <div class="field">
-        <%= f.label :current_password, class: "labelStandard" %> <i class="labelStandard">(we need your current password to confirm your changes)</i><br />
-        <%= f.password_field :current_password, autocomplete: "current-password", class: "inputStandard" %>
-      </div>
+
 
       <div class="actions">
         <%= f.submit "Update", class: "btnPrimary btnPrimaryLarge" %>

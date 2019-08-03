@@ -4,6 +4,10 @@ module ApplicationHelper
     :user
   end
 
+  def formatUserName(user)
+    return '' + user.first_name + ' ' + user.last_name[0, 1] + '.'
+  end
+
   def resource
     @resource ||= User.new
   end

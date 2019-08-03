@@ -1,34 +1,40 @@
-<%= form_for(group_invite) do |f| %>
-  <% if group_invite.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(group_invite.errors.count, "error") %> prohibited this group_invite from being saved:</h2>
+<div class="pageContainer">
+  <h2 class="signUpHeader">Invite a Mom Friend</h2>
+    <div class="formStandard">
 
-      <ul>
-      <% group_invite.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+    <%= form_for(group_invite) do |f| %>
+      <% if group_invite.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(group_invite.errors.count, "error") %> prohibited this group_invite from being saved:</h2>
+
+          <ul>
+          <% group_invite.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
 
 
-  <div class="field">
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
+      <div class="field">
+        <%= f.label 'FIRST NAME', class: "labelStandard" %>
+        <%= f.text_field :first_name, class: "inputStandard" %>
+      </div>
+
+      <div class="field">
+        <%= f.label 'EMAIL', class: "labelStandard" %>
+        <%= f.text_field :email, class: "inputStandard" %>
+      </div>
+
+      <div class="field">
+        <%= f.label 'NOTES', class: "labelStandard" %>
+        <%= f.text_field :notes, class: "inputStandard" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit 'Invite', class: "btnPrimary btnPrimaryLarge" %>
+      </div>
+    <% end %>
   </div>
-
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </div>
-
-  <div class="field">
-    <%= f.label :notes %>
-    <%= f.text_field :notes %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

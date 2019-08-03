@@ -12,9 +12,11 @@
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
-    <div class="field">
-      <%= f.label :photo %><br />
-      <%= f.file_field :photo %>
+    <div class="uploadUserImageSection">
+      <%= f.label :photo, class: "settingsPhotoLabel", :style => "background-image: url(#{image_path('avatar')})" do %>
+            <%= image_tag(image_url('camera'), class: 'uploadCameraImage') %>
+      <% end %>
+      <%= f.file_field :photo, class: "settingsPhotoInput" %>
     </div>
 
     <div class="field">
@@ -42,7 +44,7 @@
       <% if @minimum_password_length %>
       <em class="labelStandard">(<%= @minimum_password_length %> characters minimum)</em>
       <% end %><br />
-      <%= f.password_field ':password', autocomplete: "new-password", class: "inputStandard" %>
+      <%= f.password_field :password, autocomplete: "new-password", class: "inputStandard" %>
     </div>
 
     <div class="field">
@@ -55,6 +57,4 @@
     </div>
     <% end %>
   </div>
-
-  <%= render "devise/shared/links" %>
 </div>

@@ -24,7 +24,7 @@ class LandingController < ApplicationController
   end
 
   def welcome_new_user
-
+    render :layout => false
   end
 
   def faq

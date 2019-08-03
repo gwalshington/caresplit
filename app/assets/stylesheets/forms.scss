@@ -1,7 +1,6 @@
 
 
 .formStandard {
-  width: 100%;
   max-width: 640px;
   padding: 12px;
   margin: auto;
@@ -15,11 +14,20 @@
   margin-bottom: 12px;
 }
 
+
 .actions {
   max-width: 400px;
   margin: auto;
   display: flex;
   justify-content: space-evenly;
+}
+
+.subActions {
+  max-width: 400px;
+  margin: auto;
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 15px;
 }
 
 .inputStandard {
@@ -144,4 +152,41 @@ input[type="file"].settingsPhotoInput {
     background-color: white;
     margin-top: 50px;
     margin-left: -15px;
+}
+
+.inFormInstructions {
+  height: 18px;
+  font-family: Cabin;
+  font-size: 14px;
+  color: #333333;
+  font-weight: 700;
+  text-decoration: none solid rgb(51, 51, 51);
+  text-align: center;
+  padding: 20px 0;
+}
+
+.formHeader {
+  height: 24px;
+  font-family: Cabin;
+  font-size: 20px;
+  color: #333333;
+  font-weight: 700;
+  text-decoration: none solid rgb(51, 51, 51);
+  text-align: center;
+}
+
+select {
+  width: 106px;
+  height: 50px;
+  border: 1px solid #ebebeb;
+  border-radius: 15px;
+  font-family: Cabin;
+  font-size: 14px;
+  color: #000000;
+  text-decoration: none solid rgb(0, 0, 0);
+  background-color: white;
+}
+
+select:focus {
+    outline: none;
 }

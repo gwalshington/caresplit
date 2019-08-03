@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190802190743) do
+ActiveRecord::Schema.define(version: 20190803210150) do
 
   create_table "availabilities", force: :cascade do |t|
     t.datetime "start_time"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20190802190743) do
     t.string   "location_address"
     t.string   "activity"
     t.integer  "group_id"
+    t.string   "notes"
     t.index ["group_id"], name: "index_availabilities_on_group_id"
     t.index ["user_id"], name: "index_availabilities_on_user_id"
   end

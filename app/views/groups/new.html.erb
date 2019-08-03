@@ -1,5 +1,5 @@
 <div class="pageContainer">
-  <h2 class="signUpHeader">Now let's create a Split Group!</h2>
+  <h2 class="formHeader">Now let's create a Split Group!</h2>
   <div class="formStandard">
     <div class="signUpProgress">
       <%= image_tag('line.svg', style: "z-index: 100;") %>
@@ -10,31 +10,26 @@
       </div>
     </div>
     <%= form_tag({:action => 'create_group_onboard'}) do %>
-
       <div class="field">
         <h3>Group Name</h3>
         <%= text_field_tag 'group[name]', '', options={class: "inputStandard"} %>
       </div>
 
-      <h3>Add your mom friends to start splitting care</h3>
+      <h3 class="inFormInstructions">Add your mom friends to start splitting care</h3>
 
       <div id="user_form" class="field">
         <h3>EMAIL ADDRESS</h3>
         <%= text_field_tag 'group_user[][email]', '', class: "inputStandard" %>
       </div>
-
-      <div id="new_user_form" class="field" style="display:none;">
+      <div id="new_user_form" class="field" style="display:none; margin-top: 15px;">
         <h3>EMAIL ADDRESS</h3>
         <%= text_field_tag 'group_user[][email]', '', class: "inputStandard" %>
       </div>
-      <button id="add_group_user">Add</button>
-      <!-- <div class="field">
-        <%#= label :notes %>
-        <%#= text_area :notes %>
-      </div> -->
-
+      <div class="subActions">
+        <button id="add_group_user" class='darkBtnPrimary'>+ Add Another</button>
+      </div>
       <div class="actions">
-        <%= submit_tag "Finish" %>
+        <%= submit_tag "Finish", class: 'btnPrimary btnPrimaryLarge' %>
       </div>
     <% end %>
   </div>
@@ -42,12 +37,9 @@
 
 
 <script>
-
-$('#add_group_user').bind('click', function(e) {
-    console.log('click')
-    e.preventDefault();
-    //var row = $('#child_form').clone().removeClass('hidden new_user_row');
-    var row = $('#new_user_form').clone()
-    $('#user_form').append(row.removeAttr("id").toggle())
-});
+  $('#add_group_user').bind('click', function(e) {
+      e.preventDefault();
+      var row = $('#new_user_form').clone()
+      $('#user_form').append(row.removeAttr("id").toggle())
+  });
 </script>

@@ -1,5 +1,5 @@
 <div class="pageContainer">
-  <h2 class="signUpHeader">Tell us about your children</h2>
+  <h2 class="formHeader">Tell us about your children</h2>
   <div class="formStandard">
     <div class="signUpProgress">
       <%= image_tag('line.svg', style: "z-index: 100;") %>
@@ -11,31 +11,33 @@
     </div>
     <%= form_tag({:action => 'create_children_onboard'}) do %>
       <div id="child_form">
-        <div class="field">
-          <h3>first_name</h3>
-          <%= text_field_tag 'children[][first_name]', '', class: "inputStandard" %>
+        <div class="field" style="display: flex;">
+          <div style="width: 75%">
+            <h3 class="labelStandard">first_name</h3>
+            <%= text_field_tag 'children[][first_name]', '', class: "inputStandard", style: "width: 75%;" %>
+          </div>
+          <div style="width: 25%">
+            <h3 class="labelStandard">gender</h3>
+            <%= collection_select 'children[][gender_id]', :id, Gender.all, :id, :name %>
+          </div>
         </div>
 
         <div class="field">
-          <h3>birthday</h3>
+          <h3 class="labelStandard">birthday</h3>
           <%= date_select('children[][birthday]', '', options={start_year: Date.today.year-19, end_year: Date.today.year}) %>
         </div>
 
         <div class="field">
-          <h3>gender</h3>
-          <%= collection_select 'children[][gender_id]', :id, Gender.all, :id, :name %>
-        </div>
-
-        <div class="field">
-          <h3>notes</h3>
-          <%= text_area_tag 'children[][notes]' %>
+          <h3 class="labelStandard">notes</h3>
+          <%= text_area_tag('children[][notes]', '', class: "inputStandard") %>
         </div>
       </div>
       <%= render partial: 'dynamic_form' %>
-      <%= button_tag 'Add Another Child', id: 'add_child_form' %>
-
+      <div class="subActions">
+        <%= button_tag '+ Add Another', id: 'add_child_form', class: 'darkBtnPrimary' %>
+      </div>
       <div class="actions">
-        <%= submit_tag %>
+        <%= submit_tag 'Continue', class: 'btnPrimary btnPrimaryLarge' %>
       </div>
     <% end %>
   </div>
