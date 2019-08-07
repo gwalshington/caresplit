@@ -1,0 +1,28 @@
+<div class="pageContainer">
+  <div class="profileImageContainer">
+    <%= image_tag(image_url(@user.photo(:medium)), class: 'profileImage') %>
+    <h3><%= @user.first_name %> <%= @user.last_name %></h3>
+  </div>
+  <div class="profileSection">
+    <h3 class="labelStandard">PHONE</h3><br />
+    <h3><%= @user.phone %></h3>
+  </div>
+  <div class="profileSection">
+    <h3 class="labelStandard">EMAIL ADDRESS</h3><br />
+    <h3><%= @user.email %></h3>
+  </div>
+  <div class="profileSection">
+    <h3 class="labelStandard">HOME ADDRESS</h3><br />
+    <h3><%= @user.home_address %></h3>
+  </div>
+  <br />
+  <div class="profileSection">
+    <h1><%= @user.first_name %>'s Children</h1>
+    <% @user.children.each do |child| %>
+      <div class="profileChildSection">
+        <h2><%= child.first_name %>, <%= formatChildAge(child) %>, <%= child.gender.name rescue 'unknown gender' %></h2>
+        <h3><%= child.notes %></h3>
+      </div>
+    <% end %>
+  </div>
+</div>

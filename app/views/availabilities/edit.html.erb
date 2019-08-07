@@ -1,12 +1,15 @@
-<h1>Editing Availability</h1>
+<div class="pageContainer">
+<h2 class="signUpHeader">Edit Availability</h2>
 
 <%= render 'form', availability: @availability %>
 <% if @availability.user === current_user %>
   <div class="formStandard">
+
     <div class="actions">
       <%= link_to 'Cancel', @availability, method: :delete, data: { confirm: 'Are you sure you want to cancel this split?' }, class: 'btnSecondary btnSecondaryLarge', style: 'height: 30px; width: 310px; max-width: 100%' %>
     </div>
   </div>
 <% end %>
+</div>
 <%#= link_to 'Show', @availability %> |
 <%#= link_to 'Back', availabilities_path %>

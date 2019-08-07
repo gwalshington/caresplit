@@ -22,7 +22,6 @@ Rails.application.routes.draw do
   get 'dashboard', to: 'landing#dashboard', as: 'dashboard'
   get 'terms_of_service', to: 'landing#terms_of_service', as: 'terms_of_service'
   get 'faq', to: 'landing#faq', as: 'faq'
-  get 'profile/:id', to: 'landing#profile', as: 'profile'
   get 'my_groups', to: 'groups#my_groups', as: 'my_groups'
   post 'request_split', to: 'splits#request_split', as: 'request_split'
   get 'approve_split/:id', to: 'splits#approve_split', as: 'approve_split'
@@ -35,4 +34,5 @@ Rails.application.routes.draw do
   get 'welcome', to: 'landing#welcome_new_user', as: 'welcome_new_user'
   post 'add_bulk_friends', to: 'group_invites#add_bulk_friends', as: 'add_bulk_friends'
 
+  get 'profile/:id', to: 'users#profile', as: 'profile'
 end

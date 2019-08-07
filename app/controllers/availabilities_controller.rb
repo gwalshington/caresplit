@@ -52,7 +52,7 @@ class AvailabilitiesController < ApplicationController
   def update
     respond_to do |format|
       if @availability.update(availability_params)
-        format.html { redirect_to availabilities_url, notice: 'Availability was successfully updated.' }
+        format.html { redirect_to dashboard_url, notice: 'Availability was successfully updated.' }
         format.json { render :show, status: :ok, location: @availability }
       else
         format.html { render :edit }
@@ -66,7 +66,7 @@ class AvailabilitiesController < ApplicationController
   def destroy
     @availability.destroy
     respond_to do |format|
-      format.html { redirect_to availabilities_url, notice: 'Availability was successfully destroyed.' }
+      format.html { redirect_to dashboard_url, notice: 'Availability was successfully deleted.' }
       format.json { head :no_content }
     end
   end
