@@ -11,7 +11,16 @@
   max-width: 400px;
   margin: auto;
   text-align: left;
-  margin-bottom: 12px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.radioButtonSection {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 5px;
 }
 
 
@@ -32,6 +41,7 @@
 
 .inputStandard {
   width: 360px;
+  min-width: 100%;
   height: 50px;
   padding: 0px 10px;
   border: 1px solid #ebebeb;
@@ -189,4 +199,13 @@ select {
 
 select:focus {
     outline: none;
+}
+
+.datepicker {
+  top: 128px;
+  left: 440.812px;
+  z-index: 10;
+  position: absolute;
+  background-color: white;
+  color: #a540e4;
 }
