@@ -23,6 +23,8 @@ gem 'twilio-ruby'
 gem 'bootstrap-datepicker-rails'
 gem 'chronic'
 
+gem "sentry-raven"
+
 gem 'sendgrid-ruby'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
