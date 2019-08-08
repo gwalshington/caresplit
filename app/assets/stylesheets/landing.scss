@@ -1,0 +1,51 @@
+.FAQContainerClosed {
+  width: 384px;
+  height: 50px;
+  border-bottom-width: 1px;
+  border-style: solid;
+  border-color: #ffffff;
+  background-color: #ebebeb;
+  background-size: cover;
+  justify-content: center;
+  display: flex;
+}
+
+.FAQContainerClosed  h3{
+  width: 300px;
+  height: 19px;
+  font-family: Cabin;
+  font-size: 16px;
+  color: #333333;
+  font-weight: 700;
+  text-decoration: none solid rgb(51, 51, 51);
+      align-self: center;
+}
+
+.faqArrow {
+  height: 20px;
+  align-self: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.welcomeImageMobile {
+  background-image: image-url('landingMobile.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 300px;
+  width: 100%;
+}
+
+.welcomeImageDesktop {
+  background-image: image-url('landingDesktop.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 1000px;
+  width: 100%;
+  position: absolute;
+  padding-top: 150px;
+}

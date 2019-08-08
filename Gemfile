@@ -20,6 +20,11 @@ gem 'coffee-rails', '~> 4.2'
 # gem 'therubyracer', platforms: :ruby
 gem 'twilio-ruby'
 
+gem 'bootstrap-datepicker-rails'
+gem 'chronic'
+
+gem "sentry-raven"
+
 gem 'sendgrid-ruby'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

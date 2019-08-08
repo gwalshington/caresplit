@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap-datepicker
 //= require_tree .
 
 $(document).on("click", "#hambugerMenu", function(){
@@ -111,3 +112,16 @@ function readURL(input) {
 $(document).on("change", ".settingsPhotoInput", function() {
   readURL(this);
 })
+
+$(document).ready(function () {
+    $('input:radio[name=location]').change(function () {
+            let newValue = $('input:radio[name=location]:checked').val()
+            console.log(newValue)
+            $('#hiddenLocationField').val(newValue)
+            if(newValue === '') {
+              $('#hiddenLocationFieldContainer').toggle()
+            } else {
+              $('#hiddenLocationFieldContainer').css('display','none')
+            }
+    });
+});

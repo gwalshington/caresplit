@@ -7,7 +7,7 @@
   <div class="availableSplitContainer">
     <% @availabilities.each.with_index do |a, index| %>
       <% if(index === 0 || a.start_time.strftime('%^a, %^b %-d') != @availabilities[index-1].start_time.strftime('%^a, %^b %-d'))  %>
-        <h1 class="listItemDate"><%= a.start_time.strftime('%^a - %^b %-d') %></h1>
+        <h1 class="listItemDate"><%= a.start_date.strftime('%^a - %^b %-d') %></h1>
       <% end %>
       <%= render partial: 'availabilities/availability_item', :locals => {availability: a} %>
     <% end %>
@@ -30,7 +30,7 @@
       <%= render partial: 'availabilities/split_item', :locals => {split: a} %>
     <% end %>
   </div>
-  <div style="text-align: center; height: 50px; margin-top: 50px;">
+  <div style="text-align: center; height: 50px; padding-top: 50px;">
     <%= link_to '+ Add Availability', new_availability_path, class: 'bannerBtn' %>
   </div>
 </div>

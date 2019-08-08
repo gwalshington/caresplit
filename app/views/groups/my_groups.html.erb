@@ -5,8 +5,10 @@
   <div class="groupMemberContainer">
     <% g.users.each do |user| %>
       <div class="groupMember">
-        <%= image_tag(image_url(user.photo(:thumb)), class: 'splitImage') %>
-        <h3><%= user.first_name %></h3>
+        <%= link_to profile_path(user) do %>
+          <%= image_tag(image_url(user.photo(:thumb)), class: 'splitImage') %>
+          <h3><%= user.first_name %></h3>
+        <% end %>
       </div>
     <% end %>
   </div>

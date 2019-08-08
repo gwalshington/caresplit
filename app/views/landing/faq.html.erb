@@ -1,1 +1,70 @@
-<h1>FAQ</h1>
+<div class="pageContainer">
+<h2 class="formHeader">FAQ</h2>
+
+<div class="FAQContainer">
+
+  <div class="FAQContainerClosed" id="faq1">
+    <h3>Question 1</h3>
+    <div class='faqArrow faqArrowDown'>
+      <%= image_tag('chevronDown', id: 'open1') %>
+    </div>
+    <div class='faqArrow faqArrowUp'>
+      <%= image_tag('chevronUp', style: 'display:none;', id: 'close1') %>
+    </div>
+  </div>
+  <div id="content1" style="display:none;">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor sem.  Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu condimentum sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor sem.  Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu condimentum sed.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor sem.  Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu condimentum sed.
+    <br /><br />
+    Aliquam at porttitor sem.  Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu condimentum sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor sem.  Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu condimentum sed.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor sem.  Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu condimentum sed.</p>
+  </div>
+
+  <div class="FAQContainerClosed" id="faq2">
+    <h3>Question 2</h3>
+    <div class='faqArrow faqArrowDown'>
+      <%= image_tag('chevronDown', id: 'open2') %>
+    </div>
+    <div class='faqArrow faqArrowUp'>
+      <%= image_tag('chevronUp', style: 'display:none;', id: 'close2') %>
+    </div>
+  </div>
+  <div id="content2" style="display:none;">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor sem.  Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu condimentum sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor sem.  Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu condimentum sed.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor sem.  Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu condimentum sed.
+    <br /><br />
+    Aliquam at porttitor sem.  Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu condimentum sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor sem.  Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu condimentum sed.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor sem.  Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu condimentum sed.</p>
+  </div>
+
+  <div class="FAQContainerClosed" id="faq3">
+    <h3>Question 3</h3>
+    <div class='faqArrow faqArrowDown'>
+      <%= image_tag('chevronDown', id: 'open3') %>
+    </div>
+    <div class='faqArrow faqArrowUp'>
+      <%= image_tag('chevronUp', style: 'display:none;', id: 'close3') %>
+    </div>
+  </div>
+  <div id="content3" style="display:none;">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor sem.  Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu condimentum sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor sem.  Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu condimentum sed.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor sem.  Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu condimentum sed.
+    <br /><br />
+    Aliquam at porttitor sem.  Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu condimentum sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor sem.  Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu condimentum sed.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor sem.  Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu condimentum sed.</p>
+  </div>
+</div>
+
+
+</div>
+
+<script>
+  $(document).on('click', '#faq1', function() {
+    console.log('click')
+    $('#content1, #open1, #close1, #content1').toggle()
+
+  })
+  $(document).on('click', '#faq2', function() {
+    console.log('click')
+    $('#content2, #open2, #close2, #content2').toggle()
+  })
+  $(document).on('click', '#faq3', function() {
+    console.log('click')
+    $('#content3, #open3, #close3, #content3').toggle()
+
+  })
+</script>
