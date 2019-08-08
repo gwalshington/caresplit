@@ -18,9 +18,9 @@ class LandingController < ApplicationController
       return
     end
 
-    @availabilities = @group.availabilities.where('id NOT IN (SELECT DISTINCT(availability_id) FROM splits)').order(:start_time)
-    @bookedSplits = current_user.splits.where('cancelled != ?', true).joins(:availability).where('end_time >= ?', Date.yesterday)
-    @hostingSplits = Split.where('splits.availability_id IN (?) AND cancelled != ?', current_user.availabilities.pluck(:id), true).joins(:availability).where('end_time >= ?', Date.yesterday)
+    @availabilities = @group.availabilities.where('id NOT IN (SELECT DISTINCT(availability_id) FROM splits)').order(:start_date
+    @bookedSplits = current_user.splits.where('cancelled != ?', true).joins(:availability).where('start_date >= ?', Date.yesterday)
+    @hostingSplits = Split.where('splits.availability_id IN (?) AND cancelled != ?', current_user.availabilities.pluck(:id), true).joins(:availability).where('start_date >= ?', Date.yesterday)
   end
 
   def welcome_new_user
