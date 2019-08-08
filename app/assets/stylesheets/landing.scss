@@ -25,3 +25,27 @@
   height: 20px;
   align-self: center;
 }
+
+.hidden {
+  display: none;
+}
+
+.welcomeImageMobile {
+  background-image: image-url('landingMobile.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 300px;
+  width: 100%;
+}
+
+.welcomeImageDesktop {
+  background-image: image-url('landingDesktop.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 1000px;
+  width: 100%;
+  position: absolute;
+  padding-top: 150px;
+}
