@@ -91,7 +91,7 @@ Rails.application.configure do
     :authentication => :plain,
     :user_name      => ENV['SENDGRID_USERNAME'],
     :password       =>  ENV['SENDGRID_PASSWORD'],
-    :domain         => 'caresplit.com',
+    :domain         => 'app.caresplit.com',
     :enable_starttls_auto  => :true
   }
 
