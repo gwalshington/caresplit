@@ -30,7 +30,9 @@
       <%= render partial: 'availabilities/split_item', :locals => {split: a} %>
     <% end %>
   </div>
-  <div style="text-align: center; height: 50px; padding-top: 50px;">
-    <%= link_to '+ Add Availability', new_availability_path, class: 'bannerBtn' %>
-  </div>
+    <%= link_to new_availability_path do %>
+      <div class='bannerBtn'>
+        <h3>+ Add Availability</h3>
+      </div>
+    <% end %>
 </div>
