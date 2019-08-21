@@ -1,5 +1,5 @@
 class GroupMailer < ApplicationMailer
-  default from: "CareSplit hello@caresplit.com"
+  default from: "CareSplit <hello@caresplit.com>"
 
   def confirm_new_group(id, user_id)
     @group = Group.find(id)

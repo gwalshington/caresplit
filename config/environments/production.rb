@@ -84,7 +84,6 @@ Rails.application.configure do
   #     s3_region: ENV.fetch('AWS_REGION'),
   #   }
   # }
-  config.action_mailer.default_url_options = { :host => 'app.caresplit.com' }
 
   config.action_mailer.smtp_settings = {
     :address        => 'smtp.sendgrid.net',
