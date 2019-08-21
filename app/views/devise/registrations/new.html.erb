@@ -1,3 +1,5 @@
+<% @email = request.query_parameters[:email] ? request.query_parameters[:email] : '' %>
+
 <div class="pageContainer">
   <h2 class="signUpHeader">First, let's start with information about you</h2>
   <div class="formStandard">
@@ -31,7 +33,7 @@
 
     <div class="field">
       <%= f.label 'EMAIL', class: "labelStandard" %>
-      <%= f.email_field :email, autocomplete: "email", class: "inputStandard" %>
+      <%= f.email_field :email, autocomplete: "email", class: "inputStandard", value: @email %>
     </div>
 
     <div class="field">
