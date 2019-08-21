@@ -84,6 +84,7 @@ Rails.application.configure do
   #     s3_region: ENV.fetch('AWS_REGION'),
   #   }
   # }
+  config.action_mailer.default_url_options = { :host => 'app.caresplit.com' }
 
   config.action_mailer.smtp_settings = {
     :address        => 'smtp.sendgrid.net',
@@ -91,7 +92,7 @@ Rails.application.configure do
     :authentication => :plain,
     :user_name      => ENV['SENDGRID_USERNAME'],
     :password       =>  ENV['SENDGRID_PASSWORD'],
-    :domain         => 'app.caresplit.com',
+    :domain         => 'caresplit.com',
     :enable_starttls_auto  => :true
   }
 
