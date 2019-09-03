@@ -7,6 +7,10 @@ Things you may want to cover:
 
 * Ruby version
 
+install rails and ruby
+bundle install
+rails s (to start the server)
+
 * System dependencies
 
 * Configuration
