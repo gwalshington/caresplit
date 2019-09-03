@@ -22,3 +22,9 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+Running rake tasks from console:
+require 'rake'
+Rails.application.load_tasks
+Rake::Task['my_task'].invoke

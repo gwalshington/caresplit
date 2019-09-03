@@ -1,9 +1,9 @@
 class SplitsController < ApplicationController
   before_action :authenticate_user!
   before_action :authenticate_admin, only: [:index, :destroy]
-  before_action :set_split, only: [:show, :edit, :update, :destroy, :approve_split, :decline_split, :cancel_split]
   before_action :authenticate_split_user, only: [:show, :view, :edit, :approve_split, :decline_split, :cancel_split ]
-
+  before_action :set_split, only: [:show, :edit, :update, :destroy, :approve_split, :decline_split, :cancel_split]
+  include SmsHelper
   # GET /splits
   # GET /splits.json
   def index
@@ -33,11 +33,15 @@ class SplitsController < ApplicationController
     @notes = "Booked " + @split.availability.user.first_name + " " + @split.availability.user.last_name[0] + "."
     respond_to do |format|
       if @split.save
+        @child_count = 0
         @children.each do |child|
+          @child_count += 1
           SplitChild.create(split_id: @split.id, child_id: child)
         end
-        adjust_credits(@split.id, current_user.id, false, @credits, @notes)
 
+        adjust_credits(@split.id, current_user.id, false, @credits, @notes)
+        #send sms to mom being requested.
+        request_split_sms(@split.id)
         format.html { redirect_to dashboard_path, notice: 'Split was requested!' }
         format.json { render :show, status: :created, location: @split }
       else
@@ -59,7 +63,7 @@ class SplitsController < ApplicationController
       if @split.save
         #give credits to user who requested split
         adjust_credits(@split.id, current_user.id, true, @credits, @notes)
-
+        approve_split_sms(@split.id)
         format.html { redirect_to dashboard_path, notice: 'Split was approved!' }
         format.json { render :show, status: :created, location: @split }
       else
@@ -166,7 +170,7 @@ class SplitsController < ApplicationController
     end
 
     def authenticate_split_user
-      if(@split.user_id != current_user.id && @split.availability.user_id != current_user.id)
+      if((@split.user_id != current_user.id && @split.availability.user_id != current_user.id))
         redirect_to dashboard_path, alert: 'You do not have access to that Split'
       end
     end

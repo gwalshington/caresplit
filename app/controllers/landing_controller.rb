@@ -1,5 +1,6 @@
 class LandingController < ApplicationController
   before_action :authenticate_user!, only: [:dashboard, :profile]
+  include SmsHelper
 
   def index
     if user_signed_in?

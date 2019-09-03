@@ -2,8 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   #sentry
   before_action :set_raven_context
-  protect_from_forgery with: :exception
-
+  protect_from_forgery with: :exception 
 
   def adjust_credits(split_id, user_id, add_credits, value, notes)
     Credit.create(split_id: split_id, user_id: user_id, add_credits: add_credits, value: value, notes: notes)
