@@ -35,14 +35,14 @@ class GroupsController < ApplicationController
       if @group.save
         #make current user group admin
         GroupUser.create(user_id: current_user.id, group_id: @group.id, admin: true)
-
+        GroupMailer.confirm_new_group(@group.id, current_user.id).deliver_later
         #create group invitees and email each user
         params[:group_user].each do |user|
           if(user[:email] != '')
             @group_invite = GroupInvite.new(email: user[:email], group_id: @group.id, user_id: current_user.id)
             if @group_invite.save
               #email group invitees
-              GroupInviteMailer.send_invite(@group_invite.id).deliver_now
+              GroupInviteMailer.send_invite(@group_invite.id).deliver_later
             end
           end
         end

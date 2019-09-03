@@ -26,3 +26,9 @@ rails s (to start the server)
 * Deployment instructions
 
 * ...
+
+
+Running rake tasks from console:
+require 'rake'
+Rails.application.load_tasks
+Rake::Task['my_task'].invoke

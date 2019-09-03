@@ -50,7 +50,7 @@ class GroupInvitesController < ApplicationController
 
     respond_to do |format|
       if @group_invite.save
-        GroupInviteMailer.send_invite(@group_invite.id).deliver_now
+        GroupInviteMailer.send_invite(@group_invite.id).deliver_later
         format.html { redirect_to my_groups_path, notice: 'Invite was successfully sent.' }
         format.json { render :show, status: :created, location: @group_invite }
       else

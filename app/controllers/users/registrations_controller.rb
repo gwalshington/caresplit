@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
+  include SmsHelper
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
@@ -63,6 +64,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
   def after_sign_up_path_for(resource)
     super(resource)
+    #send welcome text
+    sign_up_sms(resource.phone)
     return new_child_onboard_url
   end
 
