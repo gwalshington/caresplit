@@ -1,27 +1,44 @@
-
-
-<p>
-  <strong>Availability:</strong>
-  <%= @split.availability %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @split.user %>
-</p>
-
-<p>
-  <strong>Approved:</strong>
-  <%= @split.approved %>
-</p>
-
-<p>
-  <strong>Cancelled:</strong>
-  <%= @split.cancelled %>
-</p>
-<% if (@split.availability.user_id === current_user.id) && !@split.approved && !@split.cancelled %>
-    <%= link_to('Approve Split', approve_split_path(@split), class: 'btnPrimary btnPrimarySmall') %>
-    <%= link_to('Decline Split', decline_split_path(@split), class: 'btnSecondarySmall') %>
-<% elsif  @split.approved && !@split.cancelled %>
-    <%= link_to('Cancel Split', cancel_split_path(@split), class: 'btnSecondarySmall') %>
-<% end %>
+<div class="formStandard">
+  <div class="splitHeader">
+    <div class="splitImageSection">
+      <%= image_tag(image_url(@split.availability.user.photo(:thumb)), class: 'splitImage') %>
+      <h3><%= formatUserName(@split.availability.user) %></h3>
+    </div>
+    <div>
+      <%= @credits %> CREDITS
+    </div>
+  </div>
+  <div class="splitInfo">
+    <h3 class="labelStandard">DATE</h3>
+    <h3><%= @split.availability.start_date.strftime('%d/%m/%Y') %></h3>
+  </div>
+  <div class="splitInfo">
+    <h3 class="labelStandard">START TIME</h3>
+    <h3><%= @split.availability.start_time.strftime('%l:%M %p') %></h3>
+  </div>
+  <div class="splitInfo">
+    <h3 class="labelStandard">END TIME</h3>
+    <h3><%= @split.availability.end_time.strftime('%l:%M %p') %></h3>
+  </div>
+  <div class="splitInfo">
+    <h3 class="labelStandard">ACTIVITY</h3>
+    <h3><%= @split.availability.activity %></h3>
+  </div>
+  <div class="splitInfo">
+    <h3 class="labelStandard">NOTES</h3>
+    <h3><%= @split.availability.activity %></h3>
+  </div>
+  <div class="splitInfo">
+    <h3 class="labelStandard">LOCATION</h3>
+    <h3><%= @split.availability.location %></h3>
+    <h3><%= @split.availability.location_address %></h3>
+  </div>
+  <div class="actions">
+    <% if (@split.availability.user_id === current_user.id) && !@split.approved && !@split.cancelled %>
+        <%= link_to('Approve Split', approve_split_path(@split), class: 'btnPrimary btnPrimarySmall') %>
+        <%= link_to('Decline Split', decline_split_path(@split), class: 'btnSecondarySmall') %>
+    <% elsif  @split.approved && !@split.cancelled %>
+        <%= link_to('Cancel Split', cancel_split_path(@split), class: 'btnSecondarySmall') %>
+    <% end %>
+  </div>
+</div>

@@ -13,6 +13,7 @@ class SplitsController < ApplicationController
   # GET /splits/1
   # GET /splits/1.json
   def show
+    @credits = (@split.availability.end_time.to_i - @split.availability.start_time.to_i)/3600
   end
 
   # GET /splits/new
@@ -32,7 +33,10 @@ class SplitsController < ApplicationController
     @credits = (@split.availability.end_time.to_i - @split.availability.start_time.to_i)/3600
     @notes = "Booked " + @split.availability.user.first_name + " " + @split.availability.user.last_name[0] + "."
     respond_to do |format|
-      if @split.save
+      if @children === nil
+        format.html { redirect_to availability_path(@id), alert: 'You did not select any children for the split!' }
+        format.json { render json: @split.errors, status: :unprocessable_entity }
+      elsif @split.save
         @child_count = 0
         @children.each do |child|
           @child_count += 1
