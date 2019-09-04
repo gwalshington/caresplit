@@ -1,8 +1,8 @@
 class SplitsController < ApplicationController
   before_action :authenticate_user!
   before_action :authenticate_admin, only: [:index, :destroy]
-  before_action :authenticate_split_user, only: [:show, :view, :edit, :approve_split, :decline_split, :cancel_split ]
   before_action :set_split, only: [:show, :edit, :update, :destroy, :approve_split, :decline_split, :cancel_split]
+  before_action :authenticate_split_user, only: [:show, :view, :edit, :approve_split, :decline_split, :cancel_split ]
   include SmsHelper
   # GET /splits
   # GET /splits.json
