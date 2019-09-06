@@ -1,7 +1,7 @@
 <% @email = request.query_parameters[:email] ? request.query_parameters[:email] : '' %>
 
 <div class="pageContainer">
-  <h2 class="signUpHeader">First, let's start with information about you</h2>
+  <div class="signUpHeading">First, let's start with information about you</div>
   <div class="formStandard">
     <div class="signUpProgress">
       <%= image_tag('line.svg', style: "z-index: 100;") %>
