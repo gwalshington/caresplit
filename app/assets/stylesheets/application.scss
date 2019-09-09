@@ -30,8 +30,20 @@
  body {
    background-color: #fff;
    color: #333;
-   font-family: Cabin, arial, helvetica, sans-serif;
+   font-family: 'Cabin' sans-serif;
    margin: 0;
+ }
+
+ h3 {
+   font-family: 'Cabin' sans-serif;
+   line-height: 1;
+   font-size: 15px;
+ }
+
+ h5 {
+   font-family: 'Cabin' sans-serif;
+   line-height: 3;
+   font-size: 15px;
  }
 
  .green {
@@ -50,7 +62,7 @@
 
 .pageTitle {
   height: 24px;
-  font-family: Cabin;
+  font-family: 'Cabin' sans-serif;
   font-size: 20px;
   color: #333333;
   font-weight: 700;
@@ -71,7 +83,7 @@
   border: 1px solid #d6e9c6;
   border-radius: 4px;
   background-color: #dff0d8;
-  font-family: Arial;
+  font-family: 'Cabin' sans-serif;
   font-size: 14px;
   color: #3c763d;
   font-weight: 700;
@@ -83,7 +95,7 @@
   padding: 15px;
   border: 1px solid #ebccd1;
   border-radius: 4px;
-  font-family: Arial;
+  font-family: 'Cabin' sans-serif;
   font-size: 14px;
   font-weight: 700;
   text-decoration: none solid rgb(60, 118, 61);
@@ -93,15 +105,16 @@
 
 .btnPrimary {
   height: 37px;
+  width: 80%;
   padding: 6px 20px;
-  border-radius: 40px;
+  border-radius: 100px;
   background-color: #a540e4;
   background-size: cover;
-  font-family: Cabin;
+  border: none;
+  font-family: 'Cabin' sans-serif;
   font-size: 18px;
   color: #ffffff;
   font-weight: 700;
-  text-decoration: none solid rgb(255, 255, 255);
   text-align: center;
   display: flex;
   align-items: center;
@@ -115,7 +128,7 @@
   border-radius: 40px;
   background-color: #320b57;
   background-size: cover;
-  font-family: Cabin;
+  font-family: 'Cabin' sans-serif;
   font-size: 18px;
   color: #ffffff;
   text-decoration: none solid rgb(255, 255, 255);
@@ -128,7 +141,7 @@
   border-radius: 40px;
   border: #a540e4 solid 1px;
   background-size: cover;
-  font-family: Cabin;
+  font-family: 'Cabin', sans-serif;
   font-size: 18px;
   color: #a540e4;
   font-weight: 700;
@@ -143,10 +156,17 @@
 .btnPrimarySmall {
   width: 80px;
 }
-
 .btnPrimaryLarge {
   max-width: 350px;
   height: 45px;
+  font-family: 'Cabin', sans-serif;
+
+}
+.btnSignUp {
+  text-decoration: underline;
+  line-height: 1;
+  display: inline-block;
+  font-weight: 900;
 }
 
 .btnSecondaryLarge {
@@ -166,7 +186,7 @@
   border-radius: 40px;
   border: #a540e4 solid 1px;
   background-size: cover;
-  font-family: Cabin;
+  font-family: 'Cabin', sans-serif;
   font-size: 18px;
   color: #a540e4;
   font-weight: 700;
@@ -199,7 +219,7 @@
   min-width: 25%;
   max-width: 125px;
   height: 19px;
-  font-family: Cabin;
+  font-family: 'Cabin', sans-serif;
   font-size: 16px;
   color: #333333;
   text-decoration: none solid rgb(51, 51, 51);
@@ -279,7 +299,7 @@
 .splitItemBtnSection p {
   width: 115px;
   height: 18px;
-  font-family: Cabin;
+  font-family: 'Cabin', sans-serif;
   color: #333333;
   font-weight: 700;
   text-decoration: none solid rgb(51, 51, 51);
@@ -293,7 +313,7 @@
   padding: 20px 0;
   background-color: #320b57;
   background-size: cover;
-  font-family: Cabin;
+  font-family: 'Cabin', sans-serif;
   font-size: 18px;
   color: #ffffff;
   text-decoration: none solid white;
@@ -363,7 +383,7 @@
 h1.cabinText {
   width: 300px;
   height: 25px;
-  font-family: Cabin;
+  font-family: 'Cabin', sans-serif;
   font-size: 21px;
   color: #333333;
   font-weight: 700;
@@ -410,7 +430,7 @@ h1.cabinText {
 }
 
 .navMenuText {
-  font-family: Cabin;
+  font-family: 'Cabin', sans-serif;
   font-size: 20px;
   color: #333333;
   font-weight: 700;
