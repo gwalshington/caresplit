@@ -8,6 +8,7 @@
   background-size: cover;
   justify-content: center;
   display: flex;
+  align-self: center;
 }
 
 .FAQContainerClosed  h3{
@@ -18,7 +19,92 @@
   color: #333333;
   font-weight: 700;
   text-decoration: none solid rgb(51, 51, 51);
-      align-self: center;
+  align-self: center;
+  display: flex;
+}
+#content1  {
+  padding-top: 10px;
+  line-height: 1;
+  padding-bottom: 30px;
+  width: 300px;
+  height: 19px;
+  font-family: Cabin;
+  font-size: 16px;
+  color: #333333;
+  font-weight: 700;
+  text-decoration: none solid rgb(51, 51, 51);
+  align-self: center;
+  display: flex;
+}
+#content2  {
+  padding-top: 10px;
+  padding-bottom: 30px;
+  width: 300px;
+  height: 19px;
+  font-family: Cabin;
+  font-size: 16px;
+  color: #333333;
+  font-weight: 700;
+  text-decoration: none solid rgb(51, 51, 51);
+  align-self: center;
+  display: flex;
+  line-height: 1;
+}
+#content3  {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 300px;
+  height: 19px;
+  font-family: Cabin;
+  font-size: 16px;
+  color: #333333;
+  font-weight: 700;
+  text-decoration: none solid rgb(51, 51, 51);
+  align-self: center;
+  display: flex;
+  line-height: 1;
+}
+#content4  {
+  padding-top: 10px;
+  line-height: 1;
+  padding-bottom: 20px;
+  width: 300px;
+  height: 19px;
+  font-family: Cabin;
+  font-size: 16px;
+  color: #333333;
+  font-weight: 700;
+  text-decoration: none solid rgb(51, 51, 51);
+  align-self: center;
+  display: flex;
+}
+#content5  {
+  padding-top: 10px;
+  line-height: 1;
+  padding-bottom: 40px;
+  width: 300px;
+  height: 19px;
+  font-family: Cabin;
+  font-size: 16px;
+  color: #333333;
+  font-weight: 700;
+  text-decoration: none solid rgb(51, 51, 51);
+  align-self: center;
+  display: flex;
+}
+#content6  {
+  padding-top: 10px;
+  line-height: 1;
+  padding-bottom: 20px;
+  width: 300px;
+  height: 19px;
+  font-family: Cabin;
+  font-size: 16px;
+  color: #333333;
+  font-weight: 700;
+  text-decoration: none solid rgb(51, 51, 51);
+  align-self: center;
+  display: flex;
 }
 
 .faqArrow {
