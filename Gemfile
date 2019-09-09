@@ -41,8 +41,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 
 #upload attachments, such as user images to S3
-gem 'paperclip'
-gem 'aws-sdk', '~> 2.3'
+gem 'paperclip', '~> 5.1.0'
+gem 'aws-sdk',   '~> 2.6'
 
 gem 'nokogiri', '~> 1.10.4'
 gem 'figaro'

@@ -342,7 +342,7 @@
 
 .popUpContainer {
   background-color: white;
-  position: sticky;
+  position: -webkit-sticky;;
   max-width: 350px;
   margin: auto;
   padding: 14px;
