@@ -1,5 +1,5 @@
 class GroupInviteMailer < ApplicationMailer
-  default from: "CareSplit <hello@caresplit.com>"
+  default from: "Caresplit <info@caresplit.com>"
 
   def send_invite(id)
     @group_invite = GroupInvite.find(id)
