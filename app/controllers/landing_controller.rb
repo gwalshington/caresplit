@@ -19,7 +19,7 @@ class LandingController < ApplicationController
       return
     end
 
-    @availabilities = @group.availabilities.where('id NOT IN (SELECT DISTINCT(availability_id) FROM splits)').order(:start_date)
+    @availabilities = @group.availabilities.where('start_date >= ? AND id NOT IN (SELECT DISTINCT(availability_id) FROM splits)', Date.yesterday).order(:start_date)
     @bookedSplits = current_user.splits.where('cancelled != ?', true).joins(:availability).where('start_date >= ?', Date.yesterday)
     @hostingSplits = Split.where('splits.availability_id IN (?) AND cancelled != ?', current_user.availabilities.pluck(:id), true).joins(:availability).where('start_date >= ?', Date.yesterday)
   end
