@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'CareSplit hello@caresplit.com'
+  default from: 'Caresplit info@caresplit.com'
   layout 'mailer'
 end
