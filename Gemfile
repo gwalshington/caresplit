@@ -38,7 +38,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'devise'
+gem "devise", ">= 4.7.1"
 
 #upload attachments, such as user images to S3
 gem 'paperclip', '~> 5.2.0'

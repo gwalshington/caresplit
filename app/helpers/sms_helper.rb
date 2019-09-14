@@ -55,7 +55,7 @@ module SmsHelper
     @client.api.account.messages.create(
       from: ENV['twilio_number'],
       to: @split.availability.user.phone,
-      body: "Confirmed: You’re watching #{@split.user.first_name}'s #{@split.children.count != 1 ? 'kids' : 'kid'} on #{@split.availability.start_date.strftime('%a, %m/%-d')}, #{@split.availability.start_time.strftime('%I:%M%p')} - #{@split.availability.end_time.strftime('%I:%M %p')} at #{@split.availability.location}. View location and full details here: http://app.caresplit.com/split/#{@split.id}"
+      body: "Confirmed: You’re watching #{@split.user.first_name}'s #{@split.children.count != 1 ? 'kids' : 'child'} on #{@split.availability.start_date.strftime('%a, %m/%-d')}, #{@split.availability.start_time.strftime('%I:%M%p')} - #{@split.availability.end_time.strftime('%I:%M %p')} at #{@split.availability.location}. View location and full details here: http://app.caresplit.com/split/#{@split.id}"
     )
     #send to Split user
     # # TODO: change link to bit.ly
@@ -63,9 +63,11 @@ module SmsHelper
     @client.api.account.messages.create(
       from: ENV['twilio_number'],
       to: @split.user.phone,
-      body: "Confirmed: #{@split.user.first_name} is watching your #{@split.children.count != 1 ? 'kids' : 'kid'} on #{@split.availability.start_date.strftime('%a, %m/%-d')}, #{@split.availability.start_time.strftime('%I:%M%p')} - #{@split.availability.end_time.strftime('%I:%M %p')} at #{@split.availability.location}. View location and full details here: http://app.caresplit.com/split/#{@split.id}"
+      body: "Confirmed: #{@split.user.first_name} is watching your #{@split.children.count != 1 ? 'kids' : 'child'} on #{@split.availability.start_date.strftime('%a, %m/%-d')}, #{@split.availability.start_time.strftime('%I:%M%p')} - #{@split.availability.end_time.strftime('%I:%M %p')} at #{@split.availability.location}. View location and full details here: http://app.caresplit.com/split/#{@split.id}"
     )
   end
+
+#### changed wording to child from kid ####
 
   #### SCHEDULER TASKS ####
 
