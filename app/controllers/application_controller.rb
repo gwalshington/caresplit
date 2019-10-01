@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   #sentry
   before_action :set_raven_context
-  protect_from_forgery with: :exception 
+  protect_from_forgery with: :exception
 
   def adjust_credits(split_id, user_id, add_credits, value, notes)
     Credit.create(split_id: split_id, user_id: user_id, add_credits: add_credits, value: value, notes: notes)
@@ -18,9 +18,9 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :phone, :photo, :home_address])
-    devise_parameter_sanitizer.permit(:sign_in, keys: [:first_name, :last_name, :phone, :photo, :home_address])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :phone, :photo, :home_address])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :phone, :photo, :home_address, :admin])
+    devise_parameter_sanitizer.permit(:sign_in, keys: [:first_name, :last_name, :phone, :photo, :home_address, :admin])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :phone, :photo, :home_address, :admin])
   end
 
   def authenticate_admin
