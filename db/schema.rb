@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 20191001155137) do
     t.string   "email"
     t.datetime "last_emailed"
     t.string   "notes"
-    t.string   "phone",        limit: 11
+    t.string   "phone"
     t.index ["group_id"], name: "index_group_invites_on_group_id"
     t.index ["user_id"], name: "index_group_invites_on_user_id"
   end
