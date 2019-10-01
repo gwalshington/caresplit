@@ -14,6 +14,18 @@ module SmsHelper
     @client = Twilio::REST::Client.new account_sid, auth_token
   end
 
+  #invite friend to group
+  def invite_sms(phone_number, message)
+    set_twilio_client
+
+    @client.api.account.messages.create(
+      from: ENV['twilio_number'],
+      to: phone_number,
+      body: message
+    )
+    rescue
+  end
+
   #Devise after_sign_up_path_for, send sms
   def sign_up_sms(phone_number)
     set_twilio_client
@@ -23,6 +35,7 @@ module SmsHelper
       to: phone_number,
       body: 'You’ve just joined Caresplit- your support network of other moms to swap childcare with. Add your availability and view open splits here: http://app.caresplit.com/dashboard'
     )
+    rescue
   end
 
   #request split, email availability user

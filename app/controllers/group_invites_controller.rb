@@ -1,5 +1,6 @@
 class GroupInvitesController < ApplicationController
   before_action :set_group_invite, only: [:show, :edit, :update, :destroy]
+  include SmsHelper
 
   # GET /group_invites
   # GET /group_invites.json
@@ -19,13 +20,22 @@ class GroupInvitesController < ApplicationController
   end
 
   def add_bulk_friends
-
     params[:group_user].each do |user|
-      if(user[:email] != '')
+      if(user.has_key?(:email) && user[:email] != '')
+        puts 'email is not empty'
         @group_invite = GroupInvite.new(email: user[:email], group_id: current_user.groups.first.id, user_id: current_user.id)
         if @group_invite.save
           #email group invitees
           GroupInviteMailer.send_invite(@group_invite.id).deliver_now
+        end
+      end
+      if(user.has_key?(:phone) && user[:phone] != '')
+        puts 'phone is not empty'
+        @group_invite = GroupInvite.new(phone: user[:phone], group_id: current_user.groups.first.id, user_id: current_user.id)
+        if @group_invite.save
+          #send sms to group invitees
+          @message = "Hey it’s #{@group_invite.invitee.first_name}! Join my CareSplit group, #{@group_invite.group.name}. We can split childcare - it’s free! Here’s the link: app.caresplit.com/users/sign_up"
+          invite_sms(@group_invite.phone, @message)
         end
       end
     end
@@ -47,10 +57,15 @@ class GroupInvitesController < ApplicationController
     @group_invite.user_id = current_user.id
     @group_invite.group_id = current_user.groups.first.id
 
-
     respond_to do |format|
       if @group_invite.save
-        GroupInviteMailer.send_invite(@group_invite.id).deliver_later
+        if @group_invite.email != nil
+          GroupInviteMailer.send_invite(@group_invite.id).deliver_later
+        end
+        if @group_invite.phone != nil
+          @message = "Hey it’s #{@group_invite.invitee.first_name}! Join my CareSplit group, #{@group_invite.group.name}. We can split childcare - it’s free! Here’s the link: app.caresplit.com/users/sign_up"
+          invite_sms(@group_invite.phone, @message)
+        end
         format.html { redirect_to my_groups_path, notice: 'Invite was successfully sent.' }
         format.json { render :show, status: :created, location: @group_invite }
       else
@@ -92,6 +107,6 @@ class GroupInvitesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def group_invite_params
-      params.require(:group_invite).permit(:group_id, :first_name, :email, :last_emailed, :user_id, :notes)
+      params.require(:group_invite).permit(:group_id, :first_name, :email, :last_emailed, :user_id, :notes, :phone)
     end
 end

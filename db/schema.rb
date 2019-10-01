@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190807200747) do
+ActiveRecord::Schema.define(version: 20191001155137) do
 
   create_table "availabilities", force: :cascade do |t|
     t.integer  "user_id"
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 20190807200747) do
     t.string   "email"
     t.datetime "last_emailed"
     t.string   "notes"
+    t.string   "phone",        limit: 11
     t.index ["group_id"], name: "index_group_invites_on_group_id"
     t.index ["user_id"], name: "index_group_invites_on_user_id"
   end

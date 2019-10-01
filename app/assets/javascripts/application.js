@@ -124,4 +124,13 @@ $(document).ready(function () {
               $('#hiddenLocationFieldContainer').css('display','none')
             }
     });
+
+    if(window.location.pathname === "/admin_dash")	{
+      $('#userTable').DataTable();
+      $('#availabilityTable').DataTable();
+      $('#splitTable').DataTable();
+      $('#groupTable').DataTable();
+    }
+
+
 });

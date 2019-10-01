@@ -38,11 +38,13 @@ class ChildrenController < ApplicationController
 
     respond_to do |format|
       if params['children'].length > 1
-        @invite = GroupInvite.find_by(email: current_user.email)
+        @invites = GroupInvite.where('email = ? OR phone = ?', current_user.email, current_user.phone)
         @group = GroupUser.find_by(user_id: current_user.id)
-        if @invite != nil
-          GroupUser.create(user_id: current_user.id, group_id: @invite.group_id, invited_by: @invite.user_id)
-          @invite.delete
+        if @invites.length > 0
+          @invites.each do |invite|
+            GroupUser.create(user_id: current_user.id, group_id: invite.group_id, invited_by: invite.user_id)
+            invite.delete
+          end
           format.html { redirect_to group_onboard_url }
           format.json { head :no_content }
         elsif @group != nil

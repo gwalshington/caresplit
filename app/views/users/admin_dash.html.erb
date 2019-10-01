@@ -1,0 +1,111 @@
+<div>
+
+<h1 style="margin-top: 50px;">Users</h1>
+      <table id="userTable">
+          <thead>
+              <tr>
+                  <th><h3>First Name</h3></th>
+                  <th><h3>Last Name</h3></th>
+                  <th><h3>Credits</h3></th>
+              </tr>
+      </thead>
+      <tfoot>
+          <tr>
+                  <th><h3>First Name</h3></th>
+                  <th><h3>Last Name</h3></th>
+                  <th><h3>Credits</h3></th>
+          </tr>
+      </tfoot>
+      <tbody>
+        <% @users.each do |user| %>
+        <tr>
+            <td><%= user.first_name %></td>
+            <td><%= user.last_name %></td>
+            <td><%= user.credits %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+<h1 style="margin-top: 50px;">Availailities</h1>
+    <table id="availabilityTable">
+        <thead>
+            <tr>
+                <th><h3>First Name</h3></th>
+                <th><h3>Group</h3></th>
+                <th><h3>Date</h3></th>
+            </tr>
+    </thead>
+    <tfoot>
+        <tr>
+                <th><h3>First Name</h3></th>
+                <th><h3>Group</h3></th>
+                <th><h3>Date</h3></th>
+        </tr>
+    </tfoot>
+    <tbody>
+      <% @availabilities.each do |availability| %>
+      <tr>
+          <td><%= availability.user.first_name %></td>
+          <td><%= availability.group.name %></td>
+          <td><%= availability.start_date %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <h1 style="margin-top: 50px;">Availailities</h1>
+      <table id="splitTable">
+          <thead>
+              <tr>
+                  <th><h3>User</h3></th>
+                  <th><h3>Availability ID</h3></th>
+                  <th><h3>Approved?</h3></th>
+              </tr>
+      </thead>
+      <tfoot>
+          <tr>
+                  <th><h3>User</h3></th>
+                  <th><h3>Availability ID</h3></th>
+                  <th><h3>Approved?</h3></th>
+          </tr>
+      </tfoot>
+      <tbody>
+        <% @splits.each do |split| %>
+        <tr>
+            <td><%= split.user.first_name %></td>
+            <td><%= split.availability_id %></td>
+            <td><%= split.approved %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+
+    <h1 style="margin-top: 50px;">Groups</h1>
+        <table id="groupTable">
+            <thead>
+                <tr>
+                    <th><h3>Name</h3></th>
+                    <th><h3>User Count</h3></th>
+                    <th><h3>Creator Name</h3></th>
+                </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                    <th><h3>Name</h3></th>
+                    <th><h3>User Count</h3></th>
+                    <th><h3>Creator Name</h3></th>
+            </tr>
+        </tfoot>
+        <tbody>
+          <% @groups.each do |group| %>
+          <tr>
+              <td><%= group.name %></td>
+              <td><%= group.users.count %></td>
+              <td><%= group.creator.first_name %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+</div>
