@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
-  before_action :authenticate_group_user, except: [:admin_dash]
+  before_action :authenticate_active_user
+  before_action :authenticate_group_user, only: [:profile]
   before_action :authenticate_admin, only: [:admin_dash]
   def profile
     @user = User.find(params[:id])
@@ -12,6 +12,8 @@ class UsersController < ApplicationController
     @splits = Split.all
     @groups = Group.all
   end
+
+
 
   private
     def authenticate_group_user

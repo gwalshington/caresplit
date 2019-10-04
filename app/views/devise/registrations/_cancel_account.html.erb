@@ -1,0 +1,17 @@
+<div class="formStandard">
+
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <%= f.hidden_field :cancelled, value: true %>
+    <div class="field">
+      <%= f.label 'WHY ARE YOU CANCELLING YOUR ACCOUNT?', class: "labelStandard" %>
+      <%= f.text_area :cancel_reason, autofocus: true, class: "textAreaStandard" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Cancel Account", class: "btnPrimary btnPrimaryLarge" %>
+    </div>
+  <% end %>
+</div>

@@ -17,10 +17,18 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  def authenticate_active_user
+      authenticate_user!
+      if current_user. cancelled === true
+        sign_out current_user, notice: 'Your account is cancelled.'
+        redirect_to root_path
+      end
+  end
+
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :phone, :photo, :home_address, :admin])
-    devise_parameter_sanitizer.permit(:sign_in, keys: [:first_name, :last_name, :phone, :photo, :home_address, :admin])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :phone, :photo, :home_address, :admin])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :phone, :photo, :home_address, :admin, :cancelled, :cancel_reason])
+    devise_parameter_sanitizer.permit(:sign_in, keys: [:first_name, :last_name, :phone, :photo, :home_address, :admin, :cancelled, :cancel_reason])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :phone, :photo, :home_address, :admin, :cancelled, :cancel_reason])
   end
 
   def authenticate_admin

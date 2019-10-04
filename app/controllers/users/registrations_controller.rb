@@ -25,6 +25,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
+
+
+
+  def cancel_account
+
+  end
+
+
+
   # DELETE /resource
   # def destroy
   #   super
