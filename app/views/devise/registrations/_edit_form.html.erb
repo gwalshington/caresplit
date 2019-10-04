@@ -1,0 +1,62 @@
+<div style="text-align: center;">
+  <%= link_to "Edit My Children's Information", children_path, class: "darkBtnPrimary" %>
+</div>
+<div class="formStandard">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="uploadUserImageSection">
+      <%= f.label :photo, class: "settingsPhotoLabel", :style => "background-image: url(#{image_path(current_user.photo.url(:thumb))})" do %>
+            <%= image_tag(image_url('camera.svg'), class: 'uploadCameraImage') %>
+      <% end %>
+      <%= f.file_field :photo, value: @current_user.photo, class: "settingsPhotoInput" %>
+    </div>
+
+    <div class="field">
+      <%= f.label 'FIRST NAME', class: "labelStandard" %>
+      <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class: "inputStandard" %>
+    </div>
+
+    <div class="field">
+      <%= f.label 'LAST NAME', class: "labelStandard" %>
+      <%= f.text_field :last_name, autocomplete: "last_name", class: "inputStandard" %>
+    </div>
+
+    <div class="field">
+      <%= f.label 'EMAIL', class: "labelStandard" %>
+      <%= f.email_field :email, autocomplete: "email", class: "inputStandard" %>
+    </div>
+
+    <div class="field">
+      <%= f.label 'PHONE', class: "labelStandard" %>
+      <%= f.phone_field :phone, autocomplete: "phone", id: 'phoneNumber', class: "inputStandard" %>
+    </div>
+
+    <div class="field">
+      <%= f.label 'HOME ADDRESS', class: "labelStandard" %>
+      <%= f.text_field :home_address, autocomplete: "address", class: "inputStandard" %>
+    </div>
+
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label 'PASSWORD', class: "labelStandard" %> <i class="labelStandard"><br />(leave blank if you don't want to change it)</i>
+      <%= f.password_field :password, autocomplete: "new-password", class: "inputStandard" %>
+      <% if @minimum_password_length %>
+        <br />
+        <em class="labelStandard"><%= @minimum_password_length %> characters minimum</em>
+      <% end %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password_confirmation, class: "labelStandard" %><i class="labelStandard"><br />(leave blank if you don't want to change it)</i><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "inputStandard" %>
+    </div>
+
+
+    <div class="actions">
+      <%= f.submit "Update", class: "btnPrimary btnPrimaryLarge" %>
+    </div>
+  <% end %>
+</div>
