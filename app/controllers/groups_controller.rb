@@ -3,7 +3,7 @@ class GroupsController < ApplicationController
   before_action :authenticate_admin, only: [:index]
   before_action :set_group, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_group_user, except: [:index, :new, :create, :my_groups, :group_onboard, :create_group_onboard]
-
+  include SmsHelper
   # GET /groups
   # GET /groups.json
   def index
@@ -25,11 +25,9 @@ class GroupsController < ApplicationController
   end
 
   def create_group_onboard
-    puts params
 
     #create group
     if params[:group][:name] != ''
-      puts 'params name is not blank'
       @group = Group.new(name: params[:group][:name], creator_id: current_user.id)
 
       if @group.save
@@ -38,13 +36,13 @@ class GroupsController < ApplicationController
         GroupMailer.confirm_new_group(@group.id, current_user.id).deliver_later
         #create group invitees and email each user
         params[:group_user].each do |user|
-          if(user[:email] != '')
+          if(user[:email] != nil && user[:email] != '')
             @group_invite = GroupInvite.new(email: user[:email], group_id: @group.id, user_id: current_user.id)
             if @group_invite.save
               #email group invitees
               GroupInviteMailer.send_invite(@group_invite.id).deliver_later
             end
-          elsif(user[:phone] != '')
+          elsif(user[:phone] != nil && user[:phone] != '')
             @group_invite = GroupInvite.new(phone: user[:phone], group_id: @group.id, user_id: current_user.id)
             if @group_invite.save
               #sms group invitees
