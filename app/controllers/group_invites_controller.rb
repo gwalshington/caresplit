@@ -64,7 +64,7 @@ class GroupInvitesController < ApplicationController
           GroupInviteMailer.send_invite(@group_invite.id).deliver_later
         end
         if @group_invite.phone != nil
-          @message = "Hey it’s #{@group_invite.invitee.first_name}! Join my CareSplit group, #{@group_invite.group.name}. We can split childcare - it’s free! Here’s the link: app.caresplit.com/users/sign_up"
+          @message = "Hey it’s #{@group_invite.invitee.first_name}! Join my Caresplit group, #{@group_invite.group.name}. We can split childcare - it’s free! Here’s the link: app.caresplit.com/users/sign_up"
           invite_sms(@group_invite.phone, @message)
         end
         format.html { redirect_to my_groups_path, notice: 'Invite was successfully sent.' }
