@@ -44,6 +44,13 @@ class GroupsController < ApplicationController
               #email group invitees
               GroupInviteMailer.send_invite(@group_invite.id).deliver_later
             end
+          elsif(user[:phone] != '')
+            @group_invite = GroupInvite.new(phone: user[:phone], group_id: @group.id, user_id: current_user.id)
+            if @group_invite.save
+              #sms group invitees
+              @message = "Hey it’s #{@group_invite.invitee.first_name}! Join my Caresplit group, #{@group.name}. We can split childcare - it’s free! Here’s the link: app.caresplit.com/users/sign_up"
+              invite_sms(@group_invite.phone, @message)
+            end
           end
         end
 
