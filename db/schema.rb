@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191004142438) do
+ActiveRecord::Schema.define(version: 20191009034111) do
 
   create_table "availabilities", force: :cascade do |t|
     t.integer  "user_id"
@@ -123,7 +123,7 @@ ActiveRecord::Schema.define(version: 20191004142438) do
     t.integer  "photo_file_size",        limit: 8
     t.datetime "photo_updated_at"
     t.boolean  "admin",                             default: false
-    t.integer  "credits",                           default: 10
+    t.integer  "credits",                           default: 3
     t.string   "home_address"
     t.boolean  "cancelled",                         default: false
     t.string   "cancel_reason"
