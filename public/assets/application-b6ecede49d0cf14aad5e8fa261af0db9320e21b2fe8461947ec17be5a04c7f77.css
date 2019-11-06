@@ -93,7 +93,7 @@ td.creditThirdRow {
   height: 50px;
   padding: 0px 10px;
   border: 1px solid #ebebeb;
-  margin: 10px;
+  margin: 0px;
   border-radius: 15px;
   background-color: #ffffff;
   background-size: cover;
@@ -104,6 +104,21 @@ td.creditThirdRow {
 }
 
 /* line 58, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/forms.scss */
+.textAreaStandard {
+  height: 150px;
+  padding: 0px 10px;
+  border: 1px solid #ebebeb;
+  margin: 0px;
+  border-radius: 15px;
+  background-color: #ffffff;
+  background-size: cover;
+  font-family: 'Cabin', sans-serif;
+  font-size: 14px;
+  color: #333333;
+  text-decoration: none solid #333333;
+}
+
+/* line 74, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/forms.scss */
 .labelStandard {
   font-family: 'Cabin', sans-serif;
   font-size: 12px;
@@ -114,7 +129,7 @@ td.creditThirdRow {
   margin: 10px;
 }
 
-/* line 68, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/forms.scss */
+/* line 84, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/forms.scss */
 .formHeader {
   width: 333px;
   height: 24px;
@@ -128,7 +143,7 @@ td.creditThirdRow {
   margin: auto;
 }
 
-/* line 81, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/forms.scss */
+/* line 97, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/forms.scss */
 .signUpHeading {
   font-size: 20px;
   color: #333333;
@@ -137,7 +152,7 @@ td.creditThirdRow {
   margin: auto;
 }
 
-/* line 92, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/forms.scss */
+/* line 106, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/forms.scss */
 .signUpProgress {
   justify-content: center;
   padding: 35px;
@@ -145,7 +160,7 @@ td.creditThirdRow {
   margin: auto;
 }
 
-/* line 99, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/forms.scss */
+/* line 113, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/forms.scss */
 .dot {
   width: 24px;
   height: 24px;
@@ -154,34 +169,34 @@ td.creditThirdRow {
   margin-top: -16px;
 }
 
-/* line 106, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/forms.scss */
+/* line 120, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/forms.scss */
 .purpleDot {
   background-color: #320b57;
 }
 
-/* line 109, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/forms.scss */
+/* line 123, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/forms.scss */
 .greyDot {
   background-color: #ebebeb;
 }
 
-/* line 113, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/forms.scss */
+/* line 127, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/forms.scss */
 .pinkDot {
   background-color: #e12dcc;
 }
 
-/* line 117, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/forms.scss */
+/* line 131, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/forms.scss */
 .blueDot {
   background-color: #1c99ce;
 }
 
-/* line 121, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/forms.scss */
+/* line 135, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/forms.scss */
 .dotContainer {
   display: flex;
   justify-content: space-between;
   width: 172px;
 }
 
-/* line 127, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/forms.scss */
+/* line 141, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/forms.scss */
 .uploadUserImageSection {
   height: 150px;
   text-align: center;
@@ -189,12 +204,12 @@ td.creditThirdRow {
   margin-left: -33%;
 }
 
-/* line 134, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/forms.scss */
+/* line 148, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/forms.scss */
 input[type="file"].settingsPhotoInput {
   display: none;
 }
 
-/* line 138, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/forms.scss */
+/* line 152, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/forms.scss */
 .settingsPhotoLabel {
   cursor: pointer;
   fill: #fff;
@@ -206,13 +221,13 @@ input[type="file"].settingsPhotoInput {
   border-radius: 100%;
   position: absolute;
 }
-/* line 149, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/forms.scss */
+/* line 163, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/forms.scss */
 .settingsPhotoLabel svg {
   width: 25px;
   height: 25px;
 }
 
-/* line 155, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/forms.scss */
+/* line 169, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/forms.scss */
 .uploadCameraImage {
   height: 20px;
   border: 1px solid;
@@ -224,7 +239,7 @@ input[type="file"].settingsPhotoInput {
   margin-left: -15px;
 }
 
-/* line 166, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/forms.scss */
+/* line 180, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/forms.scss */
 .inFormInstructions {
   height: 18px;
   font-family: 'Cabin', sans-serif;
@@ -236,7 +251,7 @@ input[type="file"].settingsPhotoInput {
   padding: 20px 0;
 }
 
-/* line 177, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/forms.scss */
+/* line 191, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/forms.scss */
 .formHeader {
   height: 24px;
   font-family: 'Cabin', sans-serif;
@@ -247,7 +262,7 @@ input[type="file"].settingsPhotoInput {
   text-align: center;
 }
 
-/* line 187, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/forms.scss */
+/* line 201, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/forms.scss */
 select {
   width: 106px;
   height: 50px;
@@ -260,12 +275,12 @@ select {
   background-color: white;
 }
 
-/* line 199, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/forms.scss */
+/* line 213, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/forms.scss */
 select:focus {
   outline: none;
 }
 
-/* line 203, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/forms.scss */
+/* line 217, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/forms.scss */
 .datepicker {
   top: 128px;
   left: 440.812px;
@@ -512,7 +527,7 @@ table {
 }
 
 /* line 50, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/scaffolds.scss */
-input:focus {
+input:focus, textarea:focus {
   outline: none;
 }
 
@@ -748,19 +763,19 @@ h5 {
   cursor: pointer;
 }
 
-/* line 157, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
+/* line 158, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
 .btnPrimarySmall {
   width: 80px;
 }
 
-/* line 160, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
+/* line 161, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
 .btnPrimaryLarge {
   max-width: 350px;
   height: 45px;
   font-family: 'Cabin', sans-serif;
 }
 
-/* line 166, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
+/* line 167, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
 .btnSignUp {
   text-decoration: underline;
   line-height: 1;
@@ -768,19 +783,19 @@ h5 {
   font-weight: 900;
 }
 
-/* line 173, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
+/* line 174, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
 .btnSecondaryLarge {
   width: 350px;
   height: 45px;
 }
 
-/* line 178, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
+/* line 179, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
 .btnSubmit {
   height: 52px;
   padding: 6px 25px;
 }
 
-/* line 183, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
+/* line 184, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
 .btnSecondarySmall {
   width: 80px;
   height: 37px;
@@ -799,13 +814,30 @@ h5 {
   justify-content: center;
 }
 
-/* line 201, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
+/* line 202, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
 .btnAlert {
   color: #e12dcc;
   border-color: #e12dcc;
 }
 
-/* line 207, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
+/* line 208, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
+.btnDead {
+  height: 37px;
+  padding: 16px 5px;
+  border-radius: 40px;
+  background-color: #808080;
+  font-family: 'Cabin', sans-serif;
+  font-size: 18px;
+  color: #fff !important;
+  font-weight: 700;
+  text-decoration: none solid white;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* line 225, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
 .splitNav {
   margin: auto;
   text-align: center;
@@ -818,7 +850,7 @@ h5 {
   /* box-shadow: 0px 1px 2px rgba(0,0,0,0.2); */
 }
 
-/* line 219, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
+/* line 237, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
 .splitNavItem {
   min-width: 25%;
   max-width: 125px;
@@ -831,18 +863,18 @@ h5 {
   display: inline-block;
 }
 
-/* line 231, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
+/* line 249, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
 .splitNavItem h3 {
   font-weight: 200;
 }
 
-/* line 235, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
+/* line 253, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
 .selectedSplitNavItem {
   border-bottom: #1c99ce solid 5px;
   padding-bottom: 10px;
 }
 
-/* line 240, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
+/* line 258, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
 .availabilityContainer {
   background-color: #f7f7f7;
   min-height: 500px;
@@ -851,14 +883,28 @@ h5 {
   padding-bottom: 40px;
 }
 
-/* line 248, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
+/* line 266, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
 .availableSplitContainer {
   padding: 12px;
   max-width: 378px;
   margin: auto;
 }
 
-/* line 255, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
+/* line 272, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
+.bookedSplitContainer {
+  padding: 12px;
+  max-width: 378px;
+  margin: auto;
+}
+
+/* line 278, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
+.hostSplitContainer {
+  padding: 12px;
+  max-width: 378px;
+  margin: auto;
+}
+
+/* line 284, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
 .splitItem {
   max-width: 378px;
   min-height: 100px;
@@ -871,12 +917,12 @@ h5 {
   margin-bottom: 15px;
 }
 
-/* line 267, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
+/* line 296, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
 .listItemDate {
   margin: 20px 0;
 }
 
-/* line 271, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
+/* line 300, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
 .splitItemContent {
   display: flex;
   flex-direction: row;
@@ -885,7 +931,7 @@ h5 {
   align-items: center;
 }
 
-/* line 279, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
+/* line 308, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
 .splitItemApprovalBanner {
   background-color: #333;
   color: #fff;
@@ -894,7 +940,7 @@ h5 {
   padding: 3px;
 }
 
-/* line 287, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
+/* line 316, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
 .splitImage {
   height: 70px;
   width: 70px;
@@ -902,12 +948,12 @@ h5 {
   border-radius: 100%;
 }
 
-/* line 296, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
+/* line 325, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
 .splitItemBtnSection {
   text-align: center;
 }
 
-/* line 300, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
+/* line 329, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
 .splitItemBtnSection p {
   width: 115px;
   height: 18px;
@@ -918,7 +964,7 @@ h5 {
   text-align: center;
 }
 
-/* line 310, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
+/* line 339, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
 .bannerBtn {
   width: 100%;
   max-width: 378px;
@@ -933,7 +979,7 @@ h5 {
   text-align: center;
 }
 
-/* line 324, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
+/* line 353, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
 #chooseChildrenPopUp {
   position: absolute;
   top: 0;
@@ -943,19 +989,7 @@ h5 {
   justify-content: center;
 }
 
-/* line 333, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
-.greyChildBackground {
-  background-color: #000000;
-  opacity: .5;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  position: absolute;
-}
-
-/* line 344, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
+/* line 362, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
 .popUpContainer {
   background-color: white;
   position: -webkit-sticky;
@@ -965,7 +999,7 @@ h5 {
   margin-top: 150px;
 }
 
-/* line 353, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
+/* line 371, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
 .popUpHeader {
   display: flex;
   justify-content: center;
@@ -973,17 +1007,17 @@ h5 {
   padding-bottom: 20px;
 }
 
-/* line 360, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
+/* line 378, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
 .popUpContent {
   padding: 0 20px;
 }
 
-/* line 363, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
+/* line 381, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
 .popUpInstructions {
   padding-bottom: 10px;
 }
 
-/* line 367, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
+/* line 385, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
 .checkBoxLabel {
   width: 241px;
   height: 17px;
@@ -995,14 +1029,14 @@ h5 {
   padding-left: 5px;
 }
 
-/* line 378, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
+/* line 396, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
 .checkBoxSection {
   display: flex;
   align-items: center;
   padding: 5px;
 }
 
-/* line 384, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
+/* line 402, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
 h1.cabinText {
   width: 300px;
   height: 25px;
@@ -1013,7 +1047,7 @@ h1.cabinText {
   text-decoration: none solid #333333;
 }
 
-/* line 394, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
+/* line 412, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
 #sideMenu {
   background-color: #fff;
   position: absolute;
@@ -1025,7 +1059,7 @@ h1.cabinText {
   left: 0;
 }
 
-/* line 405, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
+/* line 423, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
 #hambugerMenu {
   position: fixed;
   color: black;
@@ -1037,13 +1071,13 @@ h1.cabinText {
   cursor: pointer;
 }
 
-/* line 416, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
+/* line 434, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
 .creditSection {
   background-color: #333333;
   width: 100%;
 }
 
-/* line 420, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
+/* line 438, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
 .creditText {
   font-size: 16px;
   padding: 7px;
@@ -1051,14 +1085,14 @@ h1.cabinText {
   text-align: center;
 }
 
-/* line 427, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
+/* line 445, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
 .navMenuHeader {
   display: flex;
   align-items: center;
   margin: 20px;
 }
 
-/* line 433, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
+/* line 451, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
 .navMenuText {
   font-family: 'Cabin', sans-serif;
   font-size: 20px;
@@ -1067,19 +1101,19 @@ h1.cabinText {
   text-decoration: none solid #333333;
 }
 
-/* line 441, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
+/* line 459, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
 .navMenuItem {
   padding: 10px;
 }
 
-/* line 445, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
+/* line 463, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
 .pageContainer {
   padding: 12px;
   max-width: 378px;
   margin: auto;
 }
 
-/* line 451, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
+/* line 469, /Users/walshcostigan/AppsForOthers/CareSplit/caresplit/app/assets/stylesheets/application.scss */
 .welcomePage {
   background-image: url(/assets/welcome-816d397581a36a24d0b4f53d870ab3a09b1359c4c54f07f38f4be76f86edf27d.png);
   background-color: #ebebeb;
