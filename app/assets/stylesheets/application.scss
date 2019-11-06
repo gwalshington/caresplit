@@ -153,6 +153,7 @@
   cursor: pointer;
 }
 
+
 .btnPrimarySmall {
   width: 80px;
 }
@@ -200,6 +201,23 @@
 .btnAlert {
   color: rgb(225, 45, 204);
   border-color: rgb(225, 45, 204);
+}
+
+
+.btnDead {
+  height: 37px;
+  padding: 16px 5px;
+  border-radius: 40px;
+  background-color: #808080;
+  font-family: 'Cabin', sans-serif;
+  font-size: 18px;
+  color: #fff !important;
+  font-weight: 700;
+  text-decoration: none solid rgb(255, 255, 255);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 
