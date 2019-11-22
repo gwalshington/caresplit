@@ -19,15 +19,15 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # protected
-  # def after_sign_in_path_for(resource)
-  #   super(resource)
-  #
-  #   if resource.children.count < 1
-  #     return new_child_url
-  #   else
-  #     return dashboard_url
-  #   end
-  # end
+  def after_sign_in_path_for(resource)
+    super(resource)
+
+    if resource.phone === nil && GroupUser.where(user_id: resource.id, group_id: 16).length > 0
+      return edit_user_registration_url
+    else
+      return dashboard_url
+    end
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params
