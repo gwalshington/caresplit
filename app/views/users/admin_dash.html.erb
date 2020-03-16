@@ -43,9 +43,9 @@
             <td>
               <% if user.groups.length > 0 %>
                 <% user.groups.each do |group| %>
-                    <% @group_user = GroupUser.find_by(group_id: group.id, user_id: current_user.id)  %>
-                    <% if @group_user != nil && @group_user.inviter != nil %>
-                      <%=  @group_user.inviter.email %><br />
+                    <% @invite = GroupInvite.find_by(group_id: group.id, user_id: current_user.id)  %>
+                    <% if @invite != nil && @invite.invitee != nil %>
+                      <%=  @invite.invitee.email %><br />
                     <% end %>
                 <% end %>
               <% end %>
