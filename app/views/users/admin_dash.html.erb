@@ -10,6 +10,8 @@
                   <th><h3>Phone</h3></th>
                   <th><h3>Email</h3></th>
                   <th><h3>Address</h3></th>
+                  <th><h3>Group(s)</h3></th>
+                  <th><h3>Invtied By</h3></th>
                   <th><h3>Credits</h3></th>
               </tr>
       </thead>
@@ -20,6 +22,8 @@
                   <th><h3>Phone</h3></th>
                   <th><h3>Email</h3></th>
                   <th><h3>Address</h3></th>
+                  <th><h3>Group(s)</h3></th>
+                  <th><h3>Invited By</h3></th>
                   <th><h3>Credits</h3></th>
           </tr>
       </tfoot>
@@ -31,6 +35,21 @@
             <td><%= user.phone %></td>
             <td><%= user.email %></td>
             <td><%= user.home_address %></td>
+            <td>
+              <% user.groups.each do |group| %>
+                <%=  group.name %><br />
+              <% end %>
+            </td>
+            <td>
+              <% if user.groups.length > 0 %>
+                <% user.groups.each do |group| %>
+                    <% @group_user = GroupUser.find_by(group_id: group.id, user_id: current_user.id)  %>
+                    <% if @group_user != nil && @group_user.inviter != nil %>
+                      <%=  @group_user.inviter.email %><br />
+                    <% end %>
+                <% end %>
+              <% end %>
+            </td>
             <td><%= user.credits %></td>
         </tr>
         <% end %>
