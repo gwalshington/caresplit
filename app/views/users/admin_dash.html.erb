@@ -7,6 +7,9 @@
               <tr>
                   <th><h3>First Name</h3></th>
                   <th><h3>Last Name</h3></th>
+                  <th><h3>Phone</h3></th>
+                  <th><h3>Email</h3></th>
+                  <th><h3>Address</h3></th>
                   <th><h3>Credits</h3></th>
               </tr>
       </thead>
@@ -14,6 +17,9 @@
           <tr>
                   <th><h3>First Name</h3></th>
                   <th><h3>Last Name</h3></th>
+                  <th><h3>Phone</h3></th>
+                  <th><h3>Email</h3></th>
+                  <th><h3>Address</h3></th>
                   <th><h3>Credits</h3></th>
           </tr>
       </tfoot>
@@ -22,6 +28,9 @@
         <tr>
             <td><%= user.first_name %></td>
             <td><%= user.last_name %></td>
+            <td><%= user.phone %></td>
+            <td><%= user.email %></td>
+            <td><%= user.home_address %></td>
             <td><%= user.credits %></td>
         </tr>
         <% end %>
