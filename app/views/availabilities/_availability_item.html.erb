@@ -3,8 +3,8 @@
     <%= image_tag(image_url(availability.user.photo(:thumb)), class: 'splitImage') %>
     <div>
       <p style="font-weight: 600"><%= availability.user.id === current_user.id ? "Me" : availability.user.first_name %></p>
-      <p><%= availability.location %></p>
-      <p><%= availability.location_address %></p>
+      <p><%= availability.activity %></p>
+      <!-- <p><%#= availability.location_address %></p> -->
       <p><%= availability.start_time.strftime('%l:%M %P') %> - <%= availability.end_time.strftime('%l:%M %P') %></p>
     </div>
     <div class="splitItemBtnSection">
