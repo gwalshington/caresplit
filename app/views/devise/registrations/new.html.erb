@@ -47,6 +47,11 @@
     </div>
 
     <div class="field">
+      <%= f.label 'COUNTRY (IF NOT USA)', class: "labelStandard" %>
+      <%= f.text_field :country, autocomplete: "address", class: "inputStandard" %>
+    </div>
+
+    <div class="field">
       <%= f.label 'PASSWORD', class: "labelStandard" %>
       <% if @minimum_password_length %>
       <em class="labelStandard">(<%= @minimum_password_length %> characters minimum)</em>
@@ -58,6 +63,9 @@
       <%= f.label 'CONFIRM PASSWORD', class: "labelStandard" %>
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "inputStandard" %>
     </div>
+
+    <h3 class="labelStandard">By clicking “continue”, I agree to the <a href="http://www.caresplit.com/terms-and-conditions">terms</a> and <a href="http://www.caresplit.com/privacy-policy">privacy policy.'</h3>
+
 
     <div class="actions">
       <%= f.submit "Continue", class: "btnPrimary btnPrimaryLarge" %>
