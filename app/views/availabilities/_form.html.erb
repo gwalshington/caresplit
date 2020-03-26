@@ -13,6 +13,11 @@
     <% end %>
 
     <div class="field">
+      <%= f.label 'ACTIVITY (ex: science, reading out loud, handwriting, art)', class: 'labelStandard' %>
+      <%= f.text_field :activity, class: 'inputStandard', required: true %>
+    </div>
+
+    <div class="field">
       <%= f.label 'DATE', class: 'labelStandard' %>
       <%= f.text_field :start_date, data:{ provide:'datepicker' },:readonly => true, class: 'inputStandard', required: true %>
     </div>
@@ -33,12 +38,30 @@
 
     <div class="field">
       <%= f.label 'LOCATION', class: 'labelStandard' %>
-      <div class="radioButtonSection">
-        <input type="radio" name="location" id="tbd" value="Location TBD">Location TBD
-      </div>
+
       <div class="radioButtonSection">
         <input type="radio" name="location" id="myHouse" value="My House">My House
       </div>
+      <% if current_user.facetime != nil  && current_user.facetime.length > 2 %>
+        <div class="radioButtonSection">
+          <input type="radio" name="location" id="tbd" value="<%= current_user.facetime %>">Facetime: <%= current_user.facetime %>
+        </div>
+      <% end %>
+      <% if current_user.skype != nil  && current_user.skype.length > 2 %>
+        <div class="radioButtonSection">
+          <input type="radio" name="location" id="tbd" value="<%= current_user.skype %>">Skype: <%= current_user.skype %>
+        </div>
+      <% end %>
+      <% if current_user.zoom != nil  && current_user.zoom.length > 2 %>
+        <div class="radioButtonSection">
+          <input type="radio" name="location" id="tbd" value="<%= current_user.zoom %>">Zoom: <%= current_user.zoom %>
+        </div>
+      <% end %>
+      <% if current_user.hangouts != nil  && current_user.hangouts.length > 2 %>
+        <div class="radioButtonSection">
+          <input type="radio" name="location" id="tbd" value="<%= current_user.hangouts %>">Google Hangouts: <%= current_user.hangouts %>
+        </div>
+      <% end %>
       <div class="radioButtonSection">
         <input type="radio" name="location" id="other" value="">Other
       </div>
@@ -50,10 +73,7 @@
 
       <%#= f.text_field :location_address, class: 'inputStandard' %>
 
-    <div class="field">
-      <%= f.label 'ACTIVITY', class: 'labelStandard' %>
-      <%= f.text_field :activity, class: 'inputStandard', required: true %>
-    </div>
+
 
     <div class="field">
       <%= f.label 'NOTES (OPTIONAL)', class: 'labelStandard' %>

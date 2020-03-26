@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200326142409) do
+ActiveRecord::Schema.define(version: 20200326181639) do
 
   create_table "availabilities", force: :cascade do |t|
     t.integer  "user_id"
@@ -128,6 +128,10 @@ ActiveRecord::Schema.define(version: 20200326142409) do
     t.boolean  "cancelled",                         default: false
     t.string   "cancel_reason"
     t.string   "country"
+    t.string   "facetime"
+    t.string   "zoom"
+    t.string   "skype"
+    t.string   "hangouts"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
