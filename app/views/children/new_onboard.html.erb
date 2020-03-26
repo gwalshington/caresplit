@@ -24,7 +24,9 @@
 
         <div class="field">
           <h3 class="labelStandard">birthday</h3>
-          <%= date_select('children[][birthday]', '', options={start_year: Date.today.year-19, end_year: Date.today.year}) %>
+          <div style="display: flex; flex-direction: row; justify-content: space-between">
+            <%= date_select('children[][birthday]', '', options={start_year: Date.today.year-19, end_year: Date.today.year}) %>
+          </div>
         </div>
 
         <div class="field">
