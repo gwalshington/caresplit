@@ -33,7 +33,7 @@ module SmsHelper
     @client.api.account.messages.create(
       from: ENV['twilio_number'],
       to: phone_number,
-      body: 'You’ve just joined Caresplit- your support network of other moms to swap childcare with. Add your availability and view open splits here: http://app.caresplit.com/dashboard'
+      body: 'You’ve just joined Caresplit- your support network of other moms to swap childcare with. Add your availability and view open sessions here: http://app.caresplit.com/dashboard'
     )
     rescue
   end
@@ -47,7 +47,7 @@ module SmsHelper
     @client.api.account.messages.create(
       from: ENV['twilio_number'],
       to: @split.availability.user.phone,
-      body: "#{@split.user.first_name} has just requested your split on #{@split.availability.start_date.strftime('%A')} from #{@split.availability.start_time.strftime('%I:%M %p')} to #{@split.availability.end_time.strftime('%I:%M %p')} for her #{@split.children.count} kid#{@split.children.count != 1 ? 's.' : '.'} To approve her request visit: app.caresplit.com/splits/#{@split.id}"
+      body: "#{@split.user.first_name} has just requested your session on #{@split.availability.start_date.strftime('%A')} from #{@split.availability.start_time.strftime('%I:%M %p')} to #{@split.availability.end_time.strftime('%I:%M %p')} for her #{@split.children.count} kid#{@split.children.count != 1 ? 's.' : '.'} To approve her request visit: app.caresplit.com/splits/#{@split.id}"
     )
     #todo
     # Text “CONFIRM” to approve her request
@@ -98,15 +98,15 @@ module SmsHelper
   end
 
 
-  def sunday_touch_sms(phone)
-    set_twilio_client
-
-    @client.api.account.messages.create(
-      from: ENV['twilio_number'],
-      to: phone,
-      body: "Need some time to yourself this week? Scottsdale Bible Moms has 4 playdates available for you to book. Send a request now:: http://app.caresplit.com/dashboard",
-    )
-  end
+  # def sunday_touch_sms(phone)
+  #   set_twilio_client
+  #
+  #   @client.api.account.messages.create(
+  #     from: ENV['twilio_number'],
+  #     to: phone,
+  #     body: "Need some time to yourself this week? Scottsdale Bible Moms has 4 playdates available for you to book. Send a request now:: http://app.caresplit.com/dashboard",
+  #   )
+  # end
 
   def tuesday_touch_sms(user_id)
     set_twilio_client
