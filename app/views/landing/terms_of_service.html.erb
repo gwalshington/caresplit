@@ -1,9 +1,63 @@
+<head>
+  <!-- Hotjar Tracking Code for http://app.caresplit.com -->
+<script>
+  (function(h,o,t,j,a,r){
+      h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+      h._hjSettings={hjid:1485638,hjsv:6};
+      a=o.getElementsByTagName('head')[0];
+      r=o.createElement('script');r.async=1;
+      r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+      a.appendChild(r);
+  })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+</head>
 <div class="pageContainer">
-<h2 class="formHeader">Terms of Service</h2>
-
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor sem.  Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu condimentum sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor sem.  Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu condimentum sed.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor sem.  Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu condimentum sed.
-<br /><br />
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor sem.  Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu condimentum sed.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor sem.  Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu condimentum sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor sem.  Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu condimentum sed.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-<br /><br />
-Aliquam at porttitor sem.  Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu condimentum sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor sem.  Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu condimentum sed.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor sem.  Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu condimentum sed.</p>
+<h2 class="formHeader">FAQ</h2>
+<div class="FAQContainer">
+  <div class="FAQContainerClosed" id="faq1">
+    <h3>What is Caresplit?</h3>
+    <div class='faqArrow faqArrowDown'>
+      <%= image_tag('chevronDown.svg', id: 'open1') %>
+    </div>
+    <div class='faqArrow faqArrowUp'>
+      <%= image_tag('chevronUp.svg', style: 'display:none;', id: 'close1') %>
+    </div>
+    <div id="content1" style="display:none;">
+      <p>We're a company that's trying to change childcare forever. We usually connect moms to each other to swap hosting each other's kids instead of paying a babysitter. But of course, we're not encouraging in-person playdates because of COVID-19. We're fully virtual for now - helping all the parents whose children are suddenly home because of school closures.</p>
+    </div>
+  </div>
 </div>
+<script>
+  $(document).on('click', '#faq1', function() {
+    console.log('click')
+    $('#content1, #open1, #close1, #content1').toggle()
+  })
+  $(document).on('click', '#faq2', function() {
+    console.log('click')
+    $('#content2, #open2, #close2, #content2').toggle()
+  })
+  $(document).on('click', '#faq3', function() {
+    console.log('click')
+    $('#content3, #open3, #close3, #content3').toggle()
+  })
+  $(document).on('click', '#faq4', function() {
+    console.log('click')
+    $('#content4, #open4, #close4, #content4').toggle()
+  })
+  $(document).on('click', '#faq5', function() {
+    console.log('click')
+    $('#content5, #open5, #close5, #content5').toggle()
+  })
+  $(document).on('click', '#faq6', function() {
+    console.log('click')
+    $('#content6, #open6, #close6, #content6').toggle()
+  })
+  $(document).on('click', '#faq7', function() {
+    console.log('click')
+    $('#content7, #open7, #close7, #content7').toggle()
+  })
+  $(document).on('click', '#faq8', function() {
+    console.log('click')
+    $('#content8, #open8, #close8, #content8').toggle()
+  })
+</script>
