@@ -31,7 +31,7 @@
       <h3><%= formatUserName(@availability.user) %></h3>
     </div>
     <div>
-      <%= @credits %> CREDITS
+      <!-- <%#= @credits %> CREDITS -->
     </div>
   </div>
   <div class="splitInfo">
@@ -63,8 +63,8 @@
     <% if @availability.user === current_user %>
       <%= link_to 'Edit', edit_availability_path(@availability), class: "btnPrimary btnPrimaryLarge" %>
       <%= link_to 'Cancel Split', edit_availability_path(@availability), class: "btnSecondarySmall" %>
-    <% elsif @credits > current_user.credits  %>
-      <div class="alert alert-error" style="text-align: center;">Not Enough Credits to Book</div>
+    <%# elsif @credits > current_user.credits  %>
+      <!-- <div class="alert alert-error" style="text-align: center;">Not Enough Credits to Book</div> -->
     <% elsif @availability.splits.count === 0  %>
       <h3 class="btnPrimary btnPrimaryLarge" id="request-split">Request</h3 >
     <% end %>
