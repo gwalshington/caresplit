@@ -26,9 +26,9 @@ class ApplicationController < ActionController::Base
   end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :phone, :photo, :home_address, :admin, :cancelled, :cancel_reason, :country])
-    devise_parameter_sanitizer.permit(:sign_in, keys: [:first_name, :last_name, :phone, :photo, :home_address, :admin, :cancelled, :cancel_reason, :country])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :phone, :photo, :home_address, :admin, :cancelled, :cancel_reason, :country])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :phone, :photo, :home_address, :admin, :cancelled, :cancel_reason, :country, :facetime, :zoom, :skype, :hangouts])
+    devise_parameter_sanitizer.permit(:sign_in, keys: [:first_name, :last_name, :phone, :photo, :home_address, :admin, :cancelled, :cancel_reason, :country, :facetime, :zoom, :skype, :hangouts])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :phone, :photo, :home_address, :admin, :cancelled, :cancel_reason, :country, :facetime, :zoom, :skype, :hangouts])
   end
 
   def authenticate_admin

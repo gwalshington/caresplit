@@ -8,8 +8,8 @@
       <p><%= availability.start_time.strftime('%l:%M %P') %> - <%= availability.end_time.strftime('%l:%M %P') %></p>
     </div>
     <div class="splitItemBtnSection">
-      <% @credits = ((availability.end_time.to_i/3600)-(availability.start_time.to_i/3600)) %>
-      <p style=""><%= @credits %> <%= @credits === 1 ? 'CREDIT' : 'CREDITS' %></p>
+      <%# @credits = ((availability.end_time.to_i/3600)-(availability.start_time.to_i/3600)) %>
+      <!-- <p style=""><%#= @credits %> <%#= @credits === 1 ? 'CREDIT' : 'CREDITS' %></p> -->
         <% if availability.start_date < Time.now %>
           <p class='btnDead' style="borderColor: ">Booked</p>
         <% elsif availability.user_id === current_user.id %>
