@@ -15,6 +15,30 @@
     <h3 class="labelStandard">HOME ADDRESS</h3><br />
     <h3><%= @user.home_address %></h3>
   </div>
+  <% if @user.facetime != nil && @user.facetime.length > 2 %>
+    <div class="profileSection">
+      <h3 class="labelStandard">FACETIME</h3><br />
+      <h3><%= @user.facetime %></h3>
+    </div>
+  <% end %>
+  <% if @user.skype != nil && @user.skype.length > 2 %>
+    <div class="profileSection">
+      <h3 class="labelStandard">SKYPE</h3><br />
+      <h3><%= @user.skype %></h3>
+    </div>
+  <% end %>
+  <% if @user.hangouts != nil && @user.hangouts.length > 2 %>
+    <div class="profileSection">
+      <h3 class="labelStandard">GOOGLE HANGOUTS</h3><br />
+      <h3><%= @user.hangouts %></h3>
+    </div>
+  <% end %>
+  <% if @user.zoom != nil && @user.zoom.length > 2 %>
+    <div class="profileSection">
+      <h3 class="labelStandard">ZOOM</h3><br />
+      <h3><%= @user.zoom %></h3>
+    </div>
+  <% end %>
   <br />
   <div class="profileSection">
     <h1><%= @user.first_name %>'s Children</h1>
