@@ -1,12 +1,13 @@
 <div class="pageContainer">
-  <h2 class="formHeader">Now let's start a group!</h2>
+  <h2 class="formHeader">Now let's start a group with other parents from school!</h2>
   <div class="formStandard">
     <div class="signUpProgress">
       <%= image_tag('line.svg', style: "z-index: 100;") %>
       <div class="dotContainer">
+        <div class="dot greyDot"></div>
+        <div class="dot greyDot"></div>
+        <div class="dot greyDot"></div>
         <div class="dot purpleDot"></div>
-        <div class="dot pinkDot"></div>
-        <div class="dot blueDot"></div>
       </div>
     </div>
     <%= form_tag({:action => 'create_group_onboard'}) do %>
@@ -22,7 +23,7 @@
         <%= text_field_tag 'group_user[][phone]', '', class: "inputStandard",  id: 'phoneNumber' %>
         <h3>EMAIL</h3>
         <%= text_field_tag 'group_user[][email]', '', class: "inputStandard",  id: 'phoneNumber' %>
-
+OR
       </div>
       <div id="new_user_form" class="field" style="display:none; margin-top: 15px;">
         <h3>PHONE</h3>
