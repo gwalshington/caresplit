@@ -42,9 +42,6 @@
       <div class="radioButtonSection">
         <input type="radio" name="location" id="myHouse" value="My House">My House
       </div>
-      <div class="radioButtonSection">
-        <input type="radio" name="location" id="virtual" value="Virtual">Virtual
-      </div>
       <% if current_user.facetime != nil  && current_user.facetime.length > 2 %>
         <div class="radioButtonSection">
           <input type="radio" name="location" id="tbd" value="<%= current_user.facetime %>">Facetime: <%= current_user.facetime %>
@@ -65,8 +62,9 @@
           <input type="radio" name="location" id="tbd" value="<%= current_user.hangouts %>">Google Hangouts: <%= current_user.hangouts %>
         </div>
       <% end %>
+
       <div class="radioButtonSection">
-        <input type="radio" name="location" id="other" value="">Other
+        <input type="radio" name="location" id="location1" value="">Virtual (for example: Skype : erinbrown237)
       </div>
       <div id="hiddenLocationFieldContainer" style="display:none;">
         <%= f.text_field :location, class: 'inputStandard', id:"hiddenLocationField" %>

@@ -34,15 +34,12 @@ class AvailabilitiesController < ApplicationController
   def create
     @availability = Availability.new(availability_params)
     @availability.user_id = current_user.id
-    puts 'create availability'
-    puts availability_params[:group_id]
-    puts availability_params.has_key?(:group_id)
     if(availability_params.has_key?(:group_id))
       @availability.group_id = params[:availability][:group_id]
     else
       @availability.group_id = current_user.groups.first.id
     end
-    
+
     @availability.start_date = Chronic.parse(params[:availability][:start_date])
     respond_to do |format|
       if @availability.save
