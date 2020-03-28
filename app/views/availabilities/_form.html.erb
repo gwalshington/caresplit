@@ -76,7 +76,14 @@
 
       <%#= f.text_field :location_address, class: 'inputStandard' %>
 
-
+    <% if current_user.groups.length > 1 %>
+      <div class="field">
+        <%= f.label 'GROUP', class: 'labelStandard' %>
+        <%= collection_select(:availability, :group_id, current_user.groups,
+                  :id, :name,
+                 {:prompt => 'Select  a group', required: true, style: "width: 100%;"}) %>
+      </div>
+    <% end %>
 
     <div class="field">
       <%= f.label 'NOTES (OPTIONAL)', class: 'labelStandard' %>

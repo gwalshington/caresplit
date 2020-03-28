@@ -34,7 +34,15 @@ class AvailabilitiesController < ApplicationController
   def create
     @availability = Availability.new(availability_params)
     @availability.user_id = current_user.id
-    @availability.group_id = current_user.groups.first.id
+    puts 'create availability'
+    puts availability_params[:group_id]
+    puts availability_params.has_key?(:group_id)
+    if(availability_params.has_key?(:group_id))
+      @availability.group_id = params[:availability][:group_id]
+    else
+      @availability.group_id = current_user.groups.first.id
+    end
+    
     @availability.start_date = Chronic.parse(params[:availability][:start_date])
     respond_to do |format|
       if @availability.save
@@ -85,6 +93,6 @@ class AvailabilitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def availability_params
-      params.require(:availability).permit(:start_date, :start_time, :end_time, :user_id, :location, :location_address, :activity, :notes)
+      params.require(:availability).permit(:start_date, :start_time, :end_time, :user_id, :location, :location_address, :activity, :notes, :group_id)
     end
 end

@@ -4,6 +4,7 @@
     <div>
       <p style="font-weight: 600"><%= availability.user.id === current_user.id ? "Me" : availability.user.first_name %></p>
       <p><%= availability.activity %></p>
+      <p>Group: <%= availability.group.name %></p>
       <!-- <p><%#= availability.location_address %></p> -->
       <p><%= availability.start_time.strftime('%l:%M %P') %> - <%= availability.end_time.strftime('%l:%M %P') %></p>
     </div>
