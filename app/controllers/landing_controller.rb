@@ -18,9 +18,7 @@ class LandingController < ApplicationController
       redirect_to new_group_url
       return
     end
-
-    @availabilities = @group.availabilities.where('start_date >= ?',  Date.today-7.days).order(start_date: :desc)
-    #@availabilities = @group.availabilities.where('start_date >= ? AND id NOT IN (SELECT DISTINCT(availability_id) FROM splits)', Date.yesterday).order(:start_date)
+    @availabilities = Availability.where('group_id IN (?) AND start_date >= ?', current_user.groups.pluck(:id),  Date.today-1.days).order(start_date: :desc)
     @bookedSplits = current_user.splits.where('cancelled != ?', true).joins(:availability).where('start_date >= ?', Date.yesterday)
     @hostingSplits = Split.where('splits.availability_id IN (?) AND cancelled != ?', current_user.availabilities.pluck(:id), true).joins(:availability).where('start_date >= ?', Date.yesterday)
   end
