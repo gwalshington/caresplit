@@ -34,6 +34,7 @@ Rails.application.routes.draw do
   get 'welcome', to: 'landing#welcome_new_user', as: 'welcome_new_user'
   post 'add_bulk_friends', to: 'group_invites#add_bulk_friends', as: 'add_bulk_friends'
 
+  get 'new_user_onboard', to: 'users#new_user_onboard', as: 'new_user_onboard'
   get 'admin_dash', to: 'users#admin_dash', as: 'admin_dash'
   get 'profile/:id', to: 'users#profile', as: 'profile'
 end

@@ -75,11 +75,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super(resource)
     #send welcome text
     sign_up_sms(resource.phone)
-    return new_child_onboard_url
+    return new_user_onboard_url
   end
 
   def update_resource(resource, params)
     resource.update_without_password(params)
+  end
+
+  def after_update_path_for(resource)
+    if URI(request.referer).path === '/new_user_onboard'
+      return new_child_onboard_url
+    else
+      session[:previous_url] || dashboard_path
+    end
   end
 
   # The path used after sign up for inactive accounts.

@@ -13,6 +13,10 @@ class UsersController < ApplicationController
     @groups = Group.all
   end
 
+  def new_user_onboard
+
+  end
+
 
 
   private
