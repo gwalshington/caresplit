@@ -32,6 +32,26 @@
     </div>
 
     <div class="field">
+      <%= f.label 'Facetime Number', class: "labelStandard" %>
+      <%= f.text_field :facetime, class: "inputStandard" %>
+    </div>
+
+    <div class="field">
+      <%= f.label 'Zoom Link', class: "labelStandard" %>
+      <%= f.text_field :zoom, class: "inputStandard" %>
+    </div>
+
+    <div class="field">
+      <%= f.label 'Skype Handle', class: "labelStandard" %>
+      <%= f.text_field :skype, class: "inputStandard" %>
+    </div>
+
+    <div class="field">
+      <%= f.label 'Hangouts Link', class: "labelStandard" %>
+      <%= f.text_field :hangouts, class: "inputStandard" %>
+    </div>
+
+    <div class="field">
       <%= f.label 'PASSWORD', class: "labelStandard" %>
       <% if @minimum_password_length %>
       <em class="labelStandard">(<%= @minimum_password_length %> characters minimum)</em>
@@ -44,28 +64,8 @@
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "inputStandard" %>
     </div>
 
-    <h3 class="labelStandard">By clicking “continue”, I agree to the <a href="http://www.caresplit.com/terms-and-conditions">terms</a> and <a href="http://www.caresplit.com/privacy-policy">privacy policy.'</h3>
+    <h3 class="labelStandard">By clicking “continue”, I agree to the <a href="http://www.caresplit.com/terms-and-conditions">terms</a> and <a href="http://www.caresplit.com/privacy-policy">privacy policy.'</a></h3>
 
-      <div class="field">
-        <%= f.label 'Facetime Number', class: "labelStandard" %>
-        <%= f.text_field :facetime, class: "inputStandard" %>
-      </div>
-
-      <div class="field">
-        <%= f.label 'Zoom Link', class: "labelStandard" %>
-        <%= f.text_field :zoom, class: "inputStandard" %>
-      </div>
-
-      <div class="field">
-        <%= f.label 'Skype Handle', class: "labelStandard" %>
-        <%= f.text_field :skype, class: "inputStandard" %>
-      </div>
-
-      <div class="field">
-        <%= f.label 'Hangouts Link', class: "labelStandard" %>
-        <%= f.text_field :hangouts, class: "inputStandard" %>
-      </div>
-      
     <div class="actions">
       <%= f.submit "Continue", class: "btnPrimary btnPrimaryLarge" %>
     </div>
