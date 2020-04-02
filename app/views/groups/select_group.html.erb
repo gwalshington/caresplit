@@ -1,0 +1,20 @@
+<div class="pageContainer">
+  <div class="formStandard">
+    <div class="signUpProgress">
+      <%= image_tag('line.svg', style: "z-index: 100;") %>
+      <div class="dotContainer">
+        <div class="dot greyDot"></div>
+        <div class="dot purpleDot"></div>
+        <div class="dot greyDot"></div>
+        <div class="dot greyDot"></div>
+        <div class="dot greyDot"></div>
+      </div>
+    </div>
+
+    <h1 class="signUpHeading">Do you have an invitation code to join a group?</h1>
+    <div>
+      <%= link_to("I have a group code", group_code_path, class: "btnPrimary btnPrimaryLarge", style: "margin: auto; margin-top: 50px; width: unset;" ) %>
+      <%= link_to("Create a new group", new_group_path, class: "btnSecondary btnPrimaryLarge", style: "margin: auto; margin-top: 50px;" ) %>
+    </div>
+  </div>
+</div>

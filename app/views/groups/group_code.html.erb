@@ -1,0 +1,39 @@
+<div class="pageContainer">
+  <div class="formStandard">
+    <div class="signUpProgress">
+      <%= image_tag('line.svg', style: "z-index: 100;") %>
+      <div class="dotContainer">
+        <div class="dot greyDot"></div>
+        <div class="dot purpleDot"></div>
+        <div class="dot greyDot"></div>
+        <div class="dot greyDot"></div>
+        <div class="dot greyDot"></div>
+      </div>
+    </div>
+
+  <h1 class="signUpHeading">Enter your group code:</h1>
+    <%= form_for(@group_user, url: check_group_code_url, html: { method: :post }) do |f| %>
+        <% if @group_user.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@group_user.errors.count, "error") %> Something went wrong!</h2>
+
+            <ul>
+            <% @group_user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="field">
+          <%= f.text_field :code, class: "inputStandard" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Join Group", class: 'btnPrimary btnPrimaryLarge' %>
+        </div>
+      <% end %>
+    <div>
+    </div>
+  </div>
+</div>

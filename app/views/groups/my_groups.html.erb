@@ -1,7 +1,11 @@
 <h1 class="pageTitle">My Group</h1>
 <div class="pageContainer">
   <% @groups.each do |g| %>
-    <h1><%= g.name %></h1>
+    <h1 class="pageTitle" style="text-align: center;"><%= g.name %></h1>
+    <div style="text-align: center;">
+      <h1 class="pageTitle" style="text-align: center; display: inline-block">Group Code: </h1>
+      <h1 class="pageTitle" style="text-align: center; display: inline-block; font-size: 28px;"><%= g.code %></h1>
+    </div>
     <div class="groupMemberContainer">
       <% g.users.each do |user| %>
         <div class="groupMember">
@@ -12,7 +16,27 @@
         </div>
       <% end %>
     </div>
-    <%= link_to 'Invite a new person', new_group_invite_path, class: 'btnPrimary btnPrimaryLarge', style: "width: 100%" %>
   <% end %>
+  <%= link_to 'Invite a new person', new_group_invite_path, class: 'btnPrimary btnPrimaryLarge', style: "width: 100%" %>
   <%= link_to 'Start a new Group', new_group_path, class: 'btnSecondary btnPrimaryLarge', style: "margin-top: 20px; width: 100%" %>
+  <div>
+    <%= form_for(@group_user, url: join_group_code_url, html: { method: :post }) do |f| %>
+        <% if @group_user.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@group_user.errors.count, "error") %> Something went wrong!</h2>
+
+            <ul>
+            <% @group_user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div style="display: flex; padding: 20px 0;">
+          <%= f.text_field :code, class: "inputStandard", placeholder: 'XXXX', style: "margin-right: 15px;" %>
+          <%= f.submit "Join Group", class: 'btnPrimary btnPrimaryLarge' %>
+        </div>
+      <% end %>
+  </div>
 </div>

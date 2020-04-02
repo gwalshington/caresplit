@@ -47,11 +47,8 @@ class ChildrenController < ApplicationController
           end
           format.html { redirect_to group_onboard_url }
           format.json { head :no_content }
-        elsif @group != nil
-          format.html { redirect_to group_onboard_url }
-          format.json { head :no_content }
         else
-          format.html { redirect_to new_group_url }
+          format.html { redirect_to welcome_new_user_url }
           format.json { head :no_content }
         end
       else
