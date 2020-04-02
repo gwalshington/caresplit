@@ -30,10 +30,16 @@ Rails.application.routes.draw do
   get 'new_child_onboard', to: 'children#new_onboard', as: 'new_child_onboard'
   post 'create_children_onboard', to: 'children#create_children_onboard', as: 'create_children_onboard'
   get 'group_onboard', to: 'groups#group_onboard', as: 'group_onboard'
+  get 'group_code', to: 'groups#group_code', as: 'group_code'
+  get 'invite_friends', to: 'groups#invite_friends', as: 'invite_friends'
+  post 'invite_friends_on_signup', to: 'groups#invite_friends_on_signup', as: 'invite_friends_on_signup'
+
   post 'create_group_onboard', to: 'groups#create_group_onboard', as: 'create_group_onboard'
+  post 'check_group_code', to: 'groups#check_group_code', as: 'check_group_code'
+  post 'join_group_code', to: 'groups#join_group_code', as: 'join_group_code'
   get 'welcome', to: 'landing#welcome_new_user', as: 'welcome_new_user'
   post 'add_bulk_friends', to: 'group_invites#add_bulk_friends', as: 'add_bulk_friends'
-
+  get 'select_group', to: 'groups#select_group', as: 'select_group'
   get 'new_user_onboard', to: 'users#new_user_onboard', as: 'new_user_onboard'
   get 'admin_dash', to: 'users#admin_dash', as: 'admin_dash'
   get 'profile/:id', to: 'users#profile', as: 'profile'

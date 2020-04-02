@@ -22,7 +22,6 @@ class GroupInvitesController < ApplicationController
   def add_bulk_friends
     params[:group_user].each do |user|
       if(user.has_key?(:email) && user[:email] != '')
-        puts 'email is not empty'
         @group_invite = GroupInvite.new(email: user[:email], group_id: current_user.groups.first.id, user_id: current_user.id)
         if @group_invite.save
           #email group invitees
@@ -30,7 +29,6 @@ class GroupInvitesController < ApplicationController
         end
       end
       if(user.has_key?(:phone) && user[:phone] != '')
-        puts 'phone is not empty'
         @group_invite = GroupInvite.new(phone: user[:phone], group_id: current_user.groups.first.id, user_id: current_user.id)
         if @group_invite.save
           #send sms to group invitees
@@ -42,7 +40,7 @@ class GroupInvitesController < ApplicationController
     end
 
     respond_to do |format|
-        format.html { redirect_to welcome_new_user_url }
+        format.html { redirect_to new_user_onboard_url }
         format.json { head :no_content }
     end
   end
@@ -56,7 +54,8 @@ class GroupInvitesController < ApplicationController
   def create
     @group_invite = GroupInvite.new(group_invite_params)
     @group_invite.user_id = current_user.id
-    @group_invite.group_id = current_user.groups.first.id
+    @group_invite.group_id = params[:id][:group_id]
+    #@group_invite.group_id = current_user.groups.first.id
 
     respond_to do |format|
       if @group_invite.save

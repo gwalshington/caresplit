@@ -1,14 +1,17 @@
 <div class="pageContainer">
-  <h2 class="signUpHeader">You are joining the split group<br/>"<%= @group.name %>"</h2>
   <div class="formStandard">
     <div class="signUpProgress">
       <%= image_tag('line.svg', style: "z-index: 100;") %>
       <div class="dotContainer">
-        <div class="dot purpleDot"></div>
+        <div class="dot greyDot"></div>
+        <div class="dot greyDot"></div>
         <div class="dot pinkDot"></div>
-        <div class="dot blueDot"></div>
+        <div class="dot greyDot"></div>
+        <div class="dot greyDot"></div>
       </div>
     </div>
+    <h2 class="signUpHeader">You are joining the split group<br/>"<%= @group.name %>"</h2>
+
     <h3 class="inFormInstructions">Current Members:</h3>
 
     <div class="groupMemberContainer">
@@ -46,13 +49,10 @@
           <button id="add_group_user" class='darkBtnPrimary'>+ Add Another</button>
         </div>
         <div class="actions">
-          <%= submit_tag "Finish", class: 'btnPrimary btnPrimaryLarge' %>
+          <%= submit_tag "Next", class: 'btnPrimary btnPrimaryLarge' %>
         </div>
       <% end %>
     </div>
-    <!-- LET USER INVITE OTHER PEOPLE -->
-
-    <!-- FINISH BUTTON THAT REDIRECTS TO WELCOME PAGE -->
   </div>
 </div>
 

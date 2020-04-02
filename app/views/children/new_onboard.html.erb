@@ -1,21 +1,23 @@
 <div class="pageContainer">
-  <h2 class="formHeader">Next, tell which children you'll use this for.</h2>
   <div class="formStandard">
     <div class="signUpProgress">
       <%= image_tag('line.svg', style: "z-index: 100;") %>
       <div class="dotContainer">
         <div class="dot greyDot"></div>
         <div class="dot greyDot"></div>
-        <div class="dot pinkDot"></div>
         <div class="dot greyDot"></div>
+        <div class="dot greyDot"></div>
+        <div class="dot pinkDot"></div>
       </div>
     </div>
+    <h2 class="formHeader">Finally, tell other parents about your kids.</h2>
+
     <%= form_tag({:action => 'create_children_onboard'}) do %>
       <div id="child_form">
         <div class="field" style="display: flex;">
           <div style="width: 75%">
             <h3 class="labelStandard">first_name</h3>
-            <%= text_field_tag 'children[][first_name]', '', class: "inputStandard", style: "width: 75%;" %>
+            <%= text_field_tag 'children[][first_name]', '', class: "inputStandard", style: "width: 75%;", required: true %>
           </div>
           <div style="width: 25%">
             <h3 class="labelStandard">gender</h3>
@@ -40,7 +42,7 @@
         <%= button_tag '+ Add Another', id: 'add_child_form', class: 'darkBtnPrimary' %>
       </div>
       <div class="actions">
-        <%= submit_tag 'Continue', class: 'btnPrimary btnPrimaryLarge' %>
+        <%= submit_tag 'Finish', class: 'btnPrimary btnPrimaryLarge' %>
       </div>
     <% end %>
   </div>

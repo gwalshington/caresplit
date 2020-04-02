@@ -10,18 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200326183443) do
+ActiveRecord::Schema.define(version: 20200401162736) do
 
   create_table "availabilities", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "group_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.string   "location"
     t.string   "location_address"
     t.string   "activity"
-    t.date     "start_date"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.integer  "group_id"
     t.string   "notes"
+    t.date     "start_date"
+    t.time     "start_time"
+    t.time     "end_time"
     t.index ["group_id"], name: "index_availabilities_on_group_id"
     t.index ["user_id"], name: "index_availabilities_on_user_id"
   end
@@ -76,11 +78,10 @@ ActiveRecord::Schema.define(version: 20200326183443) do
   end
 
   create_table "groups", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "creator_id"
-    t.text     "notes"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string  "name"
+    t.integer "creator_id"
+    t.text    "notes"
+    t.string  "code"
   end
 
   create_table "split_children", force: :cascade do |t|
@@ -104,26 +105,28 @@ ActiveRecord::Schema.define(version: 20200326183443) do
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "phone"
+    t.string   "phone",                  limit: 11
     t.text     "notes"
-    t.boolean  "admin",                  default: false
-    t.string   "email",                  default: "",    null: false
-    t.string   "encrypted_password",     default: "",    null: false
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
+    t.string   "email",                             default: "",    null: false
+    t.string   "encrypted_password",                default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,     null: false
+    t.integer  "sign_in_count",                     default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
-    t.integer  "photo_file_size"
+    t.integer  "photo_file_size",        limit: 8
     t.datetime "photo_updated_at"
-    t.integer  "credits",                default: 100
+    t.boolean  "admin",                             default: false
+    t.integer  "credits",                           default: 100
     t.string   "home_address"
-    t.boolean  "cancelled",              default: false
+    t.boolean  "cancelled",                         default: false
     t.string   "cancel_reason"
     t.string   "country"
     t.string   "facetime"

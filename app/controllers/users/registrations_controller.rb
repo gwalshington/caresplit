@@ -75,7 +75,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super(resource)
     #send welcome text
     sign_up_sms(resource.phone)
-    return new_user_onboard_url
+    return select_group_url
   end
 
   def update_resource(resource, params)

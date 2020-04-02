@@ -14,9 +14,14 @@
           </ul>
         </div>
       <% end %>
+      <div class="field">
+      <%= f.label 'SELECT A GROUP', class: "labelStandard" %>
 
+      <%= collection_select(:id, :group_id, current_user.groups,
+                :id, :name,
+               {required: true, style: "width: 100%;"}) %>
 
-
+      </div>
       <div class="field">
         <%= f.label 'FIRST NAME', class: "labelStandard" %>
         <%= f.text_field :first_name, class: "inputStandard" %>

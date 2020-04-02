@@ -18,7 +18,6 @@ class UsersController < ApplicationController
   end
 
 
-
   private
     def authenticate_group_user
       @user = User.find(params[:id])
