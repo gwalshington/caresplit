@@ -50,15 +50,12 @@ class ChildrenController < ApplicationController
         # else
           format.html { redirect_to welcome_new_user_url }
           format.json { head :no_content }
-        end
+        #end
       else
         format.html { render new_child_onboard_url }
         format.json { render json: "Please put your child(ren)'s information.'", status: :unprocessable_entity }
       end
     end
-
-
-
   end
 
   # GET /children/1/edit
