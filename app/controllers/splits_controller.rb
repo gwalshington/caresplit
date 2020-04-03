@@ -68,7 +68,7 @@ class SplitsController < ApplicationController
       if @split.save
         #give credits to user who requested split
         adjust_credits(@split.id, current_user.id, true, @credits, @notes)
-        approve_split_sms(@split.id)
+        #approve_split_sms(@split.id)
         #mailer
         SplitMailer.confirm_split_availability_user(@split.id).deliver_later
         SplitMailer.confirm_split_split_user(@split.id).deliver_later
