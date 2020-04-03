@@ -28,6 +28,7 @@ module SmsHelper
 
   #Devise after_sign_up_path_for, send sms
   def sign_up_sms(phone_number)
+    return
     set_twilio_client
 
     @client.api.account.messages.create(
@@ -41,6 +42,7 @@ module SmsHelper
   #request split, email availability user
   #todo - should the word 'her' be used here? 'their' maybe?
   def request_split_sms(split_id)
+    return
     set_twilio_client
     @split = Split.find(split_id)
 
@@ -58,6 +60,7 @@ module SmsHelper
 
 
   def approve_split_sms(split_id)
+    return
     #Send to availability.user
     # # TODO: add short link:
     # View location and full details here: http://shortlinkhere.com`
@@ -85,6 +88,7 @@ module SmsHelper
   #### SCHEDULER TASKS ####
 
   def night_before_reminder_sms(split_id)
+    return
     #send to availability user
     #todo change to bitly
     set_twilio_client
@@ -109,6 +113,7 @@ module SmsHelper
   # end
 
   def tuesday_touch_sms(user_id)
+    return
     set_twilio_client
     @user = User.find(user_id)
 
