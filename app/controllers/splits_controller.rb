@@ -70,8 +70,8 @@ class SplitsController < ApplicationController
         adjust_credits(@split.id, current_user.id, true, @credits, @notes)
         approve_split_sms(@split.id)
         #mailer
-        SplitMailer.confirm_split_availability_user(@split.id)
-        SplitMailer.confirm_split_split_user(@split.id)
+        SplitMailer.confirm_split_availability_user(@split.id).deliver_later
+        SplitMailer.confirm_split_split_user(@split.id).deliver_later
 
         format.html { redirect_to dashboard_path, notice: 'Split was approved!' }
         format.json { render :show, status: :created, location: @split }
