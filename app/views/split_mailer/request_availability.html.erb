@@ -630,7 +630,7 @@
                         <td valign="top" class="mcnTextContent" style="padding-top:0; padding-right:18px; padding-bottom:9px; padding-left:18px;">
 
                             <p>Hello!</br>
-                              "#{@split.user.first_name} has just requested your session on #{@split.availability.start_date.strftime('%A')} from #{@split.availability.start_time.strftime('%I:%M %p')} to #{@split.availability.end_time.strftime('%I:%M %p')}. <br><br>To view & approve their request visit:
+                              "<%= @split.user.first_name %> has just requested your session on <%= @split.availability.start_date.strftime('%A') %> from <%= @split.availability.start_time.strftime('%I:%M %p') %> to <%= @split.availability.end_time.strftime('%I:%M %p') %>. <br><br>To view & approve their request visit:
 
 </p>
 
@@ -656,7 +656,7 @@
                     <tbody>
                         <tr>
                             <td align="center" valign="middle" class="mcnButtonContent" style="font-family: 'Cabin', sans-serif; font-size: 20px; padding: 18px;">
-                                <a class="mcnButton " title="Create your account" href="https://app.caresplit.com/splits/#{@split.id}" target="_blank" style="font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;">View Request</a>
+                                <a class="mcnButton " title="Create your account" href="https://app.caresplit.com/splits/<%= @split.id %>" target="_blank" style="font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;">View Request</a>
                             </td>
                         </tr>
                     </tbody>
