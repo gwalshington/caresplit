@@ -43,8 +43,6 @@ class GroupsController < ApplicationController
         #make current user group admin
         GroupUser.create(user_id: current_user.id, group_id: @group.id, admin: true)
         GroupMailer.confirm_new_group(@group.id, current_user.id).deliver_later
-        #create group invitees and email each user
-
         respond_to do |format|
             format.html { redirect_to invite_friends_url }
             format.json { head :no_content }
@@ -151,7 +149,7 @@ class GroupsController < ApplicationController
     respond_to do |format|
       if @group.save
         GroupUser.create(user_id: current_user.id, group_id: @group.id, admin: true)
-
+        GroupMailer.confirm_new_group(@group.id, current_user.id).deliver_later
         @notice = 'Now lets invite your mom friends to ' + @group.name + '!'
         format.html { redirect_to group_invites_url, notice: @notice}
         format.json { render :show, status: :created, location: @group }
