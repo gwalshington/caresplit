@@ -74,7 +74,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def after_sign_up_path_for(resource)
     super(resource)
     #send welcome text
-    sign_up_sms(resource.phone)
+    #sign_up_sms(resource.phone)
     return select_group_url
   end
 
