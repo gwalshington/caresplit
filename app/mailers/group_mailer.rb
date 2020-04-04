@@ -5,7 +5,7 @@ class GroupMailer < ApplicationMailer
     puts 'confirm new group'
     @group = Group.find(id)
     @user = User.find(user_id)
-    @subject = 'You created a new split group - ' + @group_invite.group.name + ''
+    @subject = 'You created a new split group - ' + @group.name + ''
     mail(to: @user.email, subject: @subject)
   end
 end
