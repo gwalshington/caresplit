@@ -41,6 +41,7 @@ class GroupsController < ApplicationController
       generate_group_code(@group)
       if @group.save
         #make current user group admin
+        puts 'create group onboard'
         GroupUser.create(user_id: current_user.id, group_id: @group.id, admin: true)
         GroupMailer.confirm_new_group(@group.id, current_user.id).deliver_later
         respond_to do |format|
