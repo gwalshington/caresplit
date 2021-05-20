@@ -44,7 +44,7 @@ gem "devise", ">= 4.7.1"
 gem 'paperclip', '~> 5.2.0'
 gem 'aws-sdk',   '~> 2.6'
 
-gem 'nokogiri', '~> 1.10.4'
+gem 'nokogiri', '~> 1.11.4'
 gem 'figaro'
 
 group :development do
